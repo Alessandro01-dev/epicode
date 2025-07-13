@@ -1,0 +1,137 @@
+* {
+  margin: 0px;
+  box-sizing: border-box;
+}
+
+.logo-container {
+  width: 180px;
+  padding-top: 12px;
+  text-align: center;
+  margin: 0 auto;
+}
+
+.simply-recipes-logo {
+  width: 100%;
+}
+
+.header {
+  text-align: center;
+  padding: 12px;
+  margin-top: 24px;
+  margin-bottom: 48px;
+  background-color: rgb(254, 254, 233);
+  border-top-width: thin;
+  border-top-style: solid;
+  border-top-color: rgb(231, 197, 9);
+}
+
+.header-normal {
+  font-weight: normal;
+}
+
+h1 {
+  text-align: center;
+  margin: 0 auto;
+  width: 520px;
+  margin-bottom: 38px;
+}
+
+.main-container {
+  margin: 0 auto;
+  width: 800px;
+  text-align: center;
+}
+
+.subtitle {
+  text-align: left;
+  font-weight: normal;
+  margin: 0 auto;
+  margin-bottom: 32px;
+  width: 800px;
+}
+
+.recipe-picture {
+  object-position: top;
+  object-fit: cover;
+  height: 600px;
+  width: 100%;
+  border-radius: 12px;
+  margin-bottom: 20px;
+  box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.5);
+}
+
+.image-caption {
+  color: gray;
+  margin-bottom: 36px;
+}
+
+.new-recipe-container {
+  border-left-width: thin;
+  border-left-style: solid;
+  border-left-color: rgb(231, 197, 9);
+  text-align: start;
+  padding: 2px 24px;
+  margin-bottom: 36px;
+}
+
+.new-recipe-container a {
+    color: #107777;
+}
+
+.new-recipe-title {
+  margin-top: 0px;
+  color: darkred;
+}
+
+.recipe-header {
+  font-weight: normal;
+  font-size: 24px;
+  border-bottom-width: thin;
+  border-bottom-style: solid;
+  border-bottom-color: lightblue;
+  text-align: left;
+  padding-bottom: 18px;
+  margin-bottom: 36px;
+}
+
+.ingredients-list-title {
+  text-align: left;
+  margin-bottom: 8px;
+}
+
+.ingredients-list {
+  text-align: left;
+  margin-bottom: 24px;
+  width: 650px;
+}
+
+ul li {
+  line-height: 24px;
+}
+
+.recipe-content-list {
+  text-align: left;
+  margin-bottom: 18px;
+}
+
+.recipe-content-title {
+  font-weight: bold;
+  margin-bottom: 14px;
+}
+
+.recipe-content-list p {
+  width: 620px;
+}
+
+.more-recipes-link-container {
+  padding-bottom: 50px;
+  text-align: left;
+}
+
+.more-recipes-paragraph {
+  display: inline-block;
+}
+
+.more-recipes-link-container a {
+  color: #107777;
+}

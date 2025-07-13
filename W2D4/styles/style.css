@@ -1,0 +1,396 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+nav {
+  padding: 1rem 0;
+  box-shadow: rgba(100, 100, 111, 0.2) 0 7px 29px 0;
+}
+
+.nav-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 auto;
+  width: 80%;
+}
+
+.logo-container {
+  width: 180px;
+}
+
+.logo-container img {
+  width: 100%;
+}
+
+.right-section,
+.icons-container {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.right-section img {
+  width: 1.2rem;
+}
+
+.right-section button {
+  background-color: white;
+  color: black;
+  border-width: 1px;
+  text-wrap: nowrap;
+  padding: 6px 12px;
+  border-radius: 24px;
+}
+
+.user-container {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background-color: red;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+main {
+  display: flex;
+  width: 80%;
+  margin: 0 auto;
+}
+
+.left-content,
+.right-content {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  margin-top: 80px;
+  width: 70%;
+  padding: 20px;
+}
+
+.left-content {
+  padding-left: 0px;
+}
+
+.right-content {
+  width: 30%;
+  border-left: 1px solid #ccc;
+  margin-top: 0;
+  padding-top: 80px;
+}
+
+.tabs {
+  display: flex;
+  gap: 30px;
+  border-bottom: 1px solid #ccc;
+}
+
+.tabs p {
+  padding-bottom: .8rem;
+}
+
+.tabs p:nth-child(2) {
+  text-wrap: nowrap;
+  font-weight: bold;
+  border-bottom: solid 4px black;
+}
+
+.card {
+  width: 100%;
+  height: 150px;
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+}
+
+.card-left {
+  padding-right: 20px;
+  width: 800px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 12px;
+}
+
+.source-container {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 6px;
+}
+
+.author-logo {
+  width: 16px;
+  height: 16px;
+  border-radius: 4px;  
+  display: flex;
+}
+
+.author-info {
+  font-size: 12px;
+  text-wrap: nowrap;
+}
+
+.card-article-title {
+  font-weight: 700;
+  line-height: 1.4rem;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  margin-bottom: 4px;
+}
+
+.card-article-body {
+  font-size: 12px;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  margin-bottom: 6px;
+}
+
+.card-bottom {
+  display: flex;
+  justify-content: space-between;
+}
+
+.card-bottom-info {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 8px;
+  color: rgb(125, 125, 125);
+  text-wrap: nowrap;
+}
+
+.card-bottom-info div:nth-child(5) {
+  background-color: rgb(235, 235, 235);
+  padding: 2px 6px;
+  border-radius: 12px;
+}
+
+.card-bottom-icons-container {
+  width: 12px;
+  height: 12px;
+  display: flex;
+  justify-content: flex-end;
+  gap: 4px
+}
+
+.card-bottom-icons-container img {
+  width: 100%;
+}
+
+.card-img {
+  width: 200px;
+  height: 150px;
+}
+
+.card-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.top-section-right-content {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 10px 10px 10px;
+  height: 80px;
+  margin-bottom: 14px;
+}
+
+.medium-plus-twitter-container {
+  display: flex;
+  gap: 2px;
+  justify-content: center;
+  align-items: center;
+}
+
+.medium-plus-twitter-container img {
+  width: 28px;
+}
+
+.medium-plus-twitter-container div {
+  font-size: 14px;
+}
+
+.top-section-right-content p {
+  font-size: 8px;
+  text-align: center;
+}
+
+.connect-to-twitter-btn {
+  width: 120px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  padding: 8px 18px 8px 8px;
+  background-color: white;
+  border: solid 1px #ccc;
+  border-radius: 16px;
+}
+
+.connect-to-twitter-btn img {
+  width: 20%;
+}
+
+.connect-to-twitter-btn p {
+  text-wrap: nowrap;
+}
+
+.top-section-right-content a {
+  color: #8f8f8f;
+  font-size: 8px;
+}
+
+.second-section-right-content {
+  padding-top: 24px;
+  border-top: solid 1px #ccc;
+  display: flex;
+  flex-direction: column;
+}
+
+.second-section-right-content h6,
+.third-section-right-content h6,
+.fourth-section-right-content h6 {
+  margin-bottom: 14px;
+}
+
+.tag-container-right-section {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.tag-container-right-section div {
+  font-size: 10px;
+  background-color: rgb(235, 235, 235);
+  padding: 8px 12px;
+  border-radius: 24px;
+}
+
+.who-to-follow-card,
+.who-to-follow-card-left-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.who-to-follow-card {
+  gap: 18px;
+  margin-bottom: 12px;
+}
+
+.who-to-follow-card-left-section {
+  gap: 8px;
+}
+
+.who-to-follow-card-left-section img {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+}
+
+.info-container-profile-card {
+  display: flex;
+  gap: 6px;
+  flex-direction: column;
+}
+
+.profile-card-name {
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.profile-card-description {
+  font-size: 8px;
+  text-wrap: nowrap;
+  color: rgb(125, 125, 125);
+}
+
+.who-to-follow-card-right-section button {
+  font-size: 10px;
+  padding: 4px 6px;
+  background-color: white;
+  color: rgb(125, 125, 125);
+  border: solid 1px rgb(125, 125, 125);
+  border-radius: 22px;
+}
+
+.saved-article-card {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 12px;
+}
+
+.saved-article-card-top-section {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.saved-article-card-top-section img {
+  width: 14px;
+  height: 14px;
+  border-radius: 4px;
+}
+
+.saved-article-card-top-section div {
+  font-size: 8px;
+  text-wrap: nowrap;
+}
+
+.saved-article-card-title {
+  font-size: 12px;
+  font-weight: 700;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  min-width: 180px;
+}
+
+.saved-article-card-bottom-section {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  color: rgb(125, 125, 125);
+  font-size: 8px;
+}
+
+.recently-saved-bottom-section {
+  margin-top: 24px;
+}
+
+.recently-saved-bottom-section a {
+  text-decoration: none;
+  color: green;
+  font-size: 8px;
+}
+
+footer {
+  display: flex;
+  flex-flow: row wrap;
+  gap: 12px;
+}
+
+footer a {
+  text-decoration: none;
+  font-size: 10px;
+  color: rgb(125, 125, 125);
+}

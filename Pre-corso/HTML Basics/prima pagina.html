@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>La mia prima pagina web</title>
+  <style>
+    body {
+      height: 700px;
+      padding-top: 80px;
+      margin: 0px;
+      background-color: rgb(230, 230, 230);
+    }
+
+    .profile-picture {
+      width: 52px;
+      border: 1px solid black;
+      border-radius: 90px;
+      background-color: rgb(230, 230, 230);
+    }
+    
+    .header {
+      background-color: rgb(130, 130, 130);
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding-top: 12px;
+      padding-bottom: 12px;
+    }
+
+    h1 {
+      font-family: Arial;
+      font-size: 28px;
+      font-weight: bold;
+      display: flex;
+      justify-content: center;
+    }
+
+    p {
+      font-family: Arial;
+      font-size: 24px;
+      margin-top: 64px;
+      text-align: center;
+    }
+
+    .hobbies-picture {
+      height: 70px;
+      width: 70px;
+      border-radius: 35px;
+      object-fit: cover;
+      box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.15);
+    }
+
+    .hobbies-box {
+      margin-top: 24px;
+      display: flex;
+      justify-content: space-evenly;
+      align-items: center;
+      padding-left: 32px;
+      padding-right: 32px;
+    }
+
+    .hobbies-container {
+      position: relative;
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .hobbies-tooltip {
+      position: absolute;
+      background-color: rgb(45, 45, 45);
+      color: white;
+      font-family: Arial;
+      font-size: 10px;
+      white-space: nowrap;
+      padding-top: 4px;
+      padding-bottom: 4px;
+      padding-left: 8px;
+      padding-right: 8px;
+      bottom: -24px;      
+      border-radius: 8px;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.15s;
+    }
+
+    .hobbies-container:hover .hobbies-tooltip {
+      opacity: 1;
+    }
+
+    footer {
+      background-color:  rgb(130, 130, 130);
+      color: black;
+      font-family: Arial;
+      font-size: 10px;
+      padding-top: 12px;
+      padding-bottom: 12px;
+      margin-top: 64px;
+      height: 32px;      
+      bottom: 0;
+      left: 0;
+      right: 0;
+    }
+
+    .contacts {
+      font-size: 10px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 12px;
+      margin-bottom: 12px;
+      padding-left: 64px;
+      padding-right: 64px;
+    }
+
+    .contact-box {
+      display: flex;
+      align-items: center;
+    }
+
+    .contact-icon {
+      width: 14px;
+      height: 14px;
+      margin-right: 4px;
+    }
+
+    table {
+      font-family: Arial;
+      font-size: 18px;
+      border-collapse: collapse;
+      margin-left: auto; 
+      margin-right: auto;
+      margin-top: 40px;
+      white-space: nowrap;
+      box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.15);
+    }
+
+    td, th {
+      border: 1px solid white;
+      text-align: left;
+      padding: 8px;
+    }
+
+    th {
+      background-color: rgb(200, 200, 200);
+      text-align: center;
+    }
+
+    a {
+      color: black;
+    }
+
+    ul {
+      display: flex;
+      flex-direction: column;
+      align-items: start;
+    }
+
+    li {
+      font-family: Arial;
+      margin-left: -200px;
+    }
+
+    .interessi-box {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <img class="profile-picture" src="26d046a3efe116b68e64308ea961a6ee-sticker 2025-06-07 23_54_54.png" alt="profile-picture">
+  </div>  
+    <h1>Alessandro</h1>
+    <p>Hobbies:</p>
+    <div class="hobbies-box">
+      <div class="hobbies-container">
+        <img class="hobbies-picture" src="160609-bikework-stock.jpg" alt="biking-picture">
+        <div class="hobbies-tooltip">andare in bicicletta</div>
+      </div>
+      <div class="hobbies-container">
+        <img class="hobbies-picture" src="iStock-944631208-1.jpg" alt="reading-picture">
+        <div class="hobbies-tooltip">leggere</div>
+      </div>
+      <div class="hobbies-container">
+        <img class="hobbies-picture" src="FITNESS-WALKING-MEALS-mediumSquareAt3X.jpg" alt="walking-picture">
+        <div class="hobbies-tooltip">passeggiare</div>
+      </div>
+      <div class="hobbies-container">
+        <img class="hobbies-picture" src="musicians_650x400_61498654666 copy.png" alt="listening-to-music-picture">
+        <div class="hobbies-tooltip">ascoltare la musica</div>
+      </div>
+      <div class="hobbies-container">
+        <img class="hobbies-picture" src="LIFESTYLE_2000x2000_14d5f42e-72fb-41e2-85a3-513788a3acc1_1979x.jpg" alt="cooking-picture">
+        <div class="hobbies-tooltip">cucinare</div>
+      </div>
+      <div class="hobbies-container">
+        <img class="hobbies-picture" src="w5tyj7axkmo24e6c0txq.jpeg" alt="traveling-picture">
+        <div class="hobbies-tooltip">viaggiare</div>
+      </div>
+    </div>
+    <div class="interessi-box">
+      <p>Interessi:</p>
+      <ul>
+        <li>lingue straniere</li>
+        <li>natura</li>
+        <li>informatica</li>
+        <li>cucina</li>
+      </ul>
+    </div>
+    <p>Esperienze professionali:</p>
+    <table>
+      <tr>
+        <th>Società</th>
+        <th>Ruolo</th>
+        <th>Anno</th>
+        <th>Paese</th>
+      </tr>
+      <tr>
+        <td>Scuola di Lingue</td>
+        <td>Insegnante</td>
+        <td>2025</td>
+        <td>Italia</td>
+      </tr>
+      <tr>
+        <td>Sprachschule</td>
+        <td>Insegnante</td>
+        <td>2024</td>
+        <td>Svizzera</td>
+      </tr>
+      <tr>
+        <td>Scuola Secondaria</td>
+        <td>Insegnante</td>
+        <td>2023</td>
+        <td>Italia</td>
+      </tr>
+    </table>
+    <p>Formazione:</p>
+    <table>
+      <tr>
+        <th>Istituto di formazione</th>
+        <th>Titolo</th>
+        <th>Anno</th>
+        <th>Paese</th>
+      </tr>
+      <tr>
+        <td>Università di Palermo</td>
+        <td>Master di II livello</td>
+        <td>2021</td>
+        <td>Italia</td>
+      </tr>
+      <tr>
+        <td>Università di Palermo</td>
+        <td>Laurea Magistrale</td>
+        <td>2019</td>
+        <td>Italia</td>
+      </tr>
+    </table> 
+    <footer>
+      <div class="contacts">
+        <div class="contact-box">
+          <img class="contact-icon" src="icons8-email-60.png" alt="email-icon">
+          <div>
+            alessandro.alessandro91@gmail.com
+          </div>
+        </div>
+        <div class="contact-box">
+          <img class="contact-icon" src="icons8-smartphone-50.png" alt="smartphone-icon">
+          <div>
+            (+39) 333 1866735
+          </div>
+        </div>
+        <div class="contact-box">
+          <img class="contact-icon" src="icons8-linkedin-60.png" alt="linkedin-logo-icon">
+          <div>
+            <a href="https://www.linkedin.com/in/alessandro-aronica-74b22089/">LinkedIn Profile</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+</body>
+</html>

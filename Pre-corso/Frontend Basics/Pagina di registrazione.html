@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pagina di registrazione</title>
+  <style>
+    body {
+      margin: 0;
+      background-color: gray;
+      height: 1500px;
+      font-family: Arial;
+    }
+    
+    header {
+      height: 12vh;
+      background-color: black;
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+    }
+    
+    .spotify-logo {
+      width: 32px;
+      margin-left: 64px;
+    }
+
+    h2 {
+      color: black;
+      font-size: 18px;
+      margin-left: 64px;
+      margin-top: 32px;
+    }
+
+    .playlist-container {
+      margin-left: 84px;
+      margin-top: 64px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .playlist-container img {
+      width: 140px;
+      height: 140px;
+      object-fit: cover;
+      border-radius: 8px;
+    }
+
+    .playlist-title {
+      font-size: 16px;
+      font-weight: bold;
+      margin-top: 6px;
+    }
+
+    .playlist-author {
+      font-size: 14px;
+    }
+
+    .playlists-flexbox {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+    }
+
+    form {
+      background-color: white;
+      border-radius: 6px;
+      width: 75%;
+      text-align: center;
+      margin-left: 64px;
+      padding-bottom: 64px;
+    }
+
+    form p {
+      font-family: Arial;
+      background-color: black;
+      color: white;
+      margin-top: 160px;
+      margin-bottom: 64px;
+      padding-bottom: 12px;
+      padding-top: 12px;
+      border-top-left-radius: 6px;
+      border-top-right-radius: 6px;
+    }
+
+    .input-box {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    input {
+      font-family: Arial;
+      border-width: 1px;
+      border-style: solid;
+      border-radius: 4px;
+      margin: 4px;
+      padding: 6px 12px;
+    }
+
+    .text-input {
+      margin-bottom: 64px;
+    }
+
+    .musical-genre {
+      font-size: 12px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .musical-genre-flex {
+      display: flex;
+      justify-content: space-evenly;
+    }
+
+    .send-input-flexbox {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .termini-condizioni-label {
+      font-family: Arial;
+      font-size: 12px;
+      margin-top: 14px;
+      margin-bottom: 14px;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+    }
+
+    button {
+      padding: 18px;
+      background-color: white;
+      border: none;
+      border-radius: 32px;
+    }
+
+    .confirm-button {
+      display: block;
+      margin: auto;
+    }
+  </style>
+</head>
+<body>
+  <header>
+      <img class="spotify-logo" src="Spotify_logo_without_text.svg.png" alt="spotify-logo">
+  </header>
+  <h2>Segui la tua playlist preferita!</h2>
+  <div class="playlists-flexbox">
+    <div class="playlist-container">
+      <img src="spotify-minimal-playlist-album-cover-cyan-design-template-fff58702d4947264deeb11e1e1737bd9_screen.jpg" alt="thumbnail-playlist">
+      <div class="playlist-title">
+        Hot day vibes
+      </div>
+      <div class="playlist-author">
+        Calvin Harris
+      </div>
+    </div>
+    <div class="playlist-container">
+      <img src="artworks-8WiznpmKNfn1beNn-VjrbUA-t500x500.jpg" alt="thumbnail-playlist">
+      <div class="playlist-title">
+        Soul vibes
+      </div>
+      <div class="playlist-author">
+        Ben l'Oncle Soul
+      </div>
+    </div>
+    <div class="playlist-container">
+      <img src="music-channel-template-design_23-2151371582.avif" alt="thumbnail-playlist">
+      <div class="playlist-title">
+        Custom Playlist
+      </div>
+      <div class="playlist-author">
+        Spotify
+      </div>
+    </div>
+    <div class="playlist-container">
+      <img src="cat-garrett-samuelleyva188-city-view-1080-x-1080px.jpg" alt="thumbnail-playlist">
+      <div class="playlist-title">
+        Just Chillin'
+      </div>
+      <div class="playlist-author">
+        Joji
+      </div>
+    </div>
+    <div class="playlist-container">
+      <img src="1000_F_356114805_FwxCcOoB5esWSNm1BjWFxGthePIpt6jy.jpg" alt="thumbnail-playlist">
+      <div class="playlist-title">
+        Top of the Pop
+      </div>
+      <div class="playlist-author">
+        Lady Gaga
+      </div>
+    </div>
+    <div class="playlist-container">
+      <img src="8vn257luih431.jpg" alt="thumbnail-playlist">
+      <div class="playlist-title">
+        Happy Dance
+      </div>
+      <div class="playlist-author">
+        Christina Aguilera
+      </div>
+    </div>
+  </div>
+  <form>  
+    <p>Registrati qui:</p>
+    <div class="text-input">
+      <div class="input-box">
+        <input type="text" placeholder="Nome">
+        <input type="text" placeholder="Cognome">
+      </div>
+      <div class="input-box">
+        <input type="email" placeholder="Email">
+        <input type="password" placeholder="Password">
+      </div>
+      <div class="input-box">
+        <input type="date" placeholder="Data di nascita">
+      </div>
+      <div class="input-box">
+        <input type="number" placeholder="Numero di telefono">
+      </div>
+    </div>
+    <h5>Quali sono i tuoi generi musicali preferiti?</h5>
+    <div class="musical-genre-flex">
+      <label class="musical-genre" for="checkbox">
+        <input type="checkbox">
+        <div>Indie</div>
+      </label>
+      <label class="musical-genre" for="checkbox">
+        <input type="checkbox">
+        <div>Blues</div>
+      </label>
+      <label class="musical-genre" for="checkbox">
+        <input type="checkbox">
+        <div>Rock</div>
+      </label>
+      <label class="musical-genre" for="checkbox">
+        <input type="checkbox">
+        <div>Elettronica</div>
+      </label>
+      <label class="musical-genre" for="checkbox">
+        <input type="checkbox">
+        <div>Soul</div>
+      </label>
+      <label class="musical-genre" for="checkbox">
+        <input type="checkbox">
+        <div>Pop</div>
+      </label>
+    </div>
+  </form>
+    <div class="send-input-flexbox">
+      <label class="termini-condizioni-label" for="radio">
+        <input type="radio">
+        Accetta Termini e Condizioni
+      </label>
+      <button class="confirm-button" type="submit" onclick="alert('Registrazione inviata!')">Invia registrazione</button>
+    </div>
+</body>
+</html>
