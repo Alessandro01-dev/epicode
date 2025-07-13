@@ -297,6 +297,7 @@ main {
 
 .who-to-follow-card-left-section {
   gap: 8px;
+  overflow: hidden;
 }
 
 .who-to-follow-card-left-section img {
