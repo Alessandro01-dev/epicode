@@ -1,0 +1,20 @@
+Compito di inizio settimana
+
+
+1. Cos'è un algoritmo? Prova a spiegarlo con parole tue, come se lo dovessi spiegare a qualcuno che non ne capisce niente di informatica.
+
+1. Un algoritmo è una serie di istruzioni, scritte in un linguaggio ben preciso che richiede l'uso di parole chiave e valori. Queste istruzioni eseguono dei compiti che servono per risolvere un problema. Eseguendo questo linguaggio "in codice" si può rendere una pagina web interattiva, permettendo ad un computer di inviare dei dati e riceverne altri da un altro computer. 
+	
+
+
+
+2. Cos'è una variabile? Prova a spiegarlo con parole tue, come se lo dovessi spiegare a qualcuno che non ne capisce niente di informatica
+
+2. Una variabile è un contenitore di dati. All'interno di ogni variabile è possibile inserire dei valori di diverso tipo. La variabile ha una sua unicità, viene creata all'interno di un codice una volta sola dichiarandola attraverso una parola chiave, e solo successivamente se ne può modificare il contenuto aggiungendo, togliendo o manipolandone parzialmente o totalmente il contenuto. Esattamente come si farebbe con un semplice contenitore di qualsiasi tipo (ad es. una ciotola da cucina).
+
+
+
+
+3. undefined e null sono la stessa cosa?
+
+3. No. Entrambi sono valori che rappresentano l'assenza di un valore ma sono molto diversi tra loro. Nel caso delle variabili, "undefined" significa che il valore di una variabile esistente (che quindi è stata dichiarata) non è stato definito. Manca cioè una relazione tra la variabile e il suo contenuto. Al contrario, "null" è un valore definito ma significa che quel valore è come se fosse assente perché è stato intenzionalmente invalidato. Ad esempio, se una variabile con valore "null" viene utilizzata all'interno di un codice, essa non ha alcuna influenza nelle operazioni in cui è interessata.
