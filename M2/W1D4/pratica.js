@@ -86,7 +86,7 @@ const myObject = {
   surname: 'Aronica',
   age: 34,
   nationality: 'italian',
-  hobby: 'coocking'
+  hobby: 'cooking'
 };
 */
 
