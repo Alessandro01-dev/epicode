@@ -12,7 +12,11 @@ function displayValue(value) {
 function calc() {
   try {
     const result = eval(resultDisplay.innerText);
-    resultDisplay.innerText = result.toFixed(2);
+    if (Number.isInteger(result)) {
+      resultDisplay.innerText = result;
+    } else {
+      resultDisplay.innerText = result.toFixed(2);
+    }
   } catch {
     resultDisplay.innerText = 'Error';
   }
