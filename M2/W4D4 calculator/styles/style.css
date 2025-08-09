@@ -1,0 +1,44 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.main-container {
+  margin-top: 24px;
+  margin-left: 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.row-container {
+  display: flex;
+  gap: 12px
+}
+
+.row-container button:nth-child(4) {
+ background-color: orange;
+}
+
+.result-display {
+  text-align: end;
+  padding-top: 60px;
+  padding-right: 8px;
+  height: 110px;
+  width: 290px;
+  background-color: rgb(200, 200, 200);
+  border-radius: 12px;
+  font-size: 36px;
+}
+
+button {
+  background-color: rgb(80, 80, 80);
+  color: white;
+  font-size: 24px;
+  width: 64px;
+  height: 64px;
+  border-radius: 32px;
+  border: none;
+}
