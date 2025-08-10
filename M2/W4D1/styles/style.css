@@ -1,0 +1,75 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+input {
+  display: block;
+  width: 50%;
+  margin: 0 auto;
+  margin-top: 64px;
+  padding: 14px;
+  border-radius: 6px;
+  border-width: 1px;
+
+}
+
+.search-button {
+  display: block;
+  margin: 0 auto;
+  margin-top: 64px;
+  padding: 8px 18px;
+  border: none;
+  border-radius: 8px;
+  background-color: orange;
+}
+
+.results-container {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  padding-top: 24px;
+  width: 50%;
+  margin: 0 auto;
+  margin-top: 24px;
+  margin-bottom: 64px;
+  border-top: 1px solid lightgray;
+}
+
+.result-card {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 12px;
+  border: 1px solid black;
+  border-radius: 6px;
+  box-shadow: 6px 4px 8px 2px rgba(136, 136, 136, 0.6);
+}
+
+.result-card div::before {
+  content: 'Location: ';
+  color: lightgray;
+}
+
+.results-number {
+  text-align: center;
+  font-weight: bold;
+  color: crimson;
+}
+
+.results-number::before {
+  content: "Jobs found: ";
+  color: black;
+}
+
+.no-matches-message {
+  width: 160px;
+  text-align: center;
+  margin: 0 auto;
+  padding: 6px 12px;
+  border-radius: 5px;
+  background-color: rgb(225, 225, 225);
+  font-weight: bold;
+  color: orange;
+}
