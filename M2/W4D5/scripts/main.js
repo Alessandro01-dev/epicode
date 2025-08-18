@@ -458,7 +458,7 @@ function displayAgreeMessage() {
 checkboxElement.addEventListener("click", displayAgreeMessage);
 */
 
-// ESERCIZIO 36 (RICONTROLLARE) DOCUMENT IS NOT DEFINED ERROR (in node.js)
+// ESERCIZIO 36 (RICONTROLLARE) => ERROR: document is not defined solo in node.js
 /*
 const inputElement = document.getElementById("email");
 
@@ -508,17 +508,17 @@ function resetForm() {
 buttonElement.addEventListener("click", resetForm);
 */
 
-// ESERCIZIO 40 (MODIFICARE: STAMPARE AL SUBMIT DEL FORM)
+// ESERCIZIO 40
 /*
 const registerFormElement = document.getElementById("registerForm");
+const formButtonElement = document.getElementById("submitButton")
 const usernameInputElement = document.getElementById("username");
 const resultParagraphElement = document.getElementById("result");
+
 function getAndDisplayInputValueInResult() {
-  registerFormElement.addEventListener("input", () => {
-    resultParagraphElement.innerText = usernameInputElement.value;
-  });
+  resultParagraphElement.innerText = usernameInputElement.value;
 };
-getAndDisplayInputValueInResult();
+formButtonElement.addEventListener("click", getAndDisplayInputValueInResult);
 */
 
 // ESERCIZIO 41
@@ -545,7 +545,6 @@ removeParentElement();
 // ESERCIZIO 43
 /*
 const imageElement = document.getElementById("image");
-
 const tooltipMessage = document.createElement("div");
 
 function displayTooltipMessage() {
