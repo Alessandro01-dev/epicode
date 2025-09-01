@@ -4,7 +4,7 @@ const checkbox = document.getElementById("checkbox")
 function validateProcced () {
     if (checkbox.checked===true) {window.location.href = './quiz.html'
     }else{
-        alert("Please accept the terms and conditions to continue.")
+        alert("Check the permissions")
     }
 }
 

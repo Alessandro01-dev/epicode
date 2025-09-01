@@ -246,7 +246,7 @@ cars.forEach(car => {
     createCard(car)
 })
 
-function searchForName() {
+function searchByName() {
     const inputValue = inputElement.value.toLowerCase();
 
     for (let i = 0; i < cars.length; i++) {
@@ -279,14 +279,14 @@ function clearCardAndAppendResults() {
 
 searchButton.addEventListener("click", () => {
     searchResults.length = 0;
-    searchForName();
+    searchByName();
     clearCardAndAppendResults();
 })
 
 inputElement.addEventListener("keypress", (event) => {
     if (event.key === "Enter") {
         searchResults.length = 0;
-        searchForName();
+        searchByName();
         clearCardAndAppendResults();
     }
 })

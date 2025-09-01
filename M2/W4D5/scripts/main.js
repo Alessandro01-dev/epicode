@@ -458,7 +458,7 @@ function displayAgreeMessage() {
 checkboxElement.addEventListener("click", displayAgreeMessage);
 */
 
-// ESERCIZIO 36 (RICONTROLLARE) => ERROR: document is not defined solo in node.js
+// ESERCIZIO 36
 /*
 const inputElement = document.getElementById("email");
 
