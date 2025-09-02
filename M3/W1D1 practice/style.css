@@ -10,9 +10,25 @@
   padding: 16px 20px;
 }
 
+.aside-and-menu-button-container {
+  display: flex;
+}
+
+#menu-icon-button {
+  margin-top: 20px;
+  margin-left: 16px;
+  height: 24px;
+  opacity: 0.6;
+  cursor: pointer;
+}
+
+.hide-sidebar {
+  display: none;
+}
+
 .search-container input {
   font-family: "Open Sans", sans-serif;
-  font-size: 8px;
+  font-size: 12px;
   padding: 8px 6px;
   width: 220px;
   border-radius: 3px;
