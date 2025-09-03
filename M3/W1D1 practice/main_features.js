@@ -50,7 +50,7 @@ function getAndAppendFeaturesFromArray() {
     rightCardSectionElement.appendChild(titleFeatureElement);
 
     const descriptionFeatureElement = document.createElement("p");
-    descriptionFeatureElement.innerText = features.description;
+    descriptionFeatureElement.innerText = feature.description;
     rightCardSectionElement.appendChild(descriptionFeatureElement);
   })
 }
