@@ -87,6 +87,11 @@ function createAndAppendListItemInMenu() {
     menuListElement.appendChild(listItem)
 
     if (navLink.submenu) {
+      listItem.innerHTML = "";
+      const detailsTagElement = document.createElement("details");
+      const summaryTagElement = document.createElement("summary");
+      detailsTagElement.appendChild(summaryTagElement);
+      summaryTagElement.innerText = navLink.name;
       const subUnorderedList = document.createElement("ul")
       subUnorderedList.classList.add("subunordered-list")
       navLink.submenu.forEach(navLinkSub => {
@@ -94,7 +99,8 @@ function createAndAppendListItemInMenu() {
         subListItem.innerText = navLinkSub.subname
         subUnorderedList.appendChild(subListItem)
       })
-      listItem.appendChild(subUnorderedList)
+      detailsTagElement.appendChild(subUnorderedList);
+      listItem.appendChild(detailsTagElement);
     }
 
 
