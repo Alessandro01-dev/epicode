@@ -76,8 +76,6 @@ const navLinks = [
 ]
 
 const menuListElement = document.querySelector(".sidebar-nav-links");
-const menuButtonElement = document.getElementById("menu-icon-button");
-const sidebarElement = document.querySelector("aside");
 
 function createAndAppendListItemInMenu() {
   navLinks.forEach(navLink => {
@@ -106,9 +104,4 @@ function createAndAppendListItemInMenu() {
 
   })
 }
-createAndAppendListItemInMenu()
-
-function toggleClassListFromSidebar() {
-  sidebarElement.classList.toggle("hide-sidebar")
-}
-menuButtonElement.addEventListener("click", toggleClassListFromSidebar)
+createAndAppendListItemInMenu();
