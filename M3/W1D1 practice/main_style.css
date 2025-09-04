@@ -193,24 +193,23 @@ main {
 }
 
 .main-articles-card {
-  padding: 32px 32px 32px 0px;
+  padding: 32px 0px;
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
-  width: 40%;
-  align-items: flex-start;
+  width: 50%;
+  align-items: stretch;
 }
 
 .main-articles-container .main-articles-card:nth-child(odd) {
   border-right: 1px solid #c6c6c6;
   border-bottom: 1px solid #c6c6c6;
-  padding-right: 1.5rem;
+  padding-right: 32px;
 }
 
 .main-articles-container .main-articles-card:nth-child(even) {
   border-bottom: 1px solid #c6c6c6;
-  padding-left: 1.5rem;
-  padding-right: 0;
+  padding-left: 32px;
 }
 
 .main-articles-container .main-articles-card:last-of-type,
@@ -250,7 +249,6 @@ main {
   font-size: 15px;
   color: #898989;
   line-height: 1.6rem;
-  max-width: 27rem;
 }
 
 .main-articles-card button {
@@ -264,6 +262,7 @@ main {
   border: 2px solid rgb(255, 110, 110);
   border-radius: 4px;
   cursor: pointer;
+  align-self: flex-start;
 }
 
 .main-articles-card button:hover {

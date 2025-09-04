@@ -19,10 +19,17 @@
 aside {
   transition: all 1s ease-in-out;
   position: relative;
+  height: 100%;
+  position: sticky;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  z-index: 100;
 }
 
 .hide-sidebar {
   transform: translateX(-100%);
+  position: absolute;
 }
 
 .search-container input {
@@ -273,5 +280,16 @@ footer p {
   font-family: "Open Sans", sans-serif;
   font-size: 10px;
   text-align: start;
+  line-height: 1rem;
   color: #898989;
+}
+
+footer p span {
+  text-decoration: underline dotted;
+  text-underline-offset: 4px;
+  cursor: pointer;
+}
+
+footer p span:hover {
+  color: rgb(255, 110, 110);
 }
