@@ -37,8 +37,8 @@ aside {
 
 .search-container input {
   font-family: "Open Sans", sans-serif;
-  font-size: 12px;
-  padding: 8px 6px;
+  font-size: 13px;
+  padding: 8px 32px 8px 16px;
   width: 220px;
   border-radius: 3px;
   border: 0.5px solid lightgray;
@@ -59,7 +59,7 @@ aside {
 }
 
 .search-container img {
-  width: 16px;
+  width: 22px;
   position: absolute;
   right: 10px;
   cursor: pointer;
@@ -170,6 +170,7 @@ details[open] summary::after {
 .article-picture-container img {
   width: 100%;
   transition: transform 0.3s ease-in-out;
+  cursor: pointer;
 }
 
 .article-picture-container img:hover {
@@ -184,8 +185,12 @@ details[open] summary::after {
   border-bottom: 1px solid #c6c6c6;
 }
 
+.article-card p:last-of-type {
+  border: none;
+}
+
 .more-articles-button {
-  margin-top: 2rem;
+  margin-top: 1rem;
   font-family: "Roboto Slab", sans-serif;
   font-weight: 700;
   font-size: 10px;
@@ -253,6 +258,7 @@ main {
 .hero {
   margin-top: 4rem;
   display: flex;
+  align-items: center;
   gap: 40px;
   position: relative;
 }
@@ -448,14 +454,26 @@ main {
   padding-top: 3rem;
   display: flex;
   flex-wrap: wrap;
-  row-gap: 5rem;
+}
+
+.main-articles-container .main-articles-card:nth-child(odd) {
+  border-right: 1px solid #c6c6c6;
+  border-bottom: 1px solid #c6c6c6;
+  padding-right: 1.5rem;
+}
+
+.main-articles-container .main-articles-card:nth-child(even) {
+  border-bottom: 1px solid #c6c6c6;
+  padding-left: 1.5rem;
+  padding-right: 0;
 }
 
 .main-articles-card {
+  padding: 32px 32px 32px 0px;
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
-  width: 50%;
+  width: 40%;
   align-items: flex-start;
 }
 
@@ -468,6 +486,7 @@ main {
 .main-articles-img-container img {
   width: 100%;
   transition: transform 0.3s ease-in-out;
+  cursor: pointer;
 }
 
 .main-articles-img-container img:hover {
