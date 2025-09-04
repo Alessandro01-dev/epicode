@@ -92,11 +92,13 @@ function getAndAppendAllArticlesFromArray() {
     articleParagraphElement.innerText = article.text;
     articleCardElement.appendChild(articleParagraphElement);
   });
+
+  moreArticlesButtonElement.innerText = "LESS";
 }
 
-moreArticlesButtonElement.addEventListener("click", getAndAppendAllArticlesFromArray)
-
 function getAndAppendFirstThreeArticlesFromArray() {
+  articleCardElement.innerHTML = "";
+
   for (let i = 0; i < articles.length; i++) {
     const pictureContainerElement = document.createElement("div");
     pictureContainerElement.classList.add("article-picture-container");
@@ -115,5 +117,15 @@ function getAndAppendFirstThreeArticlesFromArray() {
       break;
     }
   }
+
+  moreArticlesButtonElement.innerText = "MORE";
 }
 getAndAppendFirstThreeArticlesFromArray();
+
+moreArticlesButtonElement.addEventListener("click", () => {
+  if (moreArticlesButtonElement.innerText === "MORE") {
+    getAndAppendAllArticlesFromArray();
+  } else if (moreArticlesButtonElement.innerText === "LESS") {
+    getAndAppendFirstThreeArticlesFromArray();
+  }
+})
