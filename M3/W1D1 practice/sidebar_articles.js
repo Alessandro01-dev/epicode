@@ -14,7 +14,6 @@ const articles = [
     description: "laptop",
     text: "Aenean ornare velit lacus, ac varius enim lorem ullamcorper dolore aliquam."
   },
-/* altri articoli da caricare all'event "click" sul bottone "more" (loop, break etc...)"
   {
     img: "https://picsum.photos/288/174",
     description: "Lorem Picsum",
@@ -70,13 +69,16 @@ const articles = [
     description: "Lorem Picsum",
     text: "Aenean ornare velit lacus, ac varius enim lorem ullamcorper dolore aliquam."
   },
-*/
 ]
 
 const articleCardElement = document.querySelector(".article-card");
+const moreArticlesButtonElement = document.querySelector(".more-articles-button");
 
-function getAndAppendArticlesFromArray() {
+function getAndAppendAllArticlesFromArray() {
+  articleCardElement.innerHTML = ""
+
   articles.forEach(article => {
+
     const pictureContainerElement = document.createElement("div");
     pictureContainerElement.classList.add("article-picture-container");
     articleCardElement.appendChild(pictureContainerElement)
@@ -91,4 +93,27 @@ function getAndAppendArticlesFromArray() {
     articleCardElement.appendChild(articleParagraphElement);
   });
 }
-getAndAppendArticlesFromArray();
+
+moreArticlesButtonElement.addEventListener("click", getAndAppendAllArticlesFromArray)
+
+function getAndAppendFirstThreeArticlesFromArray() {
+  for (let i = 0; i < articles.length; i++) {
+    const pictureContainerElement = document.createElement("div");
+    pictureContainerElement.classList.add("article-picture-container");
+    articleCardElement.appendChild(pictureContainerElement)
+
+    const articlePictureElement = document.createElement("img");
+    articlePictureElement.src = articles[i].img;
+    articlePictureElement.alt = articles[i].description;
+    pictureContainerElement.appendChild(articlePictureElement);
+
+    const articleParagraphElement = document.createElement("p");
+    articleParagraphElement.innerText = articles[i].text;
+    articleCardElement.appendChild(articleParagraphElement);
+
+    if (i === 2) {
+      break;
+    }
+  }
+}
+getAndAppendFirstThreeArticlesFromArray();
