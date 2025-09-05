@@ -268,3 +268,34 @@ main {
 .main-articles-card button:hover {
   background-color: rgba(255, 110, 110, 0.05);
 }
+
+.read-more-btn {
+  display: flex;
+  margin: 0 auto;
+  font-family: "Roboto Slab", sans-serif;
+  font-weight: 700;
+  font-size: 12px;
+  letter-spacing: 1px;
+  margin-top: 6rem;
+  padding: 8px 18px;
+  background-color: transparent;
+  color: rgb(255, 110, 110);
+  border: 2px solid rgb(255, 110, 110);
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.no-other-articles {
+  font-family: "Roboto Slab", sans-serif;
+  font-size: 10px;
+  font-weight: 500;
+  text-transform: uppercase;
+  background-color: rgba(255, 110, 110, 0.6);
+  color: white;
+  margin: 0 auto;
+  margin-top: 6rem;
+  padding: 16px;
+  width: 160px;
+  text-align: center;
+  border-radius: 8px;
+}

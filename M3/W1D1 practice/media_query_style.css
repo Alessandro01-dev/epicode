@@ -36,8 +36,21 @@
   }
 
   .features-card {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 40px;
     width: 100%;
   }
+
+  .features-card .left-section .rotated-square {
+    height: 80px;
+    width: 80px;
+  }
+
+  .features-card .left-section .rotated-square img {
+  transform: translate(70%, 70%) rotate(-45deg);
+  width: 32px;
+}
 
   .main-articles-container {
     flex-direction: column;
