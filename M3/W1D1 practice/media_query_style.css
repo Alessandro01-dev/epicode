@@ -1,6 +1,7 @@
 /* mobile */
 @media (max-width: 767px) {
   main {
+    position: relative;
     padding: 10px;
   }
 
@@ -72,10 +73,7 @@
   }
 
   aside {
-    position: fixed;
-    top: 0;
-    bottom: 0;
-    overflow-y: scroll;
+    position: absolute;
     box-shadow: 6px 0 5px 0px rgba(136, 136, 136, 0.265);
   }
 
@@ -96,15 +94,16 @@
 /* tablet */
 @media (min-width: 768px) and (max-width: 991px) {
   aside {
-    position: sticky;
-    top: 0;
-    bottom: 0;
-    overflow-y: scroll;
+    position: absolute;
     box-shadow: 6px 0 5px 0px rgba(136, 136, 136, 0.265);
   }
 
   .features-container {
     flex-direction: column;
+  }
+
+  main {
+    position: relative;
   }
 
   .features-card {
