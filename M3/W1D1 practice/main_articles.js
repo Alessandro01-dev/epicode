@@ -154,7 +154,7 @@ let index = 5
 
 function increaseIndex() {
 
-  index = index + 2;
+  index += 2;
 
 }
 
@@ -188,7 +188,7 @@ readMoreBtnElement.addEventListener("click", () => {
   increaseIndex()
   getAndAppendIndexNumberOfMainArticles()
 
-  if (index === mainArticles.length -1) {
+  if (index === mainArticles.length - 1) {
     cleanReadMoreButton()
     displayNoOtherArticlesMessage()
   }
