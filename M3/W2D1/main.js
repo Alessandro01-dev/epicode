@@ -94,7 +94,7 @@ const albums = [
     genre: "Progressive rock",
     year: 1971,
     length: "42:55"
-  },{
+  }, {
     cover: "https://upload.wikimedia.org/wikipedia/en/5/57/The_Rolling_Stones_-_Sticky_Fingers.png",
     title: "Sticky Fingers",
     artist: "The Rolling Stones",
@@ -147,74 +147,76 @@ const albums = [
 const mainRowElement = document.querySelector(".js-main-row");
 
 
-function generateAndAppendCard() {
+function generateAndAppendCard(album) {
 
-  albums.forEach(album => {
+  const columnElement = document.createElement("div");
+  columnElement.classList.add("col-6", "col-md-4", "col-lg-3");
+  mainRowElement.appendChild(columnElement);
 
-    const columnElement = document.createElement("div");
-    columnElement.classList.add("col-6", "col-md-4", "col-lg-3");
-    mainRowElement.appendChild(columnElement);
+  const cardElement = document.createElement("div");
+  cardElement.classList.add("card", "h-100", "p-3", "bg-dark", "rounded-4");
+  columnElement.appendChild(cardElement);
 
-    const cardElement = document.createElement("div");
-    cardElement.classList.add("card", "h-100", "p-3", "bg-dark", "rounded-4");
-    columnElement.appendChild(cardElement);
+  const imageContainerElement = document.createElement("div");
+  imageContainerElement.classList.add("position-relative");
+  cardElement.appendChild(imageContainerElement);
 
-    const imageContainerElement = document.createElement("div");
-    imageContainerElement.classList.add("position-relative");
-    cardElement.appendChild(imageContainerElement);
+  const imageElement = document.createElement("img");
+  imageElement.src = album.cover;
+  imageElement.alt = "album cover";
+  imageElement.classList.add("card-img-top", "w-100", "rounded-3")
+  imageContainerElement.appendChild(imageElement);
 
-    const imageElement = document.createElement("img");
-    imageElement.src = album.cover;
-    imageElement.alt = "album cover";
-    imageElement.classList.add("card-img-top", "w-100", "rounded-3")
-    imageContainerElement.appendChild(imageElement);
+  const timestampElement = document.createElement("p");
+  timestampElement.classList.add("position-absolute", "bottom-0", "end-0", "m-2", "bg-dark", "text-white", "p-1", "rounded-1", "opacity-75");
+  timestampElement.setAttribute("id", "album-timestamp");
+  timestampElement.innerText = album.length;
+  imageContainerElement.appendChild(timestampElement);
 
-    const timestampElement = document.createElement("p");
-    timestampElement.classList.add("position-absolute", "bottom-0", "end-0", "m-2", "bg-dark", "text-white", "p-1", "rounded-1", "opacity-75");
-    timestampElement.setAttribute("id", "album-timestamp");
-    timestampElement.innerText = album.length;
-    imageContainerElement.appendChild(timestampElement);
+  const cardBodyElement = document.createElement("div");
+  cardBodyElement.classList.add("card-body", "px-0", "pt-3", "pb-1", "text-white", "d-flex", "flex-column", "justify-content-between");
+  cardElement.appendChild(cardBodyElement);
 
-    const cardBodyElement = document.createElement("div");
-    cardBodyElement.classList.add("card-body", "px-0", "pt-3", "pb-1", "text-white", "d-flex", "flex-column", "justify-content-between");
-    cardElement.appendChild(cardBodyElement);
+  const cardTitleElement = document.createElement("h5");
+  cardTitleElement.classList.add("card-title", "pt-2");
+  cardTitleElement.innerText = album.title;
+  cardBodyElement.appendChild(cardTitleElement);
 
-    const cardTitleElement = document.createElement("h5");
-    cardTitleElement.classList.add("card-title", "pt-2");
-    cardTitleElement.innerText = album.title;
-    cardBodyElement.appendChild(cardTitleElement);
+  const cardArtistElement = document.createElement("p");
+  cardArtistElement.classList.add("card-text");
+  cardArtistElement.innerText = album.artist;
+  cardBodyElement.appendChild(cardArtistElement);
 
-    const cardArtistElement = document.createElement("p");
-    cardArtistElement.classList.add("card-text");
-    cardArtistElement.innerText = album.artist;
-    cardBodyElement.appendChild(cardArtistElement);
+  const quarterNoteDividerElement = document.createElement("span");
+  quarterNoteDividerElement.classList.add("text-secondary", "px-1");
+  quarterNoteDividerElement.innerHTML = " &#9834; ";
+  cardArtistElement.appendChild(quarterNoteDividerElement);
 
-    const quarterNoteDividerElement = document.createElement("span");
-    quarterNoteDividerElement.classList.add("text-secondary", "px-1");
-    quarterNoteDividerElement.innerHTML = " &#9834; ";
-    cardArtistElement.appendChild(quarterNoteDividerElement);
+  const cardYearElement = document.createElement("span");
+  cardYearElement.classList.add("fw-light");
+  cardYearElement.innerText = album.year;
+  cardArtistElement.appendChild(cardYearElement);
 
-    const cardYearElement = document.createElement("span");
-    cardYearElement.classList.add("fw-light");
-    cardYearElement.innerText = album.year;
-    cardArtistElement.appendChild(cardYearElement);
+  const bottomCardBodySectionElement = document.createElement("div");
+  bottomCardBodySectionElement.classList.add("d-flex", "align-items-center", "justify-content-between");
+  cardBodyElement.appendChild(bottomCardBodySectionElement);
 
-    const bottomCardBodySectionElement = document.createElement("div");
-    bottomCardBodySectionElement.classList.add("d-flex", "align-items-center", "justify-content-between");
-    cardBodyElement.appendChild(bottomCardBodySectionElement);
+  const genreBadgeElement = document.createElement("div");
+  genreBadgeElement.classList.add("badge", "text-bg-secondary", "fw-light");
+  genreBadgeElement.setAttribute("id", "genre-badge");
+  genreBadgeElement.innerText = album.genre;
+  bottomCardBodySectionElement.appendChild(genreBadgeElement);
 
-    const genreBadgeElement = document.createElement("div");
-    genreBadgeElement.classList.add("badge", "text-bg-secondary", "fw-light");
-    genreBadgeElement.setAttribute("id", "genre-badge");
-    genreBadgeElement.innerText = album.genre;
-    bottomCardBodySectionElement.appendChild(genreBadgeElement);
+  const favouriteAlbumIconsElement = document.createElement("i");
+  favouriteAlbumIconsElement.classList.add("bi", "bi-heart");
+  bottomCardBodySectionElement.appendChild(favouriteAlbumIconsElement);
 
-    const favouriteAlbumIconsElement = document.createElement("i");
-    favouriteAlbumIconsElement.classList.add("bi", "bi-heart");
-    bottomCardBodySectionElement.appendChild(favouriteAlbumIconsElement);
-  })
 };
-generateAndAppendCard();
+
+albums.forEach(album => {
+  generateAndAppendCard(album);
+})
+
 
 const heartIconElements = document.querySelectorAll(".bi", ".bi-heart");
 
@@ -233,12 +235,61 @@ function fillAndEmptyHeartIcon() {
 };
 fillAndEmptyHeartIcon();
 
-/*
+const formElement = document.querySelector("form")
 const inputElement = document.querySelector(".form-control");
 const searchButtonElement = document.querySelector(".btn");
-const searchResults = [];
+const searchedResults = [];
 
-function searchByName() {
-  
-}
-*/
+function searchByTitle() {
+  const inputValue = inputElement.value.toLowerCase();
+
+  for (let i = 0; i < albums.length; i++) {
+    const albumTitle = albums[i].title.toLowerCase();
+
+    if (albumTitle.includes(inputValue)) {
+      searchedResults.push(albums[i]);
+    }
+  }
+};
+
+function createNoResultsMessage() {
+  const noResultsMessage = document.createElement("div");
+  noResultsMessage.classList.add("text-center");
+  noResultsMessage.innerText = "No Results Found";
+  mainRowElement.appendChild(noResultsMessage);
+};
+
+function clearAlbumsAndAppendResults() {
+  mainRowElement.innerHTML = "";
+
+  if (searchedResults.length === 0) {
+    createNoResultsMessage();
+  }
+
+  searchedResults.forEach(searchedResult => {
+    generateAndAppendCard(searchedResult);
+  });
+};
+
+searchButtonElement.addEventListener("click", () => {
+  searchedResults.length = 0;
+  searchByTitle();
+  clearAlbumsAndAppendResults();
+})
+
+inputElement.addEventListener("keypress", (event) => {
+    if (event.key === "Enter") {
+        searchedResults.length = 0;
+        searchByTitle();
+        clearAlbumsAndAppendResults();
+    }
+})
+
+inputElement.addEventListener("input", () => {
+    if (inputElement.value === '') {
+        mainRowElement.innerHTML = "";
+        albums.forEach(album => {
+            generateAndAppendCard(album);
+        })
+    }
+})
