@@ -1,0 +1,92 @@
+#nav-container {
+  background-color: #1e242e;
+}
+
+.navbar-brand {
+  width: 6rem;
+}
+
+input[type="search"]::-webkit-search-cancel-button {
+  display: none;
+}
+
+.form-control {
+  padding-right: 2.5rem;
+  max-width: 13rem;
+}
+
+.bi-search {
+  font-weight: bold;
+  color: white;
+  transform: translate(-150%, -50%);
+}
+
+#profile-picture {
+  width: 35px;
+  height: 35px;
+}
+
+.slider-title-container img {
+  width: 6rem;
+}
+
+.slider-title-container a {
+  color: #69A7DF;
+}
+
+.carousel-item {
+  height: 24rem;
+}
+
+.carousel-item img {
+  object-fit: cover;
+}
+
+.carousel .carousel-indicators button {
+  height: 12px;
+  width: 12px;
+  border-radius: 50%;
+}
+
+/* swiper */
+
+.swiper {
+  background-color: #1e242e;
+  height: 250px;
+  overflow: hidden;
+}
+
+.swiper-slide {
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  width: 40%;
+}
+
+.swiper-slide p {
+  transform: translate(-6%, -8%);
+  padding-bottom: 5px;
+  padding-right: 11px;
+  background-color: #69A7DF;
+}
+
+.swiper-button-next,
+.swiper-button-prev {
+  color: #fff;
+}
+
+.swiper-button-next,
+.swiper-button-prev {
+  color: #fff;
+}
+
+@media (min-width: 992px) {
+  .carousel-item img {
+    transform: translateY(-40%);
+    width: 100%;
+  }
+
+  .swiper-slide {
+    width: 20%;
+  }
+}
