@@ -1,17 +1,101 @@
 const courses = [
   {
-    courseImgSrc: "./assets/course-graphql.jpg",
-    courseImgAlt: "GraphQL course",
+    courseImgSrc: "./assets/course-graphQL.jpg",
+    courseImgAlt: "GraphQL course picture",
     title: "GraphQL: introduction to graphQL for beginners",
     length: "2h 40m",
     difficulty: "Advance",
     rating: "2.5",
     numberOfRatings: "1,500",
-    discountedPrice: "$500",
-    oldPrice: "$600",
+    discountedPrice: "500",
+    oldPrice: "600",
     teacherProfilePictureSrc: "./assets/avatar-5.jpg",
     teacherProfilePictureAlt: "Brooklyn Simmons profile picture",
     teacherName: "Brooklyn Simmons",
+  },
+  {
+    courseImgSrc: "./assets/course-javascript.jpg",
+    courseImgAlt: "JavaScript course picture",
+    title: "A Complete Beginner's Guide to Javascript",
+    length: "4h 10m",
+    difficulty: "Advance",
+    rating: "3.5",
+    numberOfRatings: "7,500",
+    discountedPrice: "700",
+    oldPrice: "850",
+    teacherProfilePictureSrc: "./assets/avatar-1.jpg",
+    teacherProfilePictureAlt: "Jenny Wilson profile picture",
+    teacherName: "Jenny Wilson",
+  },
+  {
+    courseImgSrc: "./assets/course-node.jpg",
+    courseImgAlt: "Node.js course picture",
+    title: "Beginning Node.js, Express & MongoDB Development",
+    length: "2h 00m",
+    difficulty: "Intermediate",
+    rating: "4.0",
+    numberOfRatings: "15,700",
+    discountedPrice: "800",
+    oldPrice: "950",
+    teacherProfilePictureSrc: "./assets/avatar-3.jpg",
+    teacherProfilePictureAlt: "Sina Ray profile picture",
+    teacherName: "Sina Ray",
+  },
+  {
+    courseImgSrc: "./assets/course-laravel.jpg",
+    courseImgAlt: "Laravel course picture",
+    title: "Laravel: The Ultimate Beginner's Guide to Learn",
+    length: "1h 00m",
+    difficulty: "Beginner",
+    rating: "4.5",
+    numberOfRatings: "2,500",
+    discountedPrice: "170",
+    oldPrice: "220",
+    teacherProfilePictureSrc: "./assets/avatar-7.jpg",
+    teacherProfilePictureAlt: "Sobo Rikhan profile picture",
+    teacherName: "Sobo Rikhan",
+  },
+  {
+    courseImgSrc: "./assets/course-html.jpg",
+    courseImgAlt: "HTML course picture",
+    title: "HTML Full Course - Build a Website Tutorial",
+    length: "3h 16m",
+    difficulty: "Beginner",
+    rating: "3.0",
+    numberOfRatings: "1,600",
+    discountedPrice: "550",
+    oldPrice: "700",
+    teacherProfilePictureSrc: "./assets/avatar-8.jpg",
+    teacherProfilePictureAlt: "Miston Wilson profile picture",
+    teacherName: "Miston Wilson",
+  },
+  {
+    courseImgSrc: "./assets/course-react.jpg",
+    courseImgAlt: "React course picture",
+    title: "How to easily create a website with React",
+    length: "3h 55m",
+    difficulty: "Advance",
+    rating: "4.5",
+    numberOfRatings: "1,500",
+    discountedPrice: "600",
+    oldPrice: "750",
+    teacherProfilePictureSrc: "./assets/avatar-2.jpg",
+    teacherProfilePictureAlt: "April Noms profile picture",
+    teacherName: "April Noms",
+  },
+  {
+    courseImgSrc: "./assets/course-gatsby.jpg",
+    courseImgAlt: "Gatsby course picture",
+    title: "Revolutionize how you build the web",
+    length: "1h 46m",
+    difficulty: "Intermediate",
+    rating: "2.0",
+    numberOfRatings: "16,500",
+    discountedPrice: "800",
+    oldPrice: "850",
+    teacherProfilePictureSrc: "./assets/avatar-6.jpg",
+    teacherProfilePictureAlt: "Jenny Wilson profile picture",
+    teacherName: "Jenny Wilson",
   },
 ];
 
@@ -70,7 +154,7 @@ function generateAndAppendCards(course) {
   difficultyCourseContainerElement.appendChild(difficultyCourseIconContainerElement);
 
   const difficultyCourseIconElement = document.createElement("i");
-  difficultyCourseIconElement.classList.add("bi", "bi-reception-4");
+  difficultyCourseIconElement.classList.add("bi", "bi-reception-1");
   difficultyCourseIconContainerElement.appendChild(difficultyCourseIconElement);
 
   const difficultyCourseParagraphElement = document.createElement("p");
@@ -106,10 +190,10 @@ function generateAndAppendCards(course) {
   ratingCourseFifthIconElement.classList.add("bi", "bi-star");
   ratingCourseIconsContainerElement.appendChild(ratingCourseFifthIconElement);
 
-  const ratingCourseFirstParagraphElement = document.createElement("p");
-  ratingCourseFirstParagraphElement.classList.add("m-0");
-  ratingCourseFirstParagraphElement.innerText = course.rating;
-  ratingCourseContainerElement.appendChild(ratingCourseFirstParagraphElement);
+  const ratingCourseNumberElement = document.createElement("p");
+  ratingCourseNumberElement.classList.add("m-0");
+  ratingCourseNumberElement.innerText = course.rating;
+  ratingCourseContainerElement.appendChild(ratingCourseNumberElement);
 
   const ratingCourseSecondParagraphElement = document.createElement("p");
   ratingCourseSecondParagraphElement.classList.add("m-0");
@@ -121,11 +205,11 @@ function generateAndAppendCards(course) {
   cardBodyContainerElement.appendChild(coursePriceContainerElement);
 
   const courseDiscountedPriceElement = document.createElement("p");
-  courseDiscountedPriceElement.innerText = course.discountedPrice;
+  courseDiscountedPriceElement.innerText = `$${course.discountedPrice}`;
   coursePriceContainerElement.appendChild(courseDiscountedPriceElement);
 
   const courseOldPriceElement = document.createElement("p");
-  courseOldPriceElement.innerText = course.oldPrice;
+  courseOldPriceElement.innerText = `$${course.oldPrice}`;
   coursePriceContainerElement.appendChild(courseOldPriceElement);
 
   const cardFooterElement = document.createElement("div");
@@ -162,7 +246,98 @@ function generateAndAppendCards(course) {
   cardFooterIconElement.classList.add("bi", "bi-bookmark");
   cardFooterIconContainerElement.appendChild(cardFooterIconElement);
 
+  fillStarsRatingAccordingToRatingNumber(ratingCourseNumberElement, ratingCourseFirstIconElement, ratingCourseSecondIconElement, ratingCourseThirdIconElement, ratingCourseFourthIconElement, ratingCourseFifthIconElement);
+
+  fillBarChartAccordingToDifficultyParagraph(difficultyCourseParagraphElement, difficultyCourseIconElement);
+
 }
+
+function fillStarsRatingAccordingToRatingNumber(num, firstStar, secondStar, thirdStar, fourthStar, fifthStar) {
+  if (num.innerText === "0.5") {
+    firstStar.classList.remove("bi-star");
+    firstStar.classList.add("bi-star-half");
+  } else if (num.innerText === "1.0") {
+    firstStar.classList.remove("bi-star");
+    firstStar.classList.add("bi-star-fill");
+  } else if (num.innerText === "1.5") {
+    firstStar.classList.remove("bi-star");
+    firstStar.classList.add("bi-star-fill");
+    secondStar.classList.remove("bi-star");
+    secondStar.classList.add("bi-star-half");
+  } else if (num.innerText === "2.0") {
+    firstStar.classList.remove("bi-star");
+    firstStar.classList.add("bi-star-fill");
+    secondStar.classList.remove("bi-star");
+    secondStar.classList.add("bi-star-fill");
+  } else if (num.innerText === "2.5") {
+    firstStar.classList.remove("bi-star");
+    firstStar.classList.add("bi-star-fill");
+    secondStar.classList.remove("bi-star");
+    secondStar.classList.add("bi-star-fill");
+    thirdStar.classList.remove("bi-star");
+    thirdStar.classList.add("bi-star-half");
+  } else if (num.innerText === "3.0") {
+    firstStar.classList.remove("bi-star");
+    firstStar.classList.add("bi-star-fill");
+    secondStar.classList.remove("bi-star");
+    secondStar.classList.add("bi-star-fill");
+    thirdStar.classList.remove("bi-star");
+    thirdStar.classList.add("bi-star-fill");
+  } else if (num.innerText === "3.5") {
+    firstStar.classList.remove("bi-star");
+    firstStar.classList.add("bi-star-fill");
+    secondStar.classList.remove("bi-star");
+    secondStar.classList.add("bi-star-fill");
+    thirdStar.classList.remove("bi-star");
+    thirdStar.classList.add("bi-star-fill");
+    fourthStar.classList.remove("bi-star");
+    fourthStar.classList.add("bi-star-half");
+  } else if (num.innerText === "4.0") {
+    firstStar.classList.remove("bi-star");
+    firstStar.classList.add("bi-star-fill");
+    secondStar.classList.remove("bi-star");
+    secondStar.classList.add("bi-star-fill");
+    thirdStar.classList.remove("bi-star");
+    thirdStar.classList.add("bi-star-fill");
+    fourthStar.classList.remove("bi-star");
+    fourthStar.classList.add("bi-star-fill");
+  } else if (num.innerText === "4.5") {
+    firstStar.classList.remove("bi-star");
+    firstStar.classList.add("bi-star-fill");
+    secondStar.classList.remove("bi-star");
+    secondStar.classList.add("bi-star-fill");
+    thirdStar.classList.remove("bi-star");
+    thirdStar.classList.add("bi-star-fill");
+    fourthStar.classList.remove("bi-star");
+    fourthStar.classList.add("bi-star-fill");
+    fifthStar.classList.remove("bi-star");
+    fifthStar.classList.add("bi-star-half");
+  } else if (num.innerText === "5.0") {
+    firstStar.classList.remove("bi-star");
+    firstStar.classList.add("bi-star-fill");
+    secondStar.classList.remove("bi-star");
+    secondStar.classList.add("bi-star-fill");
+    thirdStar.classList.remove("bi-star");
+    thirdStar.classList.add("bi-star-fill");
+    fourthStar.classList.remove("bi-star");
+    fourthStar.classList.add("bi-star-half");
+    fifthStar.classList.remove("bi-star");
+    fifthStar.classList.add("bi-star-fill");
+  }
+}
+
+function fillBarChartAccordingToDifficultyParagraph(level, icon) {
+  if (level.innerText === "Beginner") {
+    icon.classList.remove("bi-reception-1");
+    icon.classList.add("bi-reception-2");
+  } else if (level.innerText === "Intermediate") {
+    icon.classList.remove("bi-reception-1");
+    icon.classList.add("bi-reception-3");
+  } else if (level.innerText === "Advance") {
+    icon.classList.remove("bi-reception-1");
+    icon.classList.add("bi-reception-4");
+  }
+};
 
 courses.forEach(course => {
   generateAndAppendCards(course)
