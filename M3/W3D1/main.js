@@ -438,3 +438,20 @@ const thirdSwiper = new Swiper('.third-swiper', {
     },
   }
 });
+
+
+// esercizio W3D4 - pratica (con JS invece di CSS)
+
+/*
+const bookmarkIconElement = document.querySelector(".bi-bookmark");
+
+bookmarkIconElement.addEventListener("mouseenter", () => {
+  bookmarkIconElement.classList.remove("bi-bookmark");
+  bookmarkIconElement.classList.add("bi-bookmark-fill");
+})
+
+bookmarkIconElement.addEventListener("mouseleave", () => {
+  bookmarkIconElement.classList.remove("bi-bookmark-fill");
+  bookmarkIconElement.classList.add("bi-bookmark");
+})
+*/
