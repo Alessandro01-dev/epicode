@@ -355,7 +355,6 @@ courses.forEach(course => {
 const firstSwiper = new Swiper('.first-swiper', {
 
   slidesPerView: 2,
-  centeredSlidesBounds: true,
   spaceBetween: 30,
   loop: true,
 
@@ -383,7 +382,6 @@ const firstSwiper = new Swiper('.first-swiper', {
 const secondSwiper = new Swiper('.second-swiper', {
 
   slidesPerView: 2,
-  centeredSlidesBounds: true,
   spaceBetween: 30,
   loop: true,
 
@@ -411,7 +409,6 @@ const secondSwiper = new Swiper('.second-swiper', {
 const thirdSwiper = new Swiper('.third-swiper', {
 
   slidesPerView: 2,
-  centeredSlidesBounds: true,
   spaceBetween: 30,
   loop: true,
 
