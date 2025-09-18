@@ -107,7 +107,7 @@ const ThirdSwiperWrapperElement = document.querySelector(".third-swiper-wrapper"
 function generateCourseCards(course, swiperWrapper) {
 
   const swiperSlideElement = document.createElement("div");
-  swiperSlideElement.classList.add("swiper-slide");
+  swiperSlideElement.classList.add("swiper-slide", "d-flex", "justify-content-center");
   swiperWrapper.appendChild(swiperSlideElement);
 
   const courseCardElement = document.createElement("div");
