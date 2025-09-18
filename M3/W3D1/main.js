@@ -1,6 +1,6 @@
 const courses = [
   {
-    courseImgSrc: "./assets/course-graphQL.jpg",
+    courseImgSrc: "./assets/course-graphql.jpg",
     courseImgAlt: "GraphQL course picture",
     title: "GraphQL: introduction to graphQL for beginners",
     length: "2h 40m",
@@ -99,13 +99,16 @@ const courses = [
   },
 ];
 
-const swiperWrapperElement = document.querySelector(".swiper-wrapper");
+const FirstSwiperWrapperElement = document.querySelector(".first-swiper-wrapper");
+const SecondSwiperWrapperElement = document.querySelector(".second-swiper-wrapper");
+const ThirdSwiperWrapperElement = document.querySelector(".third-swiper-wrapper");
 
-function generateAndAppendCards(course) {
+
+function generateCourseCards(course, swiperWrapper) {
 
   const swiperSlideElement = document.createElement("div");
   swiperSlideElement.classList.add("swiper-slide");
-  swiperWrapperElement.appendChild(swiperSlideElement);
+  swiperWrapper.appendChild(swiperSlideElement);
 
   const courseCardElement = document.createElement("div");
   courseCardElement.classList.add("card", "course-card");
@@ -344,10 +347,12 @@ function fillBarChartAccordingToDifficultyParagraph(level, icon) {
 };
 
 courses.forEach(course => {
-  generateAndAppendCards(course)
+  generateCourseCards(course, FirstSwiperWrapperElement);
+  generateCourseCards(course, SecondSwiperWrapperElement);
+  generateCourseCards(course, ThirdSwiperWrapperElement);
 })
 
-const swiper = new Swiper('.swiper', {
+const firstSwiper = new Swiper('.first-swiper', {
 
   slidesPerView: 2,
   centeredSlidesBounds: true,
@@ -355,8 +360,8 @@ const swiper = new Swiper('.swiper', {
   loop: true,
 
   navigation: {
-    nextEl: '.arrow-right',
-    prevEl: '.arrow-left',
+    nextEl: '.first-swiper-arrow-right',
+    prevEl: '.first-swiper-arrow-left',
   },
 
   breakpoints: {
@@ -375,4 +380,58 @@ const swiper = new Swiper('.swiper', {
   }
 });
 
+const secondSwiper = new Swiper('.second-swiper', {
 
+  slidesPerView: 2,
+  centeredSlidesBounds: true,
+  spaceBetween: 30,
+  loop: true,
+
+  navigation: {
+    nextEl: '.second-swiper-arrow-right',
+    prevEl: '.second-swiper-arrow-left',
+  },
+
+  breakpoints: {
+    576: {
+      slidesPerView: 2,
+    },
+    768: {
+      slidesPerView: 2,
+    },
+    992: {
+      slidesPerView: 3,
+    },
+    1200: {
+      slidesPerView: 4,
+    },
+  }
+});
+
+const thirdSwiper = new Swiper('.third-swiper', {
+
+  slidesPerView: 2,
+  centeredSlidesBounds: true,
+  spaceBetween: 30,
+  loop: true,
+
+  navigation: {
+    nextEl: '.third-swiper-arrow-right',
+    prevEl: '.third-swiper-arrow-left',
+  },
+
+  breakpoints: {
+    576: {
+      slidesPerView: 2,
+    },
+    768: {
+      slidesPerView: 2,
+    },
+    992: {
+      slidesPerView: 3,
+    },
+    1200: {
+      slidesPerView: 4,
+    },
+  }
+});
