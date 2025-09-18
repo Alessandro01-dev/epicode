@@ -37,6 +37,19 @@
   position: relative;
 }
 
+.profile-picture-container:focus,
+.profile-picture-container:not(:focus) {
+  border-radius: 50%;
+}
+
+.profile-dropdowm-items p {
+  font-size: 14px;
+}
+
+.profile-dropdowm-items i {
+  font-size: 12px;
+}
+
 .profile-picture-container::after {
   content: "";
   height: 12px;
@@ -54,6 +67,16 @@
   border-radius: 50%;
 }
 
+.profile-picture-info-container p:nth-of-type(1) {
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.profile-picture-info-container p:nth-of-type(2) {
+  font-size: 14px;
+  color: rgb(155, 155, 155);
+}
+
 main {
   background-color: rgb(117, 80, 254);
 }
@@ -63,6 +86,7 @@ main {
   font-weight: 500;
   border: none;
   border-radius: 4px;
+  text-wrap: nowrap;
 }
 
 .hero-buttons-container button:nth-of-type(1) {
@@ -97,23 +121,23 @@ main {
 }
 
 .course-card {
-  width: 18rem;
+  width: 14rem;
   border: none;
 }
 
 .card-body {
-  padding: 24px 28px;
+  padding: 18px 4px 18px 18px;
 }
 
 .card-course-title {
-  font-size: 16px;
+  font-size: 15px;
   font-weight: 400;
   padding-right: 12px;
   line-height: 1.4rem;
 }
 
 .length-and-level-course-container div p:first-of-type {
-  font-size: 14px;
+  font-size: 12px;
   font-weight: 300;
   color: rgb(92, 87, 118);
 }
@@ -125,6 +149,7 @@ main {
 .rating-course-container div:first-of-type i,
 .rating-course-container p:first-of-type {
   color: rgb(255, 170, 70);
+  font-size: 12px;
 }
 
 .rating-course-container p:first-of-type {
@@ -139,8 +164,9 @@ main {
 }
 
 .course-price-container p:first-of-type {
-  font-size: 15px;
+  font-size: 14px;
   font-weight: 500;
+  margin: 0;
 }
 
 .course-price-container p:nth-of-type(2) {
@@ -148,10 +174,11 @@ main {
   font-size: 13px;
   font-weight: 200;
   text-decoration: line-through;
+  margin: 0;
 }
 
 .card-footer {
-  padding: 12px 28px;
+  padding: 12px 18px;
 }
 
 .avatar-card-footer-container img {
@@ -161,11 +188,61 @@ main {
 }
 
 .card-footer div div:first-of-type p {
-  font-size: 14px;
+  font-size: 12px;
   color: rgb(92, 87, 118);
 }
 
 .card-footer div div:nth-of-type(2) i {
   font-size: 12px;
   color: rgb(92, 87, 118);
+}
+
+/* swiper */
+
+.swiper {
+  width: 100%;
+  height: 100%;
+}
+
+.arrow-left,
+.arrow-right {
+  background-color: white;
+  border-radius: 50%;
+  padding: 24px;
+  width: 12px;
+  height: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.arrow-left i,
+.arrow-right i {
+  color: rgb(207, 203, 218);
+  -webkit-text-stroke: 1px;
+}
+
+@media (max-width: 768px) {
+
+  .swiper-wrapper {
+    position: relative;
+  }
+
+  .arrow-left,
+  .arrow-right {
+    position: absolute;
+    top: 50;
+    z-index: 100;
+    opacity: 0.55;
+  }
+
+  .arrow-left {
+    left: 0;
+    transform: translateX(60px);
+  }
+
+  .arrow-right {
+    right: 0;
+    transform: translateX(-60px);
+  }
 }

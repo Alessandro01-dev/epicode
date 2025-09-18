@@ -99,13 +99,17 @@ const courses = [
   },
 ];
 
-const coursesCardsContainerElement = document.querySelector(".courses-cards-container");
+const swiperWrapperElement = document.querySelector(".swiper-wrapper");
 
 function generateAndAppendCards(course) {
 
+  const swiperSlideElement = document.createElement("div");
+  swiperSlideElement.classList.add("swiper-slide");
+  swiperWrapperElement.appendChild(swiperSlideElement);
+
   const courseCardElement = document.createElement("div");
   courseCardElement.classList.add("card", "course-card");
-  coursesCardsContainerElement.appendChild(courseCardElement);
+  swiperSlideElement.appendChild(courseCardElement);
 
   const courseImgElement = document.createElement("img");
   courseImgElement.classList.add("card-img-top");
@@ -118,7 +122,7 @@ function generateAndAppendCards(course) {
   courseCardElement.appendChild(courseCardBodyElement);
 
   const cardBodyContainerElement = document.createElement("div");
-  cardBodyContainerElement.classList.add("d-flex", "flex-column", "gap-3");
+  cardBodyContainerElement.classList.add("d-flex", "flex-column", "gap-2");
   courseCardBodyElement.appendChild(cardBodyContainerElement);
 
   const courseTitleElement = document.createElement("h5");
@@ -342,3 +346,33 @@ function fillBarChartAccordingToDifficultyParagraph(level, icon) {
 courses.forEach(course => {
   generateAndAppendCards(course)
 })
+
+const swiper = new Swiper('.swiper', {
+
+  slidesPerView: 2,
+  centeredSlidesBounds: true,
+  spaceBetween: 30,
+  loop: true,
+
+  navigation: {
+    nextEl: '.arrow-right',
+    prevEl: '.arrow-left',
+  },
+
+  breakpoints: {
+    576: {
+      slidesPerView: 2,
+    },
+    768: {
+      slidesPerView: 2,
+    },
+    992: {
+      slidesPerView: 3,
+    },
+    1200: {
+      slidesPerView: 4,
+    },
+  }
+});
+
+
