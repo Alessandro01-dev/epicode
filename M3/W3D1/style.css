@@ -124,6 +124,7 @@ main {
   width: 14rem;
   height: 24rem;
   border: none;
+  box-shadow: rgba(0, 0, 0, 0.1) 4px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
 }
 
 .card-body {
@@ -203,6 +204,7 @@ main {
 .swiper {
   width: 100%;
   height: 100%;
+  padding: 8px;
 }
 
 .arrow-left,
@@ -234,16 +236,26 @@ main {
     position: absolute;
     top: 50;
     z-index: 100;
-    opacity: 0.55;
+    opacity: 0.6;
   }
 
   .arrow-left {
     left: 0;
-    transform: translateX(60px);
+    transform: translateX(20px);
   }
 
   .arrow-right {
     right: 0;
-    transform: translateX(-60px);
+    transform: translateX(-20px);
   }
+}
+
+footer {
+  background-color: rgb(245, 244, 248);
+  color: rgb(155, 155, 155);
+  font-size: 10px;  
+}
+
+.footer-list li a {
+  color: rgb(155, 155, 155);
 }

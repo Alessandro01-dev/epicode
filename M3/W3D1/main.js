@@ -357,6 +357,8 @@ const firstSwiper = new Swiper('.first-swiper', {
   slidesPerView: 2,
   spaceBetween: 30,
   loop: true,
+  slideShadows: true,
+  grabCursor: true,
 
   navigation: {
     nextEl: '.first-swiper-arrow-right',
@@ -384,6 +386,8 @@ const secondSwiper = new Swiper('.second-swiper', {
   slidesPerView: 2,
   spaceBetween: 30,
   loop: true,
+  slideShadows: true,
+  grabCursor: true,
 
   navigation: {
     nextEl: '.second-swiper-arrow-right',
@@ -411,6 +415,8 @@ const thirdSwiper = new Swiper('.third-swiper', {
   slidesPerView: 2,
   spaceBetween: 30,
   loop: true,
+  slideShadows: true,
+  grabCursor: true,
 
   navigation: {
     nextEl: '.third-swiper-arrow-right',
