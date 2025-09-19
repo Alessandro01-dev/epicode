@@ -93,7 +93,7 @@ const courses = [
     numberOfRatings: "16,500",
     discountedPrice: "800",
     oldPrice: "850",
-    teacherProfilePictureSrc: "./assets/avatar-6.jpg",
+    teacherProfilePictureSrc: "./assets/avatar-1.jpg",
     teacherProfilePictureAlt: "Jenny Wilson profile picture",
     teacherName: "Jenny Wilson",
   },

@@ -463,11 +463,11 @@ checkboxElement.addEventListener("click", displayAgreeMessage);
 const inputElement = document.getElementById("email");
 
 inputElement.addEventListener("focus", () => {
-  inputElement.style.borderColor = "blue";
+  inputElement.style.outlineColor = "blue";
 });
 
 inputElement.addEventListener("blur", () => {
-  inputElement.style.border = "1px solid rgb(118, 118, 118)";
+  inputElement.style.outlineColor = "initial";
 });
 */
 

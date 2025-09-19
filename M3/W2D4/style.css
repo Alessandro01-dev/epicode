@@ -1,0 +1,45 @@
+.navbar-brand img {
+  height: 36px;
+  width: 36px;
+}
+
+.swiper-wrapper {
+  position: relative;
+}
+
+.swiper-slide img {
+  object-fit: cover;
+  height: 100%;
+}
+
+.swiper {
+  position: relative;
+  width: 100%;
+  height: 600px;
+}
+
+.jumbotron {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 999;
+  background-color: transparent;
+  color: white;
+}
+
+.jumbotron p a {
+  background-color: transparent;
+  border: 1.6px solid white;
+  color: white;
+}
+
+.jumbotron p a:hover {
+  background-color: white;
+  color: black;
+  border-color: white;
+}
+
+.jumbotron p:first-of-type {
+  border-bottom: 1.6px solid rgb(200, 200, 200, 0.6);
+}
