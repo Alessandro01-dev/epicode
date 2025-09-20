@@ -50,6 +50,7 @@
 
 .cards-container {
   display: flex;
+  justify-content: space-between;
   gap: 12px;
   flex-wrap: wrap;
 }
@@ -57,8 +58,11 @@
 .card {
   width: 14rem;
   height: 22rem;
-  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
   cursor: pointer;
+}
+
+.welcome-summer-cards-container .card {
+  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
 }
 
 .card:hover {
@@ -134,4 +138,48 @@
 
 html {
   scroll-behavior: smooth;
+}
+
+.todaysdeal-card-container .card {
+  width: 80%;
+}
+
+.hide-cards-containers {
+  display: none;
+}
+
+.rotate-chevron {
+  transform: rotate(-180deg);
+  transition: transform 0.3s ease;
+  color: red
+}
+
+.bi-chevron-down-container {
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  border-radius: 50%;
+  height: 24px;
+  width: 24px;
+}
+
+.bi-chevron-down-container:hover {
+  background-color: rgba(210, 210, 210, 0.2);
+}
+
+.todays-deal-price {
+  font-size: 20px;
+}
+
+.todays-deal-price del {
+  font-size: 10px;
+  animation: none;
+}
+
+.bi-calendar4-range {
+  margin-right: 12px;
+}
+
+.todays-deal-card-title {
+  font-size: 26px;
 }

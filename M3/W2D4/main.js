@@ -55,6 +55,7 @@ const swiper = new Swiper('.swiper', {
   autoplay: true,
   direction: 'horizontal',
   loop: true,
+  grabCursor: true,
 
   pagination: {
     el: '.swiper-pagination',

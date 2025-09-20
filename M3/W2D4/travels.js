@@ -421,30 +421,6 @@ const ourProductsTravel = [
 
 const offersOfTheWeekTravels = [
   {
-    placeImgSrc: "https://images.unsplash.com/photo-1502602898657-3e91760cbb34",
-    placeImgAlt: "Eiffel Tower view at sunset",
-    title: "Paris City Escape",
-    travelDuration: "5 days / 4 nights",
-    meansOfTransportation: "flight",
-    transferDuration: "2h from London",
-    rating: "4.0",
-    numberOfRatings: "230",
-    discountedPrice: "799",
-    oldPrice: "950"
-  },
-  {
-    placeImgSrc: "https://ik.imagekit.io/tvlk/blog/2024/07/shutterstock_2324082951.jpg?tr=q-70,c-at_max,w-500,h-250,dpr-2",
-    placeImgAlt: "Couple in Bali with a temple view",
-    title: "Bali Adventure",
-    travelDuration: "7 days / 6 nights",
-    meansOfTransportation: "flight",
-    transferDuration: "12h from New York",
-    rating: "4.5",
-    numberOfRatings: "410",
-    discountedPrice: "1.299",
-    oldPrice: "1.550"
-  },
-  {
     placeImgSrc: "https://www.turismoroma.it/sites/default/files/Roma%20in%20breve.jpg",
     placeImgAlt: "View of Rome during golden hour",
     title: "Historic Rome Getaway",
@@ -492,6 +468,69 @@ const offersOfTheWeekTravels = [
     discountedPrice: "499",
     oldPrice: "590"
   },
+];
+
+const welcomeSummerTravels = [
+  {
+    placeImgSrc: "https://www.marrakech-desert-trips.com/wp-content/uploads/2023/07/Marrakech-to-Fes-desert-tour-3-days-900x500.jpg",
+    placeImgAlt: "girl and Marrakech desert",
+    title: "Marrakech Desert Journey",
+    travelDuration: "6 days / 5 nights",
+    meansOfTransportation: "flight",
+    transferDuration: "4h from Madrid",
+    rating: "4.5",
+    numberOfRatings: "260",
+    discountedPrice: "899",
+    oldPrice: "1.050"
+  },
+  {
+    placeImgSrc: "https://images.goway.com/production/styles/hero_s1_2xl/s3/hero/iStock-1137863101.jpg.webp?VersionId=TNqde4tjrqdi_HRPUjK4M.ozf0__Ik67&itok=_3r2F97l",
+    placeImgAlt: "Lisbon view and coast",
+    title: "Lisbon Coastal Adventure",
+    travelDuration: "5 days / 4 nights",
+    meansOfTransportation: "flight",
+    transferDuration: "3h from Paris",
+    rating: "4.0",
+    numberOfRatings: "190",
+    discountedPrice: "629",
+    oldPrice: "780"
+  },
+  {
+    placeImgSrc: "https://entiretravel.imgix.net/getmedia/778914be-69fe-41e1-9928-746833ce741c/Cover-Image-Best-Beaches-in-Maldives.jpeg?auto=format",
+    placeImgAlt: "Maldives overwater villas",
+    title: "Maldives Luxury Escape",
+    travelDuration: "7 days / 6 nights",
+    meansOfTransportation: "flight",
+    transferDuration: "10h from Dubai",
+    rating: "5.0",
+    numberOfRatings: "410",
+    discountedPrice: "2.299",
+    oldPrice: "2.750"
+  },
+  {
+    placeImgSrc: "https://www.mocomuseum.com/app/uploads/2025/04/269508.jpg",
+    placeImgAlt: "Barcelona Sagrada Familia and city view",
+    title: "Barcelona Sun & Culture",
+    travelDuration: "5 days / 4 nights",
+    meansOfTransportation: "flight",
+    transferDuration: "1h from Madrid",
+    rating: "4.5",
+    numberOfRatings: "420",
+    discountedPrice: "759",
+    oldPrice: "920"
+  },
+  {
+    placeImgSrc: "https://ik.imagekit.io/tvlk/blog/2024/07/shutterstock_2324082951.jpg?tr=q-70,c-at_max,w-500,h-250,dpr-2",
+    placeImgAlt: "Couple in Bali with a temple view",
+    title: "Bali Adventure",
+    travelDuration: "7 days / 6 nights",
+    meansOfTransportation: "flight",
+    transferDuration: "12h from New York",
+    rating: "4.5",
+    numberOfRatings: "410",
+    discountedPrice: "1.299",
+    oldPrice: "1.550"
+  },
   {
     placeImgSrc: "https://static2-viaggi.corriereobjects.it/wp-content/uploads/2022/08/iStock-166471469-1080x720.jpg?v=1659884245",
     placeImgAlt: "Santorini white houses, blue domes and the coast",
@@ -503,6 +542,21 @@ const offersOfTheWeekTravels = [
     numberOfRatings: "275",
     discountedPrice: "899",
     oldPrice: "1.050"
+  }
+];
+
+const lastMinuteTravels = [
+  {
+    placeImgSrc: "https://images.unsplash.com/photo-1502602898657-3e91760cbb34",
+    placeImgAlt: "Eiffel Tower view at sunset",
+    title: "Paris City Escape",
+    travelDuration: "5 days / 4 nights",
+    meansOfTransportation: "flight",
+    transferDuration: "2h from London",
+    rating: "4.0",
+    numberOfRatings: "230",
+    discountedPrice: "799",
+    oldPrice: "950"
   },
   {
     placeImgSrc: "https://static0.thetravelimages.com/wordpress/wp-content/uploads/2022/10/brandenburg-gate-(Brandenburger-Tor)-in-Berlin-in-the-evening.jpg",
@@ -527,18 +581,6 @@ const offersOfTheWeekTravels = [
     numberOfRatings: "300",
     discountedPrice: "699",
     oldPrice: "850"
-  },
-  {
-    placeImgSrc: "https://www.mocomuseum.com/app/uploads/2025/04/269508.jpg",
-    placeImgAlt: "Barcelona Sagrada Familia and city view",
-    title: "Barcelona Sun & Culture",
-    travelDuration: "5 days / 4 nights",
-    meansOfTransportation: "flight",
-    transferDuration: "1h from Madrid",
-    rating: "4.5",
-    numberOfRatings: "420",
-    discountedPrice: "759",
-    oldPrice: "920"
   },
   {
     placeImgSrc: "https://www.japanrailpassnow.com/wp-content/uploads/2016/09/Tokyo-Tower-Twilight.jpg",
@@ -601,42 +643,6 @@ const offersOfTheWeekTravels = [
     oldPrice: "640"
   },
   {
-    placeImgSrc: "https://entiretravel.imgix.net/getmedia/778914be-69fe-41e1-9928-746833ce741c/Cover-Image-Best-Beaches-in-Maldives.jpeg?auto=format",
-    placeImgAlt: "Maldives overwater villas",
-    title: "Maldives Luxury Escape",
-    travelDuration: "7 days / 6 nights",
-    meansOfTransportation: "flight",
-    transferDuration: "10h from Dubai",
-    rating: "5.0",
-    numberOfRatings: "410",
-    discountedPrice: "2.299",
-    oldPrice: "2.750"
-  },
-  {
-    placeImgSrc: "https://images.goway.com/production/styles/hero_s1_2xl/s3/hero/iStock-1137863101.jpg.webp?VersionId=TNqde4tjrqdi_HRPUjK4M.ozf0__Ik67&itok=_3r2F97l",
-    placeImgAlt: "Lisbon view and coast",
-    title: "Lisbon Coastal Adventure",
-    travelDuration: "5 days / 4 nights",
-    meansOfTransportation: "flight",
-    transferDuration: "3h from Paris",
-    rating: "4.0",
-    numberOfRatings: "190",
-    discountedPrice: "629",
-    oldPrice: "780"
-  },
-  {
-    placeImgSrc: "https://www.marrakech-desert-trips.com/wp-content/uploads/2023/07/Marrakech-to-Fes-desert-tour-3-days-900x500.jpg",
-    placeImgAlt: "girl and Marrakech desert",
-    title: "Marrakech Desert Journey",
-    travelDuration: "6 days / 5 nights",
-    meansOfTransportation: "flight",
-    transferDuration: "4h from Madrid",
-    rating: "4.5",
-    numberOfRatings: "260",
-    discountedPrice: "899",
-    oldPrice: "1.050"
-  },
-  {
     placeImgSrc: "https://media-cdn.tripadvisor.com/media/attractions-splice-spp-674x446/10/02/50/45.jpg",
     placeImgAlt: "New York view and Statue of Liberty",
     title: "New York Highlights",
@@ -650,7 +656,10 @@ const offersOfTheWeekTravels = [
   }
 ];
 
-const cardsContainer = document.querySelector(".cards-container");
+const ourProductsCardsContainerElement = document.querySelector(".our-products-cards-container");
+const offersOfTheWeekCardsContainerElement = document.querySelector(".offers-of-the-week-cards-container");
+const welcomeSummerCardsContainerElement = document.querySelector(".welcome-summer-cards-container");
+const lastMinuteCardsContainerElement = document.querySelector(".last-minute-cards-container");
 
 function generateTravelsCards(travel, cardsContainer) {
 
@@ -869,9 +878,72 @@ function changeTransportationIconAccordingToMeansOfTransportation(travel, transp
 };
 
 ourProductsTravel.forEach(travel => {
-  generateTravelsCards(travel, cardsContainer);
+  generateTravelsCards(travel, ourProductsCardsContainerElement);
 });
 
 offersOfTheWeekTravels.forEach(travel => {
-  generateTravelsCards(travel, cardsContainer);
+  generateTravelsCards(travel, offersOfTheWeekCardsContainerElement);
 });
+
+welcomeSummerTravels.forEach(travel => {
+  generateTravelsCards(travel, welcomeSummerCardsContainerElement);
+});
+
+lastMinuteTravels.forEach(travel => {
+  generateTravelsCards(travel, lastMinuteCardsContainerElement);
+});
+
+const ourProductsSectionChevronElement = document.querySelector(".our-products-section-chevron");
+const weeklyDealsSectionChevronElement = document.querySelector(".weekly-deals-section-chevron");
+const welcomeSummerSectionChevronElement = document.querySelector(".welcome-summer-section-chevron");
+const todaysDealSectionChevronElement = document.querySelector(".todays-deal-section-chevron");
+const lastMinuteDealsSectionChevronElement = document.querySelector(".last-minute-deals-section-chevron");
+
+const todaysDealSectionContainerElement = document.querySelector(".todaysdeal-card-container");
+
+function hideAndDisplayCardsContainers() {
+  ourProductsSectionChevronElement.addEventListener("click", () => {
+    ourProductsCardsContainerElement.classList.toggle("hide-cards-containers");
+  });
+  weeklyDealsSectionChevronElement.addEventListener("click", () => {
+    offersOfTheWeekCardsContainerElement.classList.toggle("hide-cards-containers");
+  });
+  welcomeSummerSectionChevronElement.addEventListener("click", () => {
+    welcomeSummerCardsContainerElement.classList.toggle("hide-cards-containers");
+  });
+  todaysDealSectionChevronElement.addEventListener("click", () => {
+    if (todaysDealSectionContainerElement.classList.contains("d-flex")) {
+      todaysDealSectionContainerElement.classList.remove("d-flex");
+      todaysDealSectionContainerElement.classList.add("d-none");
+    } else {
+      todaysDealSectionContainerElement.classList.remove("d-none");
+      todaysDealSectionContainerElement.classList.add("d-flex");
+    }
+
+  });
+  lastMinuteDealsSectionChevronElement.addEventListener("click", () => {
+    lastMinuteCardsContainerElement.classList.toggle("hide-cards-containers");
+  });
+};
+hideAndDisplayCardsContainers();
+
+const chevronDownContainerElements = document.querySelectorAll(".bi-chevron-down-container");
+
+function toggleRotateChevronClassOnClick() {
+  chevronDownContainerElements.forEach(chevronDownContainerElement => {
+    chevronDownContainerElement.addEventListener("click", () => {
+      chevronDownContainerElement.classList.toggle("rotate-chevron");
+    });
+  });
+};
+toggleRotateChevronClassOnClick();
+
+const allCardsElements = document.querySelectorAll(".card");
+
+
+// esercizio extra n.5
+function removeAllCardsElements() {
+  allCardsElements.forEach(singleCardElement => {
+    singleCardElement.remove();
+  })
+}
