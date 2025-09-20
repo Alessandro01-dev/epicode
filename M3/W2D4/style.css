@@ -176,10 +176,19 @@ html {
   animation: none;
 }
 
-.bi-calendar4-range {
-  margin-right: 12px;
+.todays-deal-card-info-container {
+  width: 75%;
+}
+
+.todays-deal-card-info-container div i {
+  margin-right: 10px;
 }
 
 .todays-deal-card-title {
   font-size: 26px;
+}
+
+.section-title-container {
+  padding-bottom: 12px;
+  border-bottom: 1px solid rgb(181, 181, 181);
 }
