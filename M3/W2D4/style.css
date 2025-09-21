@@ -192,3 +192,16 @@ html {
   padding-bottom: 12px;
   border-bottom: 1px solid rgb(181, 181, 181);
 }
+
+.testimonials-swiper .swiper-wrapper .swiper-slide {
+  padding: 6rem 0;
+}
+
+.testimonials-slide-content {
+  gap: 3rem;
+}
+
+.testimonials-slide-content p:first-of-type {
+  font-style: italic;
+  font-size: 20px;
+}

@@ -947,3 +947,24 @@ function removeAllCardsElements() {
     singleCardElement.remove();
   })
 }
+
+
+const ourProductsNumberElement = document.querySelector(".our-products-number");
+const weeklyDealsProductsNumberElement = document.querySelector(".weekly-deals-number");
+const welcomeSummerProductsNumberElement = document.querySelector(".welcome-summer-number");
+const lastMinuteProductsNumberElement = document.querySelector(".last-minute-number");
+
+function getAndDisplayNumberOfProductsForEachSection() {
+  ourProductsNumberElement.innerText = `(${ourProductsTravel.length})`;
+  weeklyDealsProductsNumberElement.innerText = `(${offersOfTheWeekTravels.length})`;
+  welcomeSummerProductsNumberElement.innerText = `(${welcomeSummerTravels.length})`;
+  lastMinuteProductsNumberElement.innerText = `(${lastMinuteTravels.length})`;
+};
+getAndDisplayNumberOfProductsForEachSection();
+
+const totalProductsNumberParagraphElement = document.querySelector(".total-products-number");
+
+function getAndDisplayTotalNumberOfProducts() {
+  totalProductsNumberParagraphElement.innerText = `total products: ${ourProductsTravel.length + offersOfTheWeekTravels.length + welcomeSummerTravels.length + lastMinuteTravels.length + 1}`; // il numero 1 è l'offerta del giorno che viene calcolata a parte
+}
+getAndDisplayTotalNumberOfProducts();

@@ -5,8 +5,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
-    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
 
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
 
@@ -23,15 +23,11 @@
     <a class="navbar-brand" href="./index.html"><img class="w-100"
         src="https://www.clipartmax.com/png/full/99-997394_new-travel-peeps-example-logo-of-travel-agency.png"
         alt="travel agency logo"></a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
 
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <div class="collapse navbar-collapse order-md-0 order-1" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item active">
-          <a class="nav-link" href="./index.html">Home <span class="sr-only">(current)</span></a>
+          <a class="nav-link" href="./index.html">Home</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="#offers-of-the-week">Weekly Deals</a>
@@ -46,20 +42,24 @@
           <a class="nav-link" href="#last-minute">Last Minute Deals</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Testimonial</a>
+          <a class="nav-link" href="#testimonials-section">Testimonial</a>
         </li>
       </ul>
-      <div class="d-flex">
-        <button class="btn btn-sm btn-dark">Log In</button>
-        <button class="btn btn-sm btn-dark">Sign Up</button>
-      </div>
+    </div>
+    <div class="d-flex">
+      <button class="btn btn-sm btn-dark m-3">Log In</button>
+      <button class="btn btn-sm btn-dark m-3">Sign Up</button>
+      <button class="navbar-toggler m-2" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
     </div>
   </nav>
 
   <main class="container-fluid">
     <div class="row swiper-container">
       <div class="col-12 m-0 p-0">
-        <div class="swiper">
+        <div class="swiper hero-swiper">
           <div class="swiper-wrapper hero-swiper-wrapper">
 
           </div>
@@ -88,77 +88,94 @@
   </main>
 
 
-  <div class="container-fluid py-5">
+  <section class="container-fluid py-5">
     <div class="row justify-content-center">
       <div class="col-10">
         <div class="d-flex justify-content-between align-items-center w-100 section-title-container">
-          <div class="d-flex align-items-end">
+          <div class="d-flex align-items-end gap-2">
             <h3 class="m-0">Our Products</h3>
-            <a class="ml-3 text-secondary" href="#">go to top</a>
+            <p class="text-secondary m-0 our-products-number"></p>
           </div>
 
-          <div class="bi-chevron-down-container">
-            <i class="bi bi-chevron-down our-products-section-chevron"></i>
+          <div class="d-flex gap-3">
+            <a class="text-secondary" href="#">go to top</a>
+            <div class="bi-chevron-down-container">
+              <i class="bi bi-chevron-down our-products-section-chevron"></i>
+            </div>
           </div>
+
         </div>
         <div class="cards-container justify-content-between our-products-cards-container mt-4">
 
         </div>
       </div>
     </div>
-  </div>
+  </section>
 
-  <div class="container-fluid py-5">
+  <section class="container-fluid py-5">
     <div class="row justify-content-center">
       <div class="col-10">
         <div class="d-flex justify-content-between align-items-center w-100 section-title-container">
-          <div class="d-flex align-items-end">
+          <div class="d-flex align-items-end gap-2">
             <h3 class="m-0" id="offers-of-the-week">Weekly Deals</h3>
-            <a class="ml-3 text-secondary" href="#">go to top</a>
+            <p class="text-secondary m-0 weekly-deals-number"></p>
           </div>
 
-          <div class="bi-chevron-down-container">
-            <i class="bi bi-chevron-down weekly-deals-section-chevron"></i>
+          <div class="d-flex gap-3">
+            <a class="text-secondary" href="#">go to top</a>
+            <div class="bi-chevron-down-container">
+              <i class="bi bi-chevron-down weekly-deals-section-chevron"></i>
+            </div>
           </div>
+
         </div>
         <div class="cards-container justify-content-between offers-of-the-week-cards-container mt-4">
 
         </div>
       </div>
     </div>
-  </div>
+  </section>
 
-  <div class="container-fluid py-5">
+  <section class="container-fluid py-5">
     <div class="row justify-content-center">
       <div class="col-10">
         <div class="d-flex justify-content-between align-items-center w-100 section-title-container">
-          <div class="d-flex align-items-end">
+          <div class="d-flex align-items-end gap-2">
             <h3 class="m-0" id="welcome-summer">Welcome Summer</h3>
-            <a class="ml-3 text-secondary" href="#">go to top</a>
+            <p class="text-secondary m-0 welcome-summer-number"></p>
           </div>
 
-          <div class="bi-chevron-down-container">
-            <i class="bi bi-chevron-down welcome-summer-section-chevron"></i>
+          <div class="d-flex gap-3">
+            <a class="text-secondary" href="#">go to top</a>
+            <div class="bi-chevron-down-container">
+              <i class="bi bi-chevron-down welcome-summer-section-chevron"></i>
+            </div>
           </div>
+
         </div>
         <div class="cards-container justify-content-between welcome-summer-cards-container mt-4">
 
         </div>
       </div>
     </div>
-  </div>
+  </section>
 
-  <div class="container-fluid py-5 d-none d-md-block">
+  <section class="container-fluid py-5 d-none d-md-block">
     <div class="row justify-content-center">
       <div class="col-10">
         <div class="d-flex justify-content-between align-items-center w-100 section-title-container">
-          <div class="d-flex align-items-end">
+          <div class="d-flex align-items-end gap-2">
             <h3 class="m-0" id="todays-deal">Today's Deal</h3>
-            <a class="ml-3 text-secondary" href="#">go to top</a>
+            <p class="text-secondary m-0">(1)</p>
           </div>
-          <div class="bi-chevron-down-container">
-            <i class="bi bi-chevron-down todays-deal-section-chevron"></i>
+
+          <div class="d-flex gap-3">
+            <a class="text-secondary" href="#">go to top</a>
+            <div class="bi-chevron-down-container">
+              <i class="bi bi-chevron-down todays-deal-section-chevron"></i>
+            </div>
           </div>
+
         </div>
         <div class="todaysdeal-card-container d-flex align-items-center justify-content-center mt-4">
           <div class="card">
@@ -198,27 +215,107 @@
         </div>
       </div>
     </div>
-  </div>
+  </section>
 
-  <div class="container-fluid py-5">
+  <section class="container-fluid py-5">
     <div class="row justify-content-center">
       <div class="col-10">
         <div class="d-flex justify-content-between align-items-center w-100 section-title-container">
-          <div class="d-flex align-items-end">
+          <div class="d-flex align-items-end gap-2">
             <h3 class="m-0" id="last-minute">Last Minute Deals</h3>
-            <a class="ml-3 text-secondary" href="#">go to top</a>
+            <p class="text-secondary m-0 last-minute-number"></p>
           </div>
-          <div class="bi-chevron-down-container">
-            <i class="bi bi-chevron-down last-minute-deals-section-chevron"></i>
+
+          <div class="d-flex gap-3">
+            <a class="text-secondary" href="#">go to top</a>
+            <div class="bi-chevron-down-container">
+              <i class="bi bi-chevron-down last-minute-deals-section-chevron"></i>
+            </div>
           </div>
+
         </div>
         <div class="cards-container justify-content-between last-minute-cards-container mt-4">
 
         </div>
       </div>
     </div>
+  </section>
+
+  <section class="container-fluid text-center">
+    <p class="text-secondary m-0 total-products-number"></p>
+  </section>
+
+  <section class="container-fluid py-5">
+    <div class="row justify-content-center bg-light py-5" id="testimonials-section">
+      <div class="col-10">
+        <div class="d-flex justify-content-between align-items-center w-100">
+          <div class="swiper testimonials-swiper">
+            <div class="swiper-wrapper">
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="container-fluid">
+    <div class="row justify-content-center pb-5">
+      <div class="col-10">
+        <div class="d-flex w-100 justify-content-between align-items-center">
+          <div class="d-flex flex-column">
+            <p class="m-0">Agency name</p>
+            <p class="m-0 text-secondary"><small>Address</small></p>
+            <p class="m-0 text-secondary"><small>Postcode and City</small></p>
+          </div>
+          <div class="d-flex flex-column justify-content-between">
+            <div>
+              <button type="button" class="btn btn-secondary mb-1" data-bs-toggle="modal"
+                data-bs-target="#exampleModal">
+                <i class="bi bi-envelope"></i>
+                Contact us</button>
+            </div>
+            <div class="text-secondary w-100 d-flex justify-content-between">
+              <i class="bi bi-facebook"></i>
+              <i class="bi bi-whatsapp"></i>
+              <i class="bi bi-twitter"></i>
+              <i class="bi bi-youtube"></i>
+              <i class="bi bi-instagram"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Contact us</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <p>Have questions about our tours or packages? Send us a message and we’ll get back to you shortly.</p>
+          <div class="d-flex flex-column gap-3">
+            <input type="email" placeholder="Your email">
+            <textarea placeholder="Write here your message..."></textarea>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Send message</button>
+        </div>
+      </div>
+    </div>
   </div>
 
+
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+    crossorigin="anonymous"></script>
   <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
     integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
     crossorigin="anonymous"></script>
@@ -232,7 +329,8 @@
   <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
 
   <script src="./main.js"></script>
-  <script src="travels.js"></script>
+  <script src="./travels.js"></script>
+  <script src="./testimonials.js"></script>
 
 </body>
 

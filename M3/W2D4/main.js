@@ -50,7 +50,7 @@ jumbotronDestinations.forEach(jumbotronDestination => {
 });
 
 
-const swiper = new Swiper('.swiper', {
+const heroSwiper = new Swiper('.hero-swiper', {
 
   autoplay: true,
   direction: 'horizontal',
@@ -62,3 +62,10 @@ const swiper = new Swiper('.swiper', {
     clickable: true,
   },
 });
+
+const myModal = document.getElementById('exampleModal')
+const myInput = document.getElementById('myInput')
+
+myModal.addEventListener('shown.bs.modal', () => {
+  myInput.focus()
+})
