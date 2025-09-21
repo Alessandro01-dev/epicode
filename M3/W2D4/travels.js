@@ -663,9 +663,13 @@ const lastMinuteCardsContainerElement = document.querySelector(".last-minute-car
 
 function generateTravelsCards(travel, cardsContainer) {
 
+  const travelCardContainerElement = document.createElement("div");
+  travelCardContainerElement.classList.add("travel-card-container");
+  cardsContainer.appendChild(travelCardContainerElement);
+
   const travelCardElement = document.createElement("div");
   travelCardElement.classList.add("card");
-  cardsContainer.appendChild(travelCardElement);
+  travelCardContainerElement.appendChild(travelCardElement);
 
   const travelImgElement = document.createElement("img");
   travelImgElement.classList.add("card-img-top", "w-100", "object-fit-cover");
@@ -968,3 +972,15 @@ function getAndDisplayTotalNumberOfProducts() {
   totalProductsNumberParagraphElement.innerText = `total products: ${ourProductsTravel.length + offersOfTheWeekTravels.length + welcomeSummerTravels.length + lastMinuteTravels.length + 1}`; // il numero 1 è l'offerta del giorno che viene calcolata a parte
 }
 getAndDisplayTotalNumberOfProducts();
+
+const weeklyDealsCardContainerElements = document.querySelectorAll(".offers-of-the-week-cards-container .travel-card-container");
+
+weeklyDealsCardContainerElements.forEach(weeklyDealsCardContainerElement => {
+  weeklyDealsCardContainerElement.classList.add("col-6", "col-md-4", "col-lg-3", "p-1");
+});
+
+const welcomeSummerCardContainerElements = document.querySelectorAll(".welcome-summer-cards-container .travel-card-container");
+
+welcomeSummerCardContainerElements.forEach(welcomeSummerCardContainerElement => {
+  welcomeSummerCardContainerElement.classList.add("col-6", "col-md-4", "col-lg-2", "p-1")
+})

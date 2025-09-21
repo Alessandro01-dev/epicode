@@ -48,17 +48,21 @@
   gap: 24px;
 }
 
-.cards-container {
+.our-products-cards-container,
+.last-minute-cards-container {
   display: flex;
-  justify-content: space-between;
   gap: 12px;
   flex-wrap: wrap;
 }
 
-.card {
+.our-products-cards-container .card,
+.last-minute-cards-container .card {
   width: 14rem;
   height: 22rem;
-  cursor: pointer;
+}
+
+.welcome-summer-cards-container .card {
+  height: 100%;
 }
 
 .welcome-summer-cards-container .card {
@@ -69,6 +73,7 @@
   transform: scale(1.02);
   box-shadow: none;
   border: .4px solid black;
+  cursor: pointer;
 }
 
 .card img {
