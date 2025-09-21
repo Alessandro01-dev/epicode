@@ -438,3 +438,21 @@ const thirdSwiper = new Swiper('.third-swiper', {
     },
   }
 });
+
+
+const bookmarkIconElements = document.querySelectorAll(".bi-bookmark");
+
+bookmarkIconElements.forEach(bookmarkIconElement => {
+  bookmarkIconElement.addEventListener("mouseover", () => {
+    bookmarkIconElement.classList.remove("bi-bookmark");
+    bookmarkIconElement.classList.add("bi-bookmark-fill");
+  });
+});
+
+bookmarkIconElements.forEach(bookmarkIconElement => {
+  bookmarkIconElement.addEventListener("mouseleave", () => {
+    bookmarkIconElement.classList.remove("bi-bookmark-fill");
+    bookmarkIconElement.classList.add("bi-bookmark");
+  });
+});
+
