@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css" />
+
+
+  <link rel="stylesheet" href="./style.css">
+
+  <title>Netflix clone</title>
+</head>
+
+<body>
+
+  <div class="container-fluid bg-black">
+    <div class="row">
+      <div class="col-12 col-md-10 mx-auto">
+        <nav class="navbar navbar-expand-lg bg-black" data-bs-theme="dark">
+          <div class="container-fluid p-0">
+            <a class="navbar-brand logo-container" href="#"><img class="w-100 object-fit-cover"
+                src="https://images.seeklogo.com/logo-png/25/2/netflix-logo-png_seeklogo-256429.png"
+                alt="Netflix logo"></a>
+            <div class="collapse navbar-collapse order-1" id="navbarNav">
+              <ul class="navbar-nav">
+                <li class="nav-item">
+                  <a class="nav-link" aria-current="page" href="#">Home</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link active" href="#">TV Shows</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">Movies</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">Recently Added</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">My List</a>
+                </li>
+              </ul>
+            </div>
+            <div class="d-flex align-items-center justify-content-between gap-md-3 order-md-2">
+              <div class="d-flex align-items-center justify-content-between gap-md-4 gap-2">
+                <div class="d-flex align-items-center position-relative">
+                  <input class="border border-white rounded-pill search-input" type="search">
+                  <i class="bi bi-search text-light position-absolute end-0 me-3 search-icon"></i>
+                </div>
+                <p class="text-light m-0">
+                  KIDS
+                </p>
+                <div class="notification-icon-container">
+                  <i class="bi bi-bell-fill text-light"></i>
+                </div>
+                <div class="btn-group profile-picture-container me-2 me-md-4">
+                  <img class="w-100 object-fit-cover d-none d-md-block me-2"
+                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQvUSsgagGF4H74xxzJSn1R72ssQG1b5S-bkw&s"
+                    alt="default profile picture">
+                  <div type="button"
+                    class="btn dropdown-toggle m-0 p-0 d-flex align-items-center justify-content-center"
+                    data-bs-toggle="dropdown" aria-expanded="false">
+                  </div>
+                  <ul class="dropdown-menu dropdown-menu-end">
+                    <li><a class="dropdown-item" href="#">Action</a></li>
+                    <li><a class="dropdown-item" href="#">Another action</a></li>
+                    <li><a class="dropdown-item" href="#">Something else here</a></li>
+                    <li>
+                      <hr class="dropdown-divider">
+                    </li>
+                    <li><a class="dropdown-item" href="#">Separated link</a></li>
+                  </ul>
+                </div>
+              </div>
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+            </div>
+
+          </div>
+        </nav>
+      </div>
+    </div>
+  </div>
+
+
+  <main class="container-fluid bg-black">
+    <div class="row">
+      <div class="col-12 col-md-10 mx-auto">
+        <div class="d-flex justify-content-between align-items-center">
+          <div class="d-flex align-items-center gap-5">
+            <h2 class="text-light">TV Shows</h2>
+            <select class="bg-dark border border-white-50 text-light p-1" name="Genres" id="select-genres">
+              <option disabled selected hidden>Genres</option>
+              <option>Drama</option>
+              <option>Thriller</option>
+              <option>Commedy</option>
+              <option>Cartoons</option>
+              <option>Soup Opera</option>
+            </select>
+          </div>
+          <div class="text-light d-flex">
+            <div class="border border-white-50 px-2 d-flex align-items-center justify-content-center"><i
+                class="bi bi-filter-left"></i></div>
+            <div class="border border-white-50 px-2 d-flex align-items-center justify-content-center"><i
+                class="bi bi-grid-fill"></i></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container-fluid bg-black">
+
+      <div class="row mt-5">
+        <div class="col-12 col-md-10 mx-auto mt-5 p-0">
+          <h3 class="text-light p-0">Trending Now</h3>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12 col-md-10 mx-auto p-0">
+          <div class="swiper w-100 trending-now-swiper">
+            <div class="swiper-wrapper trending-now-swiper-wrapper">
+
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      <div class="row mt-5">
+        <div class="col-12 col-md-10 mx-auto mt-5 p-0">
+          <h3 class="text-light p-0">Watch It Again</h3>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12 col-md-10 mx-auto p-0">
+          <div class="swiper w-100 watch-it-again-swiper">
+            <div class="swiper-wrapper watch-it-again-swiper-wrapper">
+
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      <div class="row mt-5">
+        <div class="col-12 col-md-10 mx-auto mt-5 p-0">
+          <h3 class="text-light p-0">New Releases</h3>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12 col-md-10 mx-auto p-0">
+          <div class="swiper w-100 new-releases-swiper">
+            <div class="swiper-wrapper new-releases-swiper-wrapper">
+
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="container-fluid bg-black">
+    <div class="row pt-5">
+      <div class="col-10 col-md-6 mx-auto mt-5 p-0">
+        <div class="d-flex gap-4 mb-2 footer-icons-container">
+          <i class="bi bi-facebook"></i>
+          <i class="bi bi-instagram"></i>
+          <i class="bi bi-twitter"></i>
+          <i class="bi bi-youtube"></i>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-10 col-md-6 mx-auto p-0">
+        <div class="d-flex justify-content-between gap-2 footer-list-container">
+          <ul class="p-0 text-light list-unstyled">
+            <li><a class="text-decoration-none" href="#">Audio and Subtitles</a></li>
+            <li><a class="text-decoration-none" href="#">Media Center</a></li>
+            <li><a class=" text-decoration-none" href="#">Privacy</a></li>
+            <li><a class="text-decoration-none" href="#">Contact Us</a></li>
+          </ul>
+          <ul class="p-0 text-light list-unstyled">
+            <li><a class="text-decoration-none" href="#">Audio Description</a></li>
+            <li><a class="text-decoration-none" href="#">Investor Relations</a></li>
+            <li><a class="text-decoration-none" href="#">Legal Notices</a></li>
+          </ul>
+          <ul class="p-0 text-light list-unstyled">
+            <li><a class="text-decoration-none" href="#">Help Center</a></li>
+            <li><a class="text-decoration-none" href="#">Jobs</a></li>
+            <li><a class="text-decoration-none" href="#">Cookie Preferences</a></li>
+          </ul>
+          <ul class="p-0 text-light list-unstyled">
+            <li><a class="text-decoration-none" href="#">Gift Cards</a></li>
+            <li><a class="text-decoration-none" href="#">Terms of Use</a></li>
+            <li><a class="text-decoration-none" href="#">Corporate Information</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-10 col-md-6 mx-auto p-0">
+        <button class="footer-btn">Service Code</button>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-10 col-md-6 mx-auto p-0 footer-copyright-paragraph">
+        <p>&#169;	1997-2019 Netflix, Inc. {i-0d00fcda2fdf9c0de}</p>
+      </div>
+    </div>
+  </footer>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+    integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.min.js"
+    integrity="sha384-G/EV+4j2dNv+tEPo3++6LCgdCROaejBqfUeNjuKAiuXbjrxilcCdDz6ZAVfHWe1Y"
+    crossorigin="anonymous"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
+
+
+  <script src="./main.js"></script>
+  <script src="./movies.js"></script>
+
+</body>
+
+</html>
