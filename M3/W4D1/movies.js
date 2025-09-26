@@ -173,20 +173,24 @@ function createSwiperSlide(movie, swiperWrapperElement) {
   movieTitleElement.innerText = movie.title;
   movieOverlayContainerElement.appendChild(movieTitleElement);
 
-  const movieYearElement = document.createElement("div");
-  movieYearElement.classList.add("ol-movie-year");
-  movieYearElement.innerText = movie.year;
-  movieOverlayContainerElement.appendChild(movieYearElement);
-
-  const movieGenreElement = document.createElement("div");
-  movieGenreElement.classList.add("badge", "text-bg-secondary", "ol-movie-genre");
-  movieGenreElement.innerText = movie.genre;
-  movieOverlayContainerElement.appendChild(movieGenreElement);
-
   const movieDescriptionElement = document.createElement("p");
   movieDescriptionElement.classList.add("ol-movie-description");
   movieDescriptionElement.innerText = movie.description;
   movieOverlayContainerElement.appendChild(movieDescriptionElement);
+
+  const yearAndGenreContainerElement = document.createElement("div");
+  yearAndGenreContainerElement.classList.add("d-flex", "gap-3", "justify-content-between", "align-items-center");
+  movieOverlayContainerElement.appendChild(yearAndGenreContainerElement);
+
+  const movieYearElement = document.createElement("div");
+  movieYearElement.classList.add("ol-movie-year");
+  movieYearElement.innerText = movie.year;
+  yearAndGenreContainerElement.appendChild(movieYearElement);
+
+  const movieGenreElement = document.createElement("div");
+  movieGenreElement.classList.add("badge", "text-bg-secondary", "ol-movie-genre");
+  movieGenreElement.innerText = movie.genre;
+  yearAndGenreContainerElement.appendChild(movieGenreElement);
 
 }
 
@@ -297,3 +301,45 @@ const newReleasesSwiper = new Swiper('.new-releases-swiper', {
     },
   }
 });
+
+const trendingNowTitleRowElement = document.querySelector(".trending-now-title-row");
+const trendingNowSwiperRowElement = document.querySelector(".trending-now-swiper-row");
+const watchItAgainTitleRowElement = document.querySelector(".watch-it-again-title-row");
+const watchItAgainSwiperRowElement = document.querySelector(".watch-it-again-swiper-row");
+const newReleasesTitleRowElement = document.querySelector(".new-releases-title-row");
+const newReleasesSwiperRowElement = document.querySelector(".new-releases-swiper-row");
+
+function addShowClassToElement(element) {
+  document.addEventListener("DOMContentLoaded", () => {
+    element.classList.add("show-element")
+  })
+}
+
+addShowClassToElement(trendingNowTitleRowElement);
+addShowClassToElement(trendingNowSwiperRowElement);
+addShowClassToElement(watchItAgainTitleRowElement);
+addShowClassToElement(watchItAgainSwiperRowElement);
+
+/* 
+addShowClassToElement(newReleasesTitleRowElement);
+addShowClassToElement(newReleasesSwiperRowElement);
+*/ 
+// trying IntersectionObserve API for these elements
+
+const observerOptions = {
+  root: null, // use the viewport as the container
+  rootMargin: "0px",
+  threshold: 0.5, // trigger when 50% of the element is visible
+}
+
+const observer = new IntersectionObserver((entries, observer) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add("show-element");
+      observer.unobserve(entry.target); // stop observing once the animation runs
+    }
+  });
+}, observerOptions);
+
+observer.observe(newReleasesTitleRowElement);
+observer.observe(newReleasesSwiperRowElement);
