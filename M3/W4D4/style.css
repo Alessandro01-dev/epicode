@@ -1,0 +1,94 @@
+body {
+  background-color: rgb(231, 242, 234);
+}
+
+nav {
+  background-color: rgb(118, 180, 132);
+}
+
+.logo-container {
+  width: 120px;
+  height: 64px;
+}
+
+.hamburger-icon {
+  width: 40px;
+  height: 40px;
+  stroke: white;
+}
+
+.hamburger-menu {
+  background-color: transparent;
+  border: none;
+  border-radius: 6px;
+  position: relative;
+  z-index: 1;
+}
+
+.hamburger-menu.active .line1 {
+  transform: rotate(45deg) translate(0, 6px);
+}
+
+.hamburger-menu.active .line2 {
+  opacity: 0;
+}
+
+.hamburger-menu.active .line3 {
+  transform: rotate(-45deg) translate(0, -6px);
+}
+
+.hamburger-line {
+  transform-origin: center;
+  transition: all .5s ease-in-out;
+}
+
+aside {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 400px;
+  height: 100vh;
+  transform: translateX(100%);
+  background-color: rgb(18, 35, 23);
+  transition: transform 1s ease-in-out;
+}
+
+.menu-title {
+  color: rgb(221, 228, 221);
+}
+
+ul {
+  margin-bottom: 3rem;
+}
+
+ul li {
+  font-size: 24px;
+  padding: 12px 0;
+  color: rgb(221, 228, 221);
+  border-bottom: 1px solid rgb(221, 228, 221);
+}
+
+ul li:last-of-type {
+  border: none;
+}
+
+.sidebar-btn {
+  color: rgb(221, 228, 221);
+  font-weight: 900;
+  letter-spacing: 1px;
+  background-color: rgb(183, 145, 42);
+  border: none;
+  border-radius: 8px;
+  padding: 18px 0;
+  opacity: 0;
+  transition: opacity 1s linear;
+}
+
+.show-sidebar {
+  transform: translateX(0);
+}
+
+.fade-in-button {
+  opacity: 1;
+}
