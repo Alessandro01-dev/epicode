@@ -153,7 +153,7 @@ console.log(getStringAndReturnAcronym(myStr3));
 
 // =================== ESERCIZI EXTRA ===================
 
-// ESERCIZIO 1
+// ESERCIZIO 1 (da completare)
 const myStr1 = "Italiana";
 const myStr2 = "Protocollo";
 
