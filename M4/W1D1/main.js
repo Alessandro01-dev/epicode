@@ -153,16 +153,181 @@ console.log(getStringAndReturnAcronym(myStr3));
 
 // =================== ESERCIZI EXTRA ===================
 
-// ESERCIZIO 1 (da completare)
+// ESERCIZIO 1
+/*
 const myStr1 = "Italiana";
 const myStr2 = "Protocollo";
 
 function returnsTheMostFrequentCharacter(str) {
-  return str
-    .toLowerCase()
-    .split("")
+  let charCounts = {};
+  let maxStrChar = '';
+
+  for (let i = 0; i < str.length; i++) {
+    let char = str[i];
+
+    if (!charCounts[char]) {
+      charCounts[char] = 0;
+    }
+    charCounts[char]++;
+
+    if(maxStrChar === '' || charCounts[char] > charCounts[maxStrChar]) {
+      maxStrChar = char;
+    }
+
+  }
+
+  return maxStrChar + ": " + charCounts[maxStrChar] + " times";
     
-}
+};
 
 console.log(returnsTheMostFrequentCharacter(myStr1));
 console.log(returnsTheMostFrequentCharacter(myStr2));
+*/
+
+// ESERCIZIO 2
+/*
+const myStr1 = "cartine";
+const myStr2 = "carenti";
+const myStr3 = "espatrio";
+
+function checkIfTwoStringsAreAnagram(str1, str2) {
+  
+  const x = str1.toLowerCase().split("").sort().join(); 
+  const y = str2.toLowerCase().split("").sort().join();
+
+  if (x === y) {
+    return true;
+  } else {
+    return false;
+  };
+};
+
+console.log(checkIfTwoStringsAreAnagram(myStr1, myStr2));
+console.log(checkIfTwoStringsAreAnagram(myStr1, myStr3));
+*/
+
+// ESERCIZIO 3
+/*
+const myStr = "cartine";
+const myArray = ["carenti", "incerta", "espatrio"];
+
+function returnArrayWithAnagramsFromAString(str, arr) {
+
+  let resultArray = [];
+
+  const x = str.toLowerCase().split("").sort().join();
+
+  for (let i = 0; i < arr.length; i++) {
+    const y = arr[i].toLowerCase().split("").sort().join();
+
+    if (x === y) {
+      resultArray.push(arr[i]);
+    };
+
+  };
+
+  return resultArray;
+
+};
+
+console.log(returnArrayWithAnagramsFromAString(myStr, myArray));
+*/
+
+// ESERCIZIO 4
+/*
+const myStr = "Anna";
+
+function checkIfAStringIsPalindrome(str) {
+  const str1 = str.toLowerCase();
+  const reverseString = str.toLowerCase().split("").reverse().join("");
+
+  if (str1 === reverseString) {
+    return true;
+  } else {
+    return false
+  }
+
+};
+
+console.log(checkIfAStringIsPalindrome(myStr));
+*/
+
+// ESERCIZIO 5
+/*
+const myNum = 189;
+
+function returnReversedNumber(num) {
+  const newNum = num.toString().split("").reverse().join(""); 
+
+  return newNum
+}
+
+console.log(returnReversedNumber(myNum));
+*/
+
+// ESERCIZIO 6
+/*
+const myNum = 5;
+
+function printHashKeyStairsFromANumber(num) {
+
+  for (let i = 1; i <= num; i++) {
+    console.log("#".repeat(i))
+  }
+
+}
+
+printHashKeyStairsFromANumber(myNum);
+*/
+
+// ESERCIZIO 7
+/*
+const myString = "Ciao"
+
+function returnReversedString(str) {
+
+  const reversedString = str.split("").reverse().join("");
+
+  return reversedString;
+
+};
+
+console.log(returnReversedString(myString));
+*/
+
+// ESERCIZIO 8
+/*
+const myArray = [1, 2, 3, 2, 3, 4, 5, 6, 4, 7, 3, 3];
+const myNumber = 6;
+
+function returnChunckedArray(arr, y) {
+
+  const chunkedArray = [];
+  const subArrayLength = arr.length / y;
+
+  for (let i = 0; i < arr.length; i += subArrayLength) {
+    chunkedArray.push(arr.slice(i, i + subArrayLength));
+  }
+
+  return chunkedArray;
+
+}
+console.log(returnChunckedArray(myArray, myNumber));
+*/
+
+// ESERCIZIO 9
+/*
+const myNum = 12;
+
+function printPyramidFromANumber(x) {
+  for (let i = 1; i <= x; i++) {
+    const spaces = ' '.repeat(x - i);      
+    const hashKeys = '#'.repeat(2 * i - 1);  
+    console.log(spaces + hashKeys + spaces);
+  };
+};
+
+printPyramidFromANumber(myNum);
+*/
+
+// ESERCIZIO 10
