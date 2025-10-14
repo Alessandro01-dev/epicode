@@ -1,5 +1,5 @@
 // ESERCIZIO 1
-/* 
+/*
 const myNum1 = 25;
 const myNum2 = 50;
 const myNum3 = 17;
@@ -15,7 +15,7 @@ function checkIfFiftyValueNumAndFiftySumNum(num1, num2) {
   } else {
     return false
   };
-}
+};
 
 console.log(checkIfFiftyValueNumAndFiftySumNum(myNum1, myNum2));
 console.log(checkIfFiftyValueNumAndFiftySumNum(myNum3, myNum4));
@@ -39,13 +39,13 @@ console.log(removeCharAtXPositionFromString(myString, myCharacterIndex));
 
 // ESERCIZIO 3
 /*
-const myNum1 = 2;
-const myNum2 = 65;
+const myNum1 = 30;
+const myNum2 = 75;
 
 function checkIfTwoNumbersAreWithinARange(num1, num2) {
-  if (num1 >= 40 && num1 <= 60 || num1 >= 70 && 100) {
+  if (num1 >= 40 && num1 <= 60 && num2 >= 40 && num2 <= 60) {
     return true;
-  } else if (num2 >= 40 && num2 <= 60 || num2 >= 70 && num2 <= 100) {
+  } else if (num1 >= 70 && num1 <= 100 && num2 >= 70 && num2 <= 100) {
     return true;
   } else {
     return false;
@@ -155,10 +155,13 @@ console.log(getStringAndReturnAcronym(myStr3));
 
 // ESERCIZIO 1
 /*
-const myStr1 = "Italiana";
-const myStr2 = "Protocollo";
+const myStr1 = "Protocollo";
+const myStr2 = "Stringa con tanti spazi e molte parole";
 
 function returnsTheMostFrequentCharacter(str) {
+
+  str = str.replaceAll(" ", "").toLowerCase();
+
   let charCounts = {};
   let maxStrChar = '';
 
@@ -170,14 +173,16 @@ function returnsTheMostFrequentCharacter(str) {
     }
     charCounts[char]++;
 
-    if(maxStrChar === '' || charCounts[char] > charCounts[maxStrChar]) {
-      maxStrChar = char;
-    }
+    console.log(charCounts)
 
-  }
+    if (maxStrChar === '' || charCounts[char] > charCounts[maxStrChar]) {
+      maxStrChar = char;
+    };
+
+  };
 
   return maxStrChar + ": " + charCounts[maxStrChar] + " times";
-    
+
 };
 
 console.log(returnsTheMostFrequentCharacter(myStr1));
@@ -186,14 +191,14 @@ console.log(returnsTheMostFrequentCharacter(myStr2));
 
 // ESERCIZIO 2
 /*
-const myStr1 = "cartine";
-const myStr2 = "carenti";
-const myStr3 = "espatrio";
+const myStr1 = "cart,$#!ine";
+const myStr2 = "carent!)%|,i";
+const myStr3 = "esp*atri=%o";
 
 function checkIfTwoStringsAreAnagram(str1, str2) {
-  
-  const x = str1.toLowerCase().split("").sort().join(); 
-  const y = str2.toLowerCase().split("").sort().join();
+
+  const x = str1.toLowerCase().split("").sort().join('').replace(/[.,\/#!$%\^&\*;:{}=\-_`~()|]/g,"");
+  const y = str2.toLowerCase().split("").sort().join('').replace(/[.,\/#!$%\^&\*;:{}=\-_`~()|]/g,"");
 
   if (x === y) {
     return true;
@@ -257,10 +262,10 @@ console.log(checkIfAStringIsPalindrome(myStr));
 const myNum = 189;
 
 function returnReversedNumber(num) {
-  const newNum = num.toString().split("").reverse().join(""); 
+  const newNum = num.toString().split("").reverse().join("");
 
-  return newNum
-}
+  return newNum;
+};
 
 console.log(returnReversedNumber(myNum));
 */
@@ -272,10 +277,10 @@ const myNum = 5;
 function printHashKeyStairsFromANumber(num) {
 
   for (let i = 1; i <= num; i++) {
-    console.log("#".repeat(i))
-  }
+    console.log("#".repeat(i));
+  };
 
-}
+};
 
 printHashKeyStairsFromANumber(myNum);
 */
@@ -307,11 +312,11 @@ function returnChunckedArray(arr, y) {
 
   for (let i = 0; i < arr.length; i += subArrayLength) {
     chunkedArray.push(arr.slice(i, i + subArrayLength));
-  }
+  };
 
   return chunkedArray;
 
-}
+};
 console.log(returnChunckedArray(myArray, myNumber));
 */
 
@@ -319,10 +324,10 @@ console.log(returnChunckedArray(myArray, myNumber));
 /*
 const myNum = 12;
 
-function printPyramidFromANumber(x) {
-  for (let i = 1; i <= x; i++) {
-    const spaces = ' '.repeat(x - i);      
-    const hashKeys = '#'.repeat(2 * i - 1);  
+function printPyramidFromANumber(num) {
+  for (let i = 1; i <= num; i++) {
+    const spaces = ' '.repeat(num - i);
+    const hashKeys = '#'.repeat(2 * i - 1);
     console.log(spaces + hashKeys + spaces);
   };
 };
@@ -331,3 +336,53 @@ printPyramidFromANumber(myNum);
 */
 
 // ESERCIZIO 10
+/*
+let myNum = 6;
+
+function generateSpiralMatrix(n) {
+
+  const results = [];
+
+  for (let i = 0; i < n; i++) {
+    results.push([]);
+  }
+
+  let counter = 1;
+  let startRow = 0;
+  let endRow = n - 1;
+  let startColumn = 0;
+  let endColumn = n - 1;
+
+  while (startColumn <= endColumn && startRow <= endRow) {
+
+    for (let i = startColumn; i <= endColumn; i++) {
+      results[startRow][i] = counter;
+      counter++;
+    }
+    startRow++;
+
+    for (let i = startRow; i <= endRow; i++) {
+      results[i][endColumn] = counter;
+      counter++;
+    };
+    endColumn--;
+
+    for (let i = endColumn; i >= startColumn; i--) {
+      results[endRow][i] = counter;
+      counter++;
+    };
+    endRow--;
+
+    for (let i = endRow; i >= startRow; i--) {
+      results[i][startColumn] = counter;
+      counter++;
+    };
+    startColumn++;
+
+  };
+
+  return results;
+
+};
+console.log(generateSpiralMatrix(myNum));
+*/
