@@ -3,7 +3,7 @@ const searchButton = document.getElementById("button-search");
 const searchResultsContainer = document.getElementById("found")
 const foundResults = document.getElementById("searchSection");
 
-const getArtistInformations = async (inputValue) => {
+const getSongInformations = async (inputValue) => {
   try {
     const response = await fetch(`https://striveschool-api.herokuapp.com/api/deezer/search?q=${inputValue}`)
     const data = await response.json()
@@ -19,70 +19,92 @@ const search = async () => {
 
   const inputValue = searchInput.value;
 
-  const albumInformations = await getArtistInformations(inputValue);
-  
+  const songInformations = await getSongInformations(inputValue);
 
-  albumInformations.data.forEach(albumInformation => {
-    console.log(albumInformation)
-    generateAndAppendCard(albumInformation, foundResults, searchResultsContainer);
+
+  songInformations.data.forEach(songInformation => {
+    generateAndAppendCard(songInformation, foundResults, searchResultsContainer);
 
   });
 
 };
 
-const generateAndAppendCard = (album, resultsSection, resultsContainer) => {
+const generateAndAppendCard = (song, resultsSection, resultsContainer) => {
 
   resultsContainer.classList.remove("d-none");
 
-  const albumCardWrapper = document.createElement("div");
-  albumCardWrapper.classList.add("col-6", "col-md-4", "col-lg-3");
-  resultsSection.appendChild(albumCardWrapper);
+  const songCardWrapper = document.createElement("div");
+  songCardWrapper.classList.add("col-6", "col-md-4", "col-lg-3", "mb-4");
+  resultsSection.appendChild(songCardWrapper);
 
-  const albumCard = document.createElement("div");
-  albumCard.classList.add("card", "h-100", "p-3", "bg-dark", "rounded-4");
-  albumCardWrapper.appendChild(albumCard);
+  const songCard = document.createElement("div");
+  songCard.classList.add("card", "h-100", "p-3", "bg-dark", "rounded-4");
+  songCardWrapper.appendChild(songCard);
 
-  const albumCardImageContainer = document.createElement("div");
-  albumCardImageContainer.classList.add("position-relative");
-  albumCard.appendChild(albumCardImageContainer);
+  const songCardImageContainer = document.createElement("div");
+  songCardImageContainer.classList.add("card-image-container");
+  songCard.appendChild(songCardImageContainer);
 
-  const albumCardImage = document.createElement("img");
-  albumCardImage.src = album.album.cover_medium;
-  albumCardImage.alt = "album cover";
-  albumCardImage.classList.add("card-img-top", "w-100", "rounded-3")
-  albumCardImageContainer.appendChild(albumCardImage);
+  const songCardImage = document.createElement("img");
+  songCardImage.src = song.album.cover_medium;
+  songCardImage.alt = "album cover";
+  songCardImage.classList.add("card-img-top", "w-100", "rounded-3")
+  songCardImageContainer.appendChild(songCardImage);
 
-  const albumCardTimeStamp = document.createElement("p");
-  albumCardTimeStamp.classList.add("position-absolute", "bottom-0", "end-0", "m-2", "bg-dark", "text-white", "p-1", "rounded-1", "opacity-75");
-  albumCardTimeStamp.setAttribute("id", "album-timestamp");
-  // albumCardTimeStamp.innerText = album.length;
-  albumCardImageContainer.appendChild(albumCardTimeStamp);
+  const songCardTimeStamp = document.createElement("p");
+  songCardTimeStamp.setAttribute("id", "album-timestamp");
+  songCardTimeStamp.innerText = returnMinutesFromSeconds(song.duration);
+  songCardImageContainer.appendChild(songCardTimeStamp);
 
-  const albumCardBody = document.createElement("div");
-  albumCardBody.classList.add("card-body", "px-0", "pt-3", "pb-1", "text-white", "d-flex", "flex-column", "justify-content-between");
-  albumCard.appendChild(albumCardBody);
+  const songCardBody = document.createElement("div");
+  songCardBody.classList.add("card-body", "px-0", "pt-3", "pb-1", "text-white", "d-flex", "flex-column", "justify-content-between");
+  songCard.appendChild(songCardBody);
 
-  const albumCardTitle = document.createElement("h5");
-  albumCardTitle.classList.add("card-title", "pt-2");
-  albumCardTitle.innerText = album.album.title;
-  albumCardBody.appendChild(albumCardTitle);
+  const songCardTitle = document.createElement("h5");
+  songCardTitle.classList.add("card-title", "p-0", "m-0");
+  songCardTitle.innerText = song.title;
+  songCardBody.appendChild(songCardTitle);
 
-  const albumCardArtist = document.createElement("p");
-  albumCardArtist.classList.add("card-text");
-  albumCardArtist.innerText = album.artist.name;
-  albumCardBody.appendChild(albumCardArtist);
+  if (song.explicit_lyrics) {
 
-  const albumCardQuarterNoteDivider = document.createElement("span");
-  albumCardQuarterNoteDivider.classList.add("text-secondary", "px-1");
-  albumCardQuarterNoteDivider.innerHTML = " &#9834; ";
-  albumCardArtist.appendChild(albumCardQuarterNoteDivider);
+    const songCardExplicitLyricsBadge = document.createElement("p");
+    songCardExplicitLyricsBadge.classList.add("badge", "song-badge", "ml-2");
+    songCardExplicitLyricsBadge.innerText = "E";
+    songCardTitle.appendChild(songCardExplicitLyricsBadge);
 
-  const albumCardBottomBodySection = document.createElement("div");
-  albumCardBottomBodySection.classList.add("d-flex", "align-items-center", "justify-content-end");
-  albumCardBody.appendChild(albumCardBottomBodySection);
+  }
 
-  const albumCardFavouriteAlbumIcon = document.createElement("i");
-  albumCardFavouriteAlbumIcon.classList.add("bi", "bi-heart");
-  albumCardBottomBodySection.appendChild(albumCardFavouriteAlbumIcon);
+  const songCardAlbumTitle = document.createElement("p");
+  songCardAlbumTitle.classList.add("card-text", "m-0", "text-secondary");
+  songCardAlbumTitle.innerText = song.album.title;
+  songCardBody.appendChild(songCardAlbumTitle);
+
+  const songCardArtist = document.createElement("p");
+  songCardArtist.classList.add("card-text", "text-secondary");
+  songCardArtist.innerText = song.artist.name;
+  songCardBody.appendChild(songCardArtist);
+
+  const songCardBottomBodySection = document.createElement("div");
+  songCardBottomBodySection.classList.add("d-flex", "align-items-center", "justify-content-end");
+  songCardBody.appendChild(songCardBottomBodySection);
+
+  const songCardFavouriteAlbumIcon = document.createElement("i");
+  songCardFavouriteAlbumIcon.classList.add("bi", "bi-heart");
+  songCardBottomBodySection.appendChild(songCardFavouriteAlbumIcon);
 
 };
+
+
+function returnMinutesFromSeconds(seconds) {
+
+  const minutes = Math.floor(seconds / 60);
+
+  let extraSeconds = seconds % 60;
+
+  if (extraSeconds < 10) {
+    extraSeconds = "0" + extraSeconds;
+  }
+
+  return minutes + ":" + extraSeconds;
+
+}

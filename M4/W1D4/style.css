@@ -236,6 +236,23 @@ ul {
   font-size: 10px;
 }
 
+.card-image-container {
+  position: relative;
+}
+
 #album-timestamp {
-  font-size: 8px;
+  font-size: 10px;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.4);
+  color: white;
+  border-radius: 2px;
+  padding: 2px 4px;
+  margin: 4px;
+}
+
+.song-badge {
+  background-color: rgb(40, 40, 40);
+  font-size: 12px;
 }
