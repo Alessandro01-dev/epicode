@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+
+  <link rel="stylesheet" href="./style.css">
+
+  <title>Photo Album</title>
+</head>
+
+<body>
+
+  <div class="container mt-5">
+    <div class="row">
+      <div class="col">
+        <h1>Photo Album</h1>
+      </div>
+    </div>
+  </div>
+
+  <header class="container">
+    <form class="header d-flex flex-column gap-2 align-items-stretch mb-5">
+      <div class="d-flex align-items-center position-relative">
+        <input type="search" id="search-input" placeholder="Search">
+        <div class="icon">
+          <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26">
+            <g transform="translate(-2 -2)" fill="none" fill-rule="evenodd">
+              <path d="M0 0h30v30H0z" />
+              <circle cx="12.5" cy="12.5" r="8.75" stroke="#9BAAB7" stroke-linecap="round" stroke-linejoin="round"
+                stroke-width="1.875" />
+              <path stroke="#9BAAB7" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.875"
+                d="M26.25 26.25l-7.5-7.5" />
+            </g>
+          </svg>
+        </div>
+      </div>
+      <button class="header__btn" id="search-button">Search</button>
+    </form>
+  </header>
+  
+  <main class="container">
+    <div class="row mt-5">
+      <h2>Search results</h2>
+    </div>
+    <div class="row mt-5 g-3">
+      <div class="col">
+        <div class="gallery" id="results-container">
+
+        </div>
+      </div>
+    </div>
+  </main>
+
+
+
+
+
+
+
+
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+    crossorigin="anonymous"></script>
+
+  <script src="./main.js"></script>
+</body>
+
+</html>
