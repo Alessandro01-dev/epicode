@@ -1,0 +1,189 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Book Marketplace</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css" />
+
+  <link rel="stylesheet" href="./style.css">
+
+</head>
+
+<body>
+
+  <nav class="container-fluid">
+    <div class="row">
+      <div class="col">
+        <div class="d-flex align-items-center justify-content-between flex-wrap flex-md-nowrap">
+          <div class="logo-container">
+            <img class="w-100 object-fit-cover"
+              src="https://vin.imgix.net/uploads/provider/63cfbf366d61a.png?fit=clamp&ar=2:1&pad=2"
+              alt="orellfüssli logo">
+          </div>
+          <div class="search-container">
+            <input class="rounded rounded-pill" type="text" placeholder="Titolo, Autore, Parola chiave, ISBN">
+            <div class="search-icon-container">
+              <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1"
+                viewBox="0 0 256 256" xml:space="preserve">
+                <g style="stroke: none; stroke-width: 0; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill: none; fill-rule: nonzero; opacity: 1;"
+                  transform="translate(1.4065934065934016 1.4065934065934016) scale(2.81 2.81)">
+                  <path
+                    d="M 89.414 86.586 L 62.862 60.034 c 5.931 -6.612 9.178 -15.063 9.178 -24.014 c 0 -9.622 -3.747 -18.667 -10.551 -25.47 C 54.687 3.747 45.641 0 36.02 0 c -9.622 0 -18.667 3.747 -25.47 10.55 C 3.747 17.353 0 26.398 0 36.02 c 0 9.621 3.747 18.667 10.55 25.469 c 6.803 6.804 15.848 10.551 25.47 10.551 c 8.951 0 17.402 -3.247 24.014 -9.178 l 26.552 26.552 C 86.977 89.805 87.488 90 88 90 s 1.023 -0.195 1.414 -0.586 C 90.195 88.633 90.195 87.367 89.414 86.586 z M 13.378 58.661 C 7.331 52.613 4 44.573 4 36.02 c 0 -8.553 3.331 -16.594 9.378 -22.642 S 27.467 4 36.02 4 c 8.553 0 16.593 3.331 22.641 9.378 S 68.04 27.467 68.04 36.02 c 0 8.553 -3.331 16.593 -9.379 22.641 S 44.573 68.04 36.02 68.04 C 27.467 68.04 19.426 64.709 13.378 58.661 z"
+                    style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill: rgb(155, 0, 0); fill-rule: nonzero; opacity: 1;"
+                    transform=" matrix(1 0 0 1 0 0) " stroke-linecap="round" />
+                </g>
+              </svg>
+            </div>
+          </div>
+          <div class="nav-icons-container d-flex gap-3">
+            <div class="location-icon-container">
+              <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1"
+                viewBox="0 0 256 256" xml:space="preserve">
+                <g style="stroke: none; stroke-width: 0; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill: none; fill-rule: nonzero; opacity: 1;"
+                  transform="translate(1.4065934065934016 1.4065934065934016) scale(2.81 2.81)">
+                  <path
+                    d="M 45 90 c -0.354 0 -0.681 -0.187 -0.861 -0.491 l -4.712 -7.972 C 30.222 65.976 20.704 49.884 17.64 43.734 c -2.033 -4.169 -3.062 -8.646 -3.062 -13.313 C 14.578 13.647 28.225 0 45 0 c 16.774 0 30.422 13.647 30.422 30.422 c 0 4.664 -1.028 9.141 -3.056 13.305 c -0.012 0.023 -0.023 0.045 -0.036 0.067 c -3.095 6.193 -12.581 22.231 -21.757 37.743 l -4.712 7.972 C 45.681 89.813 45.354 90 45 90 z M 45 2 C 29.328 2 16.578 14.75 16.578 30.422 c 0 4.359 0.96 8.542 2.854 12.43 c 3.027 6.073 12.522 22.126 21.705 37.649 L 45 87.035 l 3.853 -6.517 c 9.187 -15.531 18.686 -31.591 21.717 -37.676 c 0.009 -0.017 0.018 -0.033 0.026 -0.049 c 1.875 -3.874 2.826 -8.036 2.826 -12.372 C 73.422 14.75 60.672 2 45 2 z"
+                    style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill: rgb(0,0,0); fill-rule: nonzero; opacity: 1;"
+                    transform=" matrix(1 0 0 1 0 0) " stroke-linecap="round" />
+                  <path
+                    d="M 45 42.436 c -7.279 0 -13.2 -5.922 -13.2 -13.201 s 5.921 -13.2 13.2 -13.2 c 7.278 0 13.2 5.921 13.2 13.2 S 52.278 42.436 45 42.436 z M 45 18.035 c -6.176 0 -11.2 5.024 -11.2 11.2 c 0 6.176 5.024 11.201 11.2 11.201 s 11.2 -5.024 11.2 -11.201 C 56.2 23.059 51.176 18.035 45 18.035 z"
+                    style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill: rgb(0,0,0); fill-rule: nonzero; opacity: 1;"
+                    transform=" matrix(1 0 0 1 0 0) " stroke-linecap="round" />
+                </g>
+              </svg>
+              <p class="d-none d-md-block">Sul posto</p>
+            </div>
+            <div class="user-icon-container">
+              <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1"
+                viewBox="0 0 256 256" xml:space="preserve">
+                <g style="stroke: none; stroke-width: 0; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill: none; fill-rule: nonzero; opacity: 1;"
+                  transform="translate(1.4065934065934016 1.4065934065934016) scale(2.81 2.81)">
+                  <path
+                    d="M 84.657 90 H 5.343 v -2 c 0 -21.867 17.79 -39.657 39.657 -39.657 c 21.867 0 39.657 17.79 39.657 39.657 V 90 z M 9.398 86 h 71.203 C 79.562 67.265 63.99 52.343 45 52.343 S 10.439 67.265 9.398 86 z"
+                    style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill: rgb(0,0,0); fill-rule: nonzero; opacity: 1;"
+                    transform=" matrix(1 0 0 1 0 0) " stroke-linecap="round" />
+                  <path
+                    d="M 45 43.971 c -12.123 0 -21.985 -9.863 -21.985 -21.986 C 23.015 9.863 32.877 0 45 0 c 12.123 0 21.985 9.863 21.985 21.985 C 66.985 34.108 57.123 43.971 45 43.971 z M 45 4 c -9.917 0 -17.985 8.068 -17.985 17.985 c 0 9.917 8.068 17.986 17.985 17.986 s 17.985 -8.068 17.985 -17.986 C 62.985 12.068 54.917 4 45 4 z"
+                    style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill: rgb(0,0,0); fill-rule: nonzero; opacity: 1;"
+                    transform=" matrix(1 0 0 1 0 0) " stroke-linecap="round" />
+                </g>
+              </svg>
+              <p class="d-none d-md-block">Il mio conto</p>
+            </div>
+            <div class="heart-icon-container">
+              <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1"
+                viewBox="0 0 256 256" xml:space="preserve">
+                <g style="stroke: none; stroke-width: 0; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill: none; fill-rule: nonzero; opacity: 1;"
+                  transform="translate(1.4065934065934016 1.4065934065934016) scale(2.81 2.81)">
+                  <path
+                    d="M 45 84.334 L 6.802 46.136 C 2.416 41.75 0 35.918 0 29.716 c 0 -6.203 2.416 -12.034 6.802 -16.42 c 4.386 -4.386 10.217 -6.802 16.42 -6.802 c 6.203 0 12.034 2.416 16.42 6.802 L 45 18.654 l 5.358 -5.358 c 4.386 -4.386 10.218 -6.802 16.42 -6.802 c 6.203 0 12.034 2.416 16.42 6.802 l 0 0 l 0 0 C 87.585 17.682 90 23.513 90 29.716 c 0 6.203 -2.415 12.034 -6.802 16.42 L 45 84.334 z M 23.222 10.494 c -5.134 0 -9.961 2 -13.592 5.63 S 4 24.582 4 29.716 s 2 9.961 5.63 13.592 L 45 78.678 l 35.37 -35.37 C 84.001 39.677 86 34.85 86 29.716 s -1.999 -9.961 -5.63 -13.592 l 0 0 c -3.631 -3.63 -8.457 -5.63 -13.592 -5.63 c -5.134 0 -9.961 2 -13.592 5.63 L 45 24.311 l -8.187 -8.187 C 33.183 12.494 28.356 10.494 23.222 10.494 z"
+                    style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill: rgb(0,0,0); fill-rule: nonzero; opacity: 1;"
+                    transform=" matrix(1 0 0 1 0 0) " stroke-linecap="round" />
+                </g>
+              </svg>
+              <p class="d-none d-md-block">Preferiti</p>
+            </div>
+            <div class="bag-icon-container">
+              <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1"
+                viewBox="0 0 256 256" xml:space="preserve">
+                <g style="stroke: none; stroke-width: 0; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill: none; fill-rule: nonzero; opacity: 1;"
+                  transform="translate(1.4065934065934016 1.4065934065934016) scale(2.81 2.81)">
+                  <path
+                    d="M 72.692 28.948 c -0.188 -2.03 -1.867 -3.562 -3.906 -3.562 h -6.481 v -8.082 C 62.305 7.763 54.542 0 45 0 S 27.695 7.763 27.695 17.305 v 8.082 h -6.482 c -2.039 0 -3.718 1.531 -3.905 3.562 L 12.08 85.719 c -0.101 1.096 0.266 2.189 1.007 3.002 C 13.829 89.534 14.884 90 15.984 90 h 58.031 c 1.1 0 2.155 -0.466 2.896 -1.278 s 1.109 -1.907 1.009 -3.003 L 72.692 28.948 z M 29.695 17.305 C 29.695 8.866 36.561 2 45 2 c 8.439 0 15.305 6.866 15.305 15.305 v 8.082 H 29.695 V 17.305 z M 75.435 87.374 C 75.066 87.777 74.563 88 74.016 88 H 15.984 c -0.547 0 -1.051 -0.223 -1.419 -0.627 c -0.369 -0.403 -0.544 -0.926 -0.494 -1.471 L 19.3 29.131 c 0.092 -0.995 0.915 -1.745 1.914 -1.745 h 6.482 v 4.741 c -1.83 0.451 -3.195 2.094 -3.195 4.062 c 0 2.313 1.882 4.195 4.195 4.195 c 2.313 0 4.195 -1.882 4.195 -4.195 c 0 -1.967 -1.366 -3.61 -3.195 -4.061 v -4.741 h 30.609 v 4.741 c -1.83 0.451 -3.195 2.094 -3.195 4.062 c 0 2.313 1.882 4.195 4.195 4.195 s 4.195 -1.882 4.195 -4.195 c 0 -1.967 -1.366 -3.61 -3.195 -4.062 v -4.741 h 6.481 c 1 0 1.822 0.75 1.914 1.745 l 5.229 56.771 C 75.979 86.446 75.804 86.97 75.435 87.374 z M 28.695 33.993 c 1.21 0 2.195 0.985 2.195 2.195 s -0.984 2.195 -2.195 2.195 S 26.5 37.399 26.5 36.188 S 27.485 33.993 28.695 33.993 z M 61.305 33.993 c 1.211 0 2.195 0.985 2.195 2.195 s -0.984 2.195 -2.195 2.195 s -2.195 -0.984 -2.195 -2.195 S 60.094 33.993 61.305 33.993 z"
+                    style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill: rgb(0,0,0); fill-rule: nonzero; opacity: 1;"
+                    transform=" matrix(1 0 0 1 0 0) " stroke-linecap="round" />
+                </g>
+              </svg>
+              <p class="d-none d-md-block">Acquista</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <div class="d-flex gap-5 align-items-center justify-content-between">
+          <div class="burger-menu-container">
+            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1"
+              viewBox="0 0 256 256" xml:space="preserve">
+              <g style="stroke: none; stroke-width: 0; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill: none; fill-rule: nonzero; opacity: 1;"
+                transform="translate(1.4065934065934016 1.4065934065934016) scale(2.81 2.81)">
+                <path
+                  d="M 86 21.571 H 4 c -2.209 0 -4 -1.791 -4 -4 s 1.791 -4 4 -4 h 82 c 2.209 0 4 1.791 4 4 S 88.209 21.571 86 21.571 z"
+                  style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill: rgb(0,0,0); fill-rule: nonzero; opacity: 1;"
+                  transform=" matrix(1 0 0 1 0 0) " stroke-linecap="round" />
+                <path
+                  d="M 86 49 H 4 c -2.209 0 -4 -1.791 -4 -4 s 1.791 -4 4 -4 h 82 c 2.209 0 4 1.791 4 4 S 88.209 49 86 49 z"
+                  style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill: rgb(0,0,0); fill-rule: nonzero; opacity: 1;"
+                  transform=" matrix(1 0 0 1 0 0) " stroke-linecap="round" />
+                <path
+                  d="M 86 76.429 H 4 c -2.209 0 -4 -1.791 -4 -4 s 1.791 -4 4 -4 h 82 c 2.209 0 4 1.791 4 4 S 88.209 76.429 86 76.429 z"
+                  style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill: rgb(0,0,0); fill-rule: nonzero; opacity: 1;"
+                  transform=" matrix(1 0 0 1 0 0) " stroke-linecap="round" />
+              </g>
+            </svg>
+          </div>
+          <div class="search-bottom-container">
+            <input class="rounded rounded-pill" type="text" placeholder="Titolo, Autore, Parola chiave, ISBN">
+            <div class="search-icon-bottom-container">
+              <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1"
+                viewBox="0 0 256 256" xml:space="preserve">
+                <g style="stroke: none; stroke-width: 0; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill: none; fill-rule: nonzero; opacity: 1;"
+                  transform="translate(1.4065934065934016 1.4065934065934016) scale(2.81 2.81)">
+                  <path
+                    d="M 89.414 86.586 L 62.862 60.034 c 5.931 -6.612 9.178 -15.063 9.178 -24.014 c 0 -9.622 -3.747 -18.667 -10.551 -25.47 C 54.687 3.747 45.641 0 36.02 0 c -9.622 0 -18.667 3.747 -25.47 10.55 C 3.747 17.353 0 26.398 0 36.02 c 0 9.621 3.747 18.667 10.55 25.469 c 6.803 6.804 15.848 10.551 25.47 10.551 c 8.951 0 17.402 -3.247 24.014 -9.178 l 26.552 26.552 C 86.977 89.805 87.488 90 88 90 s 1.023 -0.195 1.414 -0.586 C 90.195 88.633 90.195 87.367 89.414 86.586 z M 13.378 58.661 C 7.331 52.613 4 44.573 4 36.02 c 0 -8.553 3.331 -16.594 9.378 -22.642 S 27.467 4 36.02 4 c 8.553 0 16.593 3.331 22.641 9.378 S 68.04 27.467 68.04 36.02 c 0 8.553 -3.331 16.593 -9.379 22.641 S 44.573 68.04 36.02 68.04 C 27.467 68.04 19.426 64.709 13.378 58.661 z"
+                    style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill: rgb(155, 0, 0); fill-rule: nonzero; opacity: 1;"
+                    transform=" matrix(1 0 0 1 0 0) " stroke-linecap="round" />
+                </g>
+              </svg>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+    <div class="container-fluid mt-3">
+      <div class="row">
+        <div class="col-12 p-0">
+          <div class="swiper-main-container position-relative">
+            <div class="swiper mySwiper">
+              <div class="swiper-wrapper">
+
+              </div>
+              <div class="swiper-button-next"></div>
+              <div class="swiper-button-prev"></div>
+            </div>
+            <div class="swiper-pagination position-absolute"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <section class="container mt-5">
+    <div class="row g-5 book-cards-container">
+
+    </div>
+  </section>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+    crossorigin="anonymous"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
+
+  <script src="./hero.js"></script>
+  <script src="./main.js"></script>
+</body>
+
+</html>
