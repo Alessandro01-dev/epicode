@@ -12,17 +12,29 @@
   .search-container {
     display: block;
   }
+
+  .navbar-tab-list {
+    display: flex;
+  }
+
+  .search-bottom-container {
+    display: none;
+  }
+
+  .burger-menu-container {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .navbar-tab-list {
+    display: none;
+  }
 }
 
 .search-bottom-container {
   position: relative;
   flex-grow: 1;
-}
-
-@media screen and (min-width: 1024px) {
-  .search-bottom-container {
-    display: none;
-  }
 }
 
 .search-container input,
@@ -75,9 +87,49 @@
   height: 25px;
 }
 
+.bag-icon-container {
+  cursor: pointer;
+  position: relative;
+}
+
+.bag-icon-container span {
+  font-size: 10px;
+  transform: translate(-36px, 14px);
+  background-color: rgb(172, 0, 79);
+}
+
+.cart-dialog {
+  position: relative;
+}
+
+.close-modal-button {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.close-modal-button:focus {
+  box-shadow: none;
+}
+
+.cart-item-img {
+  max-width: 50px;
+  max-height: 70px;
+}
+
 .burger-menu-container {
   width: 25px;
   height: 25px;
+}
+
+.navbar-tab-list li a {
+  text-decoration: none;
+  color: black;
+  font-weight: 600;
+}
+
+.navbar-tab-list li:hover a {
+  text-decoration: underline;
 }
 
 .swiper {
@@ -157,16 +209,20 @@
   border: rgb(100, 100, 100);
 }
 
-.book-card-container div {
-  border: 2px solid rgb(222, 222, 222);
-  border-radius: 4px;
-  padding: 48px;
-  height: 70%;
+.book-card {
+  min-height: 540px;
+  max-height: 540px;
 }
 
-.book-card-container h5 {
+.book-card-img-container {
+  border: 2px solid rgb(222, 222, 222);
+  border-radius: 4px;
+  padding: 18px 24px;
+  min-height: 400px;
+}
+
+.book-card h5 {
   margin: 0;
-  margin-top: 24px;
   overflow: hidden;
   text-overflow: ellipsis;
   display: -webkit-box;
@@ -174,7 +230,31 @@
   -webkit-box-orient: vertical;
 }
 
-.book-card-container p {
-  margin: 12px 0;
+.book-card p {
+  margin: 0;
   color: rgb(150, 150, 150);
+}
+
+.add-to-cart-icon {
+  color: black;
+  align-self: flex-end;
+  justify-self: end;
+  border-radius: 50%;
+  padding: 10px 14px;
+  margin-right: 12px;
+  cursor: pointer;
+}
+
+.add-to-cart-icon:hover {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+.book-card-favourite-icon {
+  border-radius: 50%;
+  padding: 14px 18px;
+  background-color: white;
+}
+
+.book-card-favourite-icon:hover {
+  background-color: rgba(255, 255, 255, 0.8);
 }
