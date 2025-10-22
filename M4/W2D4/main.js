@@ -2,7 +2,8 @@ const bookCardsContainer = document.querySelector(".book-cards-container");
 const cartDialog = document.querySelector(".cart-dialog");
 const cartNavIcon = document.querySelector(".bag-icon-container");
 const closeModalButton = document.querySelector(".close-modal-button");
-const cartContent = document.querySelector(".cart-content")
+const cartContent = document.querySelector(".cart-content");
+const cartItemCount = document.querySelector('.cart-item-count')
 
 const toggleFillAndEmptyBookmarkIcon = (icon) => {
   icon.classList.toggle("bi-bookmark")
@@ -10,6 +11,10 @@ const toggleFillAndEmptyBookmarkIcon = (icon) => {
 };
 
 let cart = [];
+
+const updateCartItemCount = () => {
+  cartItemCount.innerText = cart.length
+}
 
 const showCart = () => {
   cartDialog.showModal();
@@ -79,6 +84,7 @@ const createBookCard = (book, container) => {
 
   const addToCartIcon = document.createElement("i");
   addToCartIcon.setAttribute("class", "add-to-cart-icon bi bi-bookmark");
+  addToCartIcon.dataset.asin = book.asin;
   bookCardInfoContainer.appendChild(addToCartIcon);
 
   addToCartIcon.addEventListener("click", () => {
@@ -119,7 +125,7 @@ const createCartItem = (book) => {
 
   deleteCartItemButton.addEventListener("click", () => {
     deleteFromCart(book)
-})
+  })
 
 };
 
@@ -132,7 +138,7 @@ closeModalButton.addEventListener("click", () => {
 });
 
 const createEmptyCartMessage = () => {
-  
+
   const alertContainer = document.createElement("div");
   alertContainer.setAttribute("class", "alert alert-dark m-0");
   alertContainer.innerText = "Your Cart is Empty"
@@ -141,16 +147,17 @@ const createEmptyCartMessage = () => {
 }
 
 const mapCartBooks = () => {
-    if (cart.length === 0) {
-        createEmptyCartMessage()
-    }
-    cart.map(book => {
-        createCartItem(book)
-    })
+  if (cart.length === 0) {
+    createEmptyCartMessage()
+  }
+  cart.map(book => {
+    createCartItem(book)
+  })
 }
 
 const addToCart = (book) => {
   cart.push(book);
+  updateCartItemCount();
   cartContent.innerHTML = "";
   mapCartBooks();
 };
@@ -158,9 +165,25 @@ const addToCart = (book) => {
 const deleteFromCart = (book) => {
   const filteredCart = cart.filter(element => element !== book);
   cart = [...filteredCart];
+  updateCartItemCount();
   cartContent.innerHTML = "";
   mapCartBooks();
-};
+
+  const addToCartIcons = document.querySelectorAll(".add-to-cart-icon");
+
+  addToCartIcons.forEach(icon => {
+
+    if (icon.dataset.asin === `${book.asin}`) {
+      
+      icon.classList.remove("bi-bookmark-fill");
+      icon.classList.add("bi-bookmark");
+
+    }
+  })
+
+}
+
+
 
 getBooks();
 mapCartBooks();
