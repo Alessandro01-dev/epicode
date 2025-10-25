@@ -3,7 +3,12 @@ const cartDialog = document.querySelector(".cart-dialog");
 const cartNavIcon = document.querySelector(".bag-icon-container");
 const closeModalButton = document.querySelector(".close-modal-button");
 const cartContent = document.querySelector(".cart-content");
-const cartItemCount = document.querySelector('.cart-item-count')
+const cartItemCount = document.querySelector('.cart-item-count');
+const topSearchInput = document.querySelector(".top-search-input");
+const bottomSearchInput = document.querySelector(".bottom-search-input");
+const topSearchIcon = document.querySelector(".top-search-icon-container");
+const bottomSearchIcon = document.querySelector(".bottom-search-icon-container");
+const removeAllCartItemsIcon = document.querySelector(".remove-all-cart-items");
 
 const toggleFillAndEmptyBookmarkIcon = (icon) => {
   icon.classList.toggle("bi-bookmark")
@@ -31,9 +36,8 @@ const getBooks = async () => {
     const urlData = `https://striveschool-api.herokuapp.com/books`;
     const response = await fetch(urlData)
     const data = await response.json()
-    data.forEach(book => {
-      createBookCard(book, bookCardsContainer)
-    });
+
+    return data
 
   } catch (error) {
 
@@ -41,6 +45,20 @@ const getBooks = async () => {
 
   };
 };
+ 
+const deletebookCardItem = (book) => {
+
+  const deletebookCardIcons = document.querySelectorAll(".delete-book-card-item");
+
+  deletebookCardIcons.forEach(icon => {
+    
+    if (icon.dataset.asin === book.asin)
+      
+      icon.parentNode.parentNode.parentNode.remove();
+
+  })
+
+}
 
 const createBookCard = (book, container) => {
 
@@ -55,6 +73,9 @@ const createBookCard = (book, container) => {
   const bookCardImgContainer = document.createElement("div");
   bookCardImgContainer.setAttribute("class", "book-card-img-container position-relative");
   bookCard.appendChild(bookCardImgContainer);
+  bookCardImgContainer.addEventListener("click", () => {
+    window.location.href = `./details.html?asin=${book.asin}`
+  });
 
   const bookCardImg = document.createElement("img");
   bookCardImg.setAttribute("class", "w-100 h-100 object-fit-cover");
@@ -77,15 +98,30 @@ const createBookCard = (book, container) => {
   const bookCardTitle = document.createElement("h5");
   bookCardTitle.innerText = book.title;
   bookCardInfoContainer.appendChild(bookCardTitle);
+  bookCardTitle.addEventListener("click", () => {
+    window.location.href = `./details.html?asin=${book.asin}`
+  });
 
   const bookCardPrice = document.createElement("p");
   bookCardPrice.innerText = `${book.price} €`;
   bookCardInfoContainer.appendChild(bookCardPrice);
 
+  const bookCardIconsContainer = document.createElement("div");
+  bookCardIconsContainer.setAttribute("class", "d-flex align-self-end")
+  bookCardInfoContainer.appendChild(bookCardIconsContainer);
+
+  const deletebookCardIcon = document.createElement("i")
+  deletebookCardIcon.setAttribute("class", "bi bi-x-circle delete-book-card-item m-0");
+  deletebookCardIcon.dataset.asin = book.asin;
+  bookCardIconsContainer.appendChild(deletebookCardIcon);
+  deletebookCardIcon.addEventListener("click", () => {
+    deletebookCardItem(book);
+  });
+
   const addToCartIcon = document.createElement("i");
-  addToCartIcon.setAttribute("class", "add-to-cart-icon bi bi-bookmark");
+  addToCartIcon.setAttribute("class", "add-to-cart-icon bi bi-bookmark m-0");
   addToCartIcon.dataset.asin = book.asin;
-  bookCardInfoContainer.appendChild(addToCartIcon);
+  bookCardIconsContainer.appendChild(addToCartIcon);
 
   addToCartIcon.addEventListener("click", () => {
     toggleFillAndEmptyBookmarkIcon(addToCartIcon);
@@ -173,17 +209,85 @@ const deleteFromCart = (book) => {
 
   addToCartIcons.forEach(icon => {
 
-    if (icon.dataset.asin === `${book.asin}`) {
-      
+    if (icon.dataset.asin === book.asin) {
+
       icon.classList.remove("bi-bookmark-fill");
       icon.classList.add("bi-bookmark");
 
     }
   })
+}
+
+const getActiveSearchInput = () => {
+  if (window.innerWidth < 1024) {
+    return bottomSearchInput
+  } else {
+    return topSearchInput
+  };
+};
+
+const getActiveSearchIcon = () => {
+  if (window.innerWidth < 1024) {
+    return bottomSearchIcon
+  } else {
+    return topSearchIcon
+  };
+};
+
+const searchByTitle = (data) => {
+  const searchInput = getActiveSearchInput()
+  const inputValue = searchInput.value.toLowerCase();
+
+  const results = [];
+
+  bookCardsContainer.innerHTML = "";
+
+  for (let i = 0; i < data.length; i++) {
+
+    if (data[i].title.toLowerCase().includes(inputValue)) {
+      results.push(data[i])
+    }
+
+  }
+
+  console.log(results)
+
+  results.forEach(result => {
+    createBookCard(result, bookCardsContainer)
+  })
 
 }
 
+topSearchIcon.addEventListener("click", () => {
+  const activeInput = getActiveSearchInput();
+  activeInput.focus();
+});
 
+bottomSearchIcon.addEventListener("click", () => {
+  const activeInput = getActiveSearchInput();
+  activeInput.focus();
+});
 
-getBooks();
+getBooks().then(data => {
+
+  data.forEach(book => {
+    createBookCard(book, bookCardsContainer)
+  })
+
+  topSearchInput.addEventListener("input", () => searchByTitle(data));
+  bottomSearchInput.addEventListener("input", () => searchByTitle(data));
+
+});
+
+const removeAllCartItems = (cart) => {
+
+  cart.forEach(cartItem => {
+    deleteFromCart(cartItem)
+  })
+
+}
+removeAllCartItemsIcon.addEventListener("click", () => {
+  removeAllCartItems(cart)
+})
+
 mapCartBooks();

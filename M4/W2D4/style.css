@@ -56,6 +56,7 @@
 
 .search-icon-container,
 .search-icon-bottom-container {
+  cursor: pointer;
   text-align: center;
   position: absolute;
   top: 50%;
@@ -105,6 +106,13 @@
 .close-modal-button {
   position: absolute;
   top: 0;
+  right: 0;
+}
+
+.remove-all-cart-items {
+  cursor: pointer;
+  position: absolute;
+  bottom: 0;
   right: 0;
 }
 
@@ -219,6 +227,7 @@
   border-radius: 4px;
   padding: 18px 24px;
   min-height: 400px;
+  cursor: pointer;
 }
 
 .book-card h5 {
@@ -228,6 +237,11 @@
   display: -webkit-box;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
+  cursor: pointer;
+}
+
+.book-card h5:hover {
+  text-decoration: underline;
 }
 
 .book-card p {
@@ -235,17 +249,17 @@
   color: rgb(150, 150, 150);
 }
 
-.add-to-cart-icon {
+.add-to-cart-icon,
+.delete-book-card-item {
+  margin: 0;
   color: black;
-  align-self: flex-end;
-  justify-self: end;
   border-radius: 50%;
   padding: 10px 14px;
-  margin-right: 12px;
   cursor: pointer;
 }
 
-.add-to-cart-icon:hover {
+.add-to-cart-icon:hover,
+.delete-book-card-item:hover {
   background-color: rgba(0, 0, 0, 0.1);
 }
 
@@ -257,4 +271,14 @@
 
 .book-card-favourite-icon:hover {
   background-color: rgba(255, 255, 255, 0.8);
+}
+
+.details-book-category::before {
+  content: "Genre: ";
+  font-weight: 100;
+}
+
+.details-book-price::before {
+  content: "Price: ";
+  font-weight: 100;
 }
