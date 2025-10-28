@@ -39,31 +39,32 @@ const filterUsers = (arr) => {
 
 const createUserItem = (user, container) => {
 
-  const userListItem = document.createElement("li");
-  userListItem.setAttribute("class", "list-group-item d-flex justify-content-between align-items-center");
-  container.appendChild(userListItem);
+  const userRowItem = document.createElement("tr");
+  container.appendChild(userRowItem);
 
-  const userListItemName = document.createElement("p");
-  userListItemName.innerText = user.name;
-  userListItemName.classList.add("m-0");
-  userListItem.appendChild(userListItemName);
+  const userIdTableHeader = document.createElement("th");
+  userIdTableHeader.setAttribute("scope", "row");
+  userIdTableHeader.innerText = user.id;
+  userRowItem.appendChild(userIdTableHeader);
 
-  const userListItemUsername = document.createElement("p");
-  userListItemUsername.innerText = user.username;
-  userListItemUsername.classList.add("m-0");
-  userListItem.appendChild(userListItemUsername);
+  const userNameTableData = document.createElement("td");
+  userNameTableData.innerText = user.name;
+  userRowItem.appendChild(userNameTableData);
 
-  const userListItemEmail = document.createElement("p");
-  userListItemEmail.innerText = user.email;
-  userListItemEmail.classList.add("m-0");
-  userListItem.appendChild(userListItemEmail);
+  const userUsernameTableData = document.createElement("td");
+  userUsernameTableData.innerText = user.username;
+  userRowItem.appendChild(userUsernameTableData);
+
+  const userEmailTableData = document.createElement("td");
+  userEmailTableData.innerText = user.email;
+  userRowItem.appendChild(userEmailTableData);
 
   if (searchOption === "name") {
-    userListItemName.classList.add("focused-list-item");
+    userNameTableData.classList.add("text-decoration-underline", "text-success");
   } else if (searchOption === "username") {
-    userListItemUsername.classList.add("focused-list-item");
+    userUsernameTableData.classList.add("text-decoration-underline", "text-success");
   } else if (searchOption === "email") {
-    userListItemEmail.classList.add("focused-list-item");
+    userEmailTableData.classList.add("text-decoration-underline", "text-success");
   }
 }
 
