@@ -58,3 +58,17 @@
 .profile-picture-container:hover {
   transform: scale(1.05);
 }
+
+.product-card-container {
+  cursor: pointer;
+  border-radius: 6px;
+  padding: 6px;
+}
+
+.product-card-container:hover {
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.product-card-price::before {
+  content: "price: ";
+}
