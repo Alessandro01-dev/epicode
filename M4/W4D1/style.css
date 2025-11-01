@@ -1,0 +1,60 @@
+.logo-container {
+  width: 64px;
+  height: 64px;
+  cursor: pointer;
+}
+
+.nav-tabs {
+  cursor: pointer;
+}
+
+.nav-tabs li:hover {
+  text-decoration: underline;
+}
+
+.search-container {
+  height: 32px;
+}
+
+.search-container input {
+  min-width: 200px;
+  padding: 4px 36px 4px 10px;
+  border-radius: 24px;
+  outline: none;
+  border: none;
+}
+
+.search-container input::-webkit-search-cancel-button {
+  display: none;
+}
+
+.search-icon-container {
+  transform: translateY(3px);
+  cursor: pointer;
+}
+
+.notification-icon-container {
+  background-color: rgba(255, 255, 255, 0.2);
+  padding: 10px 14px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.notification-icon-container:hover {
+  transform: scale(1.05);
+  background-color: rgba(255, 255, 255, 0.18);
+}
+
+.profile-picture-container {
+  width: 44px;
+  height: 44px;
+  cursor: pointer;
+}
+
+.profile-picture-container img {
+  border-radius: 50%;
+}
+
+.profile-picture-container:hover {
+  transform: scale(1.05);
+}
