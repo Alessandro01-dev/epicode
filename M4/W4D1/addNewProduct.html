@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+
+
+  <link rel="stylesheet" href="./style.css">
+
+  <title>Marketplace</title>
+</head>
+
+<body>
+
+  <nav class="container-fluid">
+    <div class="row py-2 bg-dark">
+      <div class="col">
+        <div class="d-flex align-items-center justify-content-between">
+          <div class="d-flex gap-3 align-items-center justify-content-between">
+            <a class="logo-container" href="./index.html">
+              <img class="w-100 object-fit-cover" src="./assets/logo.png" alt="marketplace logo">
+            </a>
+            <ul class="nav-tabs d-none d-md-flex gap-3 list-unstyled m-0 border-0 text-white fw-light">
+              <li>Home</li>
+              <li>Categories</li>
+              <li>Favourites</li>
+              <li>Team</li>
+              <li>About</li>
+            </ul>
+          </div>
+          <div class="d-flex gap-2 justify-content-between align-items-center">
+            <div class="search-container position-relative">
+              <input class="d-none" type="search" placeholder="Search...">
+              <div class="search-icon-container position-absolute top-0 end-0 me-3">
+                <i class="bi bi-search text-white"></i>
+              </div>
+            </div>
+            <div class="settings-icon-container">
+              <i class="bi bi-gear text-white"></i>
+            </div>
+            <div class="profile-picture-container">
+              <img class="w-100 object-fit-cover" src="./assets/default_profile_picture.jpg"
+                alt="default profile picture">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <main class="container mt-5">
+    <div class="row">
+      <div class="col">
+        <h2>Add a new product</h2>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <form>
+          <div class="new-product-name-container d-flex flex-column align-items-start">
+            <label for="new-product-name">Product Name:</label>
+            <input class="form-control" id="new-product-name" type="text" placeholder="Name">
+            <div class="invalid-feedback text-start d-none" id="new-product-name-invalid-feedback">Example invalid feedback text</div>
+          </div>
+
+          <div class="new-product-brand-container d-flex flex-column align-items-start">
+            <label for="new-product-brand">Product Brand:</label>
+            <input class="form-control" id="new-product-brand" type="text" placeholder="Brand">
+            <div class="invalid-feedback text-start d-none" id="new-product-brand-invalid-feedback">Example invalid feedback text</div>
+          </div>
+
+          <div class="new-product-price-container d-flex flex-column align-items-start">
+            <label for="new-product-price">Product Price:</label>
+            <input class="form-control" id="new-product-price" type="text" placeholder="Price">
+            <div class="invalid-feedback text-start d-none" id="new-product-price-invalid-feedback">Example invalid feedback text</div>
+          </div>
+
+          <div class="new-product-url-image-container d-flex flex-column align-items-start">
+            <label for="new-product-url-image">Product URL Image:</label>
+            <input class="form-control" id="new-product-url-image" type="text" placeholder="URL Image">
+            <div class="invalid-feedback text-start d-none" id="new-product-url-image-invalid-feedback">Example invalid feedback text</div>
+          </div>
+
+          <div class="new-product-description-container d-flex flex-column align-items-start">
+            <label for="new-product-description">Product Description:</label>
+            <input class="form-control" id="new-product-description" type="text" placeholder="Short Description">
+            <div class="invalid-feedback text-start d-none" id="new-product-description-invalid-feedback">Example invalid feedback text</div>
+          </div>
+
+          <button class="btn btn-info" id="submit-button" type="submit">Submit</button>
+        </form>
+      </div>
+    </div>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+    crossorigin="anonymous"></script>
+
+  <script src="./main.js"></script>
+  <script src="./addNewProduct.js"></script>
+</body>
+
+</html>
