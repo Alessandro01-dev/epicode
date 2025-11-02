@@ -2,6 +2,7 @@ const settingProductsSearchInput = document.getElementById("setting-products-sea
 const settingProductsResultsContainer = document.querySelector(".setting-products-results-container");
 const searchOptionElements = document.querySelectorAll(".search-by-option");
 const selectOptionButton = document.querySelector(".select-option-button");
+const togglesettingsProductButton = document.querySelector(".toggle-switch-button");
 
 const getProducts = async () => {
 
@@ -79,33 +80,49 @@ const createProductItem = (product, container) => {
   settingsProductRowItem.appendChild(settingsProductPriceTableData);
 
   if (searchOption === "name") {
-    settingsproductNameTableData.classList.add("text-decoration-underline", "fw-bold");
+    settingsproductNameTableData.classList.add("fw-bold");
   } else if (searchOption === "brand") {
-    settingsProductBrandTableData.classList.add("text-decoration-underline", "fw-bold");
+    settingsProductBrandTableData.classList.add("fw-bold");
   } else if (searchOption === "price") {
-    settingsProductPriceTableData.classList.add("text-decoration-underline", "fw-bold");
+    settingsProductPriceTableData.classList.add("fw-bold");
   }
 
-  const settingsProductRemoveButtonContainer = document.createElement("td");
-  settingsProductRemoveButtonContainer.classList.add("text-center")
-  settingsProductRowItem.appendChild(settingsProductRemoveButtonContainer);
+  const settingsProductButtonContainer = document.createElement("td");
+  settingsProductRowItem.appendChild(settingsProductButtonContainer);
 
-  const settingsProductRemoveButton = document.createElement("button");
-  settingsProductRemoveButton.setAttribute("class", "settings-product-remove-button");
-  settingsProductRemoveButton.innerText = "Remove";
-  settingsProductRemoveButton.dataset.id = product._id
-  settingsProductRemoveButtonContainer.appendChild(settingsProductRemoveButton);
+  if (!togglesettingsProductButton.checked) {
 
-  settingsProductRemoveButton.addEventListener("click", deleteProduct)
+    const settingsProductRemoveButton = document.createElement("button");
+    settingsProductRemoveButton.setAttribute("class", "settings-product-remove-button");
+    settingsProductRemoveButton.innerText = "Remove";
+    settingsProductRemoveButton.dataset.id = product._id
+    settingsProductButtonContainer.appendChild(settingsProductRemoveButton);
 
+    settingsProductRemoveButton.addEventListener("click", deleteProduct)
+
+  } else if (togglesettingsProductButton.checked) {
+
+    const settingsProductEditButton = document.createElement("button");
+    settingsProductEditButton.setAttribute("class", "settings-product-edit-button");
+    settingsProductEditButton.innerText = "Edit";
+    settingsProductEditButton.dataset.id = product._id
+    settingsProductButtonContainer.appendChild(settingsProductEditButton);
+
+  }
 }
 
 getProducts()
   .then(data => {
-    data.forEach(user => {
-      createProductItem(user, settingProductsResultsContainer)
+    data.forEach(product => {
+      createProductItem(product, settingProductsResultsContainer)
     })
   })
+
+togglesettingsProductButton.addEventListener("change", async () => {
+  const data = await getProducts();
+  settingProductsResultsContainer.innerHTML = "";
+  data.forEach(product => createProductItem(product, settingProductsResultsContainer));
+});
 
 settingProductsSearchInput.addEventListener("input", async () => {
   const data = await getProducts();

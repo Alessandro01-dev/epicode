@@ -38,6 +38,10 @@ const createProductCard = (product, container) => {
   productCardContainer.setAttribute("class", "d-flex flex-column gap-2 align-items-start justify-content-between product-card-container position-relative")
   productCardWrapper.appendChild(productCardContainer)
 
+  productCardContainer.addEventListener("click", () => {
+    window.location.href = `./details.html?productId=${product._id}`
+  })
+
   const productCardImgContainer = document.createElement("div")
   productCardImgContainer.classList.add("product-card-img-container")
   productCardContainer.appendChild(productCardImgContainer)
