@@ -65,10 +65,11 @@ const createProductCard = (product, container) => {
   container.appendChild(productCardWrapper)
 
   const productCardContainer = document.createElement("div")
-  productCardContainer.setAttribute("class", "d-flex flex-column gap-2 align-items-start product-card-container position-relative")
+  productCardContainer.setAttribute("class", "d-flex flex-column gap-2 align-items-start justify-content-between product-card-container position-relative")
   productCardWrapper.appendChild(productCardContainer)
 
   const productCardImgContainer = document.createElement("div")
+  productCardImgContainer.classList.add("product-card-img-container")
   productCardContainer.appendChild(productCardImgContainer)
 
   const productCardImg = document.createElement("img")
@@ -90,12 +91,12 @@ const createProductCard = (product, container) => {
   productCardContainer.appendChild(productCardBottomSectionContainer)
 
   const productCardBrand = document.createElement("p")
-  productCardBrand.setAttribute("class", "badge rounded-pill text-bg-dark")
+  productCardBrand.setAttribute("class", "badge rounded-pill text-bg-dark m-0")
   productCardBrand.innerText = product.brand
   productCardBottomSectionContainer.appendChild(productCardBrand)
 
   const productCardPrice = document.createElement("p")
-  productCardPrice.classList.add("product-card-price")
+  productCardPrice.classList.add("product-card-price", "m-0")
   productCardPrice.innerText = `${product.price} $`
   productCardBottomSectionContainer.appendChild(productCardPrice)
 

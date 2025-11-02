@@ -206,7 +206,7 @@ form.addEventListener("submit", async (e) => {
 
     form.reset()
 
-    alert("prodotto creato!")
+    alert("New product created successfully!")
 
   }
 

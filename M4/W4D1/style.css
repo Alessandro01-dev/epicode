@@ -59,6 +59,18 @@
   transform: scale(1.05);
 }
 
+.hero-img-container {
+  height: 500px;
+}
+
+.hero-title {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-weight: 600;
+  color: white;
+}
+
 .product-card-container {
   cursor: pointer;
   border-radius: 6px;
@@ -67,6 +79,10 @@
 
 .product-card-container:hover {
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.product-card-img-container {
+  
 }
 
 .product-card-price::before {
@@ -83,14 +99,14 @@
   font-size: 20px;
   right: 54px;
   bottom: 54px;
-  background-color: rgba(0, 0, 0, 0.6);
+  background-color: rgba(69, 143, 255, 0.6);
   border-radius: 50%;
   cursor: pointer;
 }
 
 .add-product-icon:hover {
   transform: scale(1.04);
-  background-color: rgba(0, 0, 0, 0.4);
+  background-color: rgba(69, 143, 255, 0.4);
 }
 
 form {
