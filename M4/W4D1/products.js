@@ -28,36 +28,6 @@ const getProducts = async () => {
 getProducts()
   .then(res => console.log(res))
 
-const deleteProduct = async (event) => {
-
-  const productId = event.target.dataset.id
-
-  try {
-
-    const response = await fetch(`${URLData}${productId}`, {
-      method: "DELETE",
-      headers: {
-        "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2OGViZGRkNjQ3N2VkYTAwMTU3MzU2OTUiLCJpYXQiOjE3NjE5OTkyMzcsImV4cCI6MTc2MzIwODgzN30.EpWRymcY9re_KLNkZ37E4Y34r6XWl2123tMzMX7y_l4"
-      }
-    })
-
-    updateProducts()
-
-  } catch (error) {
-    console.log(error)
-  }
-}
-
-const updateProducts = async () => {
-
-  const updatedProducts = await getProducts()
-
-  productsContainer.innerHTML = ""
-
-  updatedProducts.forEach(updatedProduct => createProductCard(updatedProduct, productsContainer))
-
-}
-
 const createProductCard = (product, container) => {
 
   const productCardWrapper = document.createElement("div")
@@ -99,12 +69,6 @@ const createProductCard = (product, container) => {
   productCardPrice.classList.add("product-card-price", "m-0")
   productCardPrice.innerText = `${product.price} $`
   productCardBottomSectionContainer.appendChild(productCardPrice)
-
-  const productCardDeleteProduct = document.createElement("div")
-  productCardDeleteProduct.setAttribute("class", "btn-close position-absolute top-0 end-0")
-  productCardDeleteProduct.dataset.id = product._id
-  productCardContainer.appendChild(productCardDeleteProduct)
-  productCardDeleteProduct.addEventListener("click", deleteProduct)
 
 }
 
