@@ -1,9 +1,4 @@
 const productsContainer = document.getElementById("products-container");
-const addNewProductIcon = document.querySelector(".add-product-icon");
-
-addNewProductIcon.addEventListener("click", () => {
-  window.location.href = "addNewProduct.html"
-})
 
 const URLData = "https://striveschool-api.herokuapp.com/api/product/"
 

@@ -35,7 +35,7 @@ const showProductData = (product, container) => {
   productDetailsMainContainer.appendChild(productDetailsImgContainer);
 
   const productDetailsImg = document.createElement("img");
-  productDetailsImg.setAttribute("class", "w-100 object-fit-cover")
+  productDetailsImg.setAttribute("class", "w-100 object-fit-cover zoomable")
   productDetailsImg.src = product.imageUrl;
   productDetailsImg.alt = product.description;
   productDetailsImgContainer.appendChild(productDetailsImg);
@@ -45,6 +45,7 @@ const showProductData = (product, container) => {
   productDetailsMainContainer.appendChild(productDetailsInfoContainer)
 
   const productDetailsName = document.createElement("h1");
+  productDetailsName.classList.add("text-center")
   productDetailsName.innerText = product.name;
   productDetailsInfoContainer.appendChild(productDetailsName);
 
@@ -57,11 +58,56 @@ const showProductData = (product, container) => {
   productDetailsInfoContainer.appendChild(productDetailsDescription);
 
   const productDetailsPrice = document.createElement("p");
+  productDetailsPrice.classList.add("product-details-price")
   productDetailsPrice.innerText = product.price;
   productDetailsInfoContainer.appendChild(productDetailsPrice);
 
 }
 
 getProduct()
-  .then(res => showProductData(res, productDetailsContainer))
+  .then(res => {
+    showProductData(res, productDetailsContainer)
+    createLens()
+  })
+
+
+const createLens = () => {
+  const zoomable = document.querySelector(".zoomable");
+  if (!zoomable) return;
+
+  let lens;
+  const zoom = 2;
+  const lensSize = 150;
+
+  zoomable.addEventListener('load', () => {
+
+    lens = document.createElement("div");
+    lens.classList.add('zoom-lens');
+    lens.style.width = lens.style.height = lensSize + "px";
+    lens.style.backgroundImage = `url('${zoomable.src}')`;
+    lens.style.backgroundSize = `${zoomable.width * zoom}px ${zoomable.height * zoom}px`;
+    document.body.appendChild(lens);
+
+    zoomable.addEventListener('mousemove', moveLens);
+    zoomable.addEventListener('mouseenter', () => lens.style.opacity = 1);
+    zoomable.addEventListener('mouseleave', () => lens.style.opacity = 0);
+
+    function moveLens(e) {
+      const rect = zoomable.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+
+      lens.style.left = e.pageX - lensSize / 2 + 'px';
+      lens.style.top = e.pageY - lensSize / 2 + 'px';
+
+      lens.style.backgroundPosition = `-${x * zoom - lensSize / 2}px -${y * zoom - lensSize / 2}px`;
+    }
+  });
+};
+
+
+
+
+
+
 

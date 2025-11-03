@@ -4,6 +4,13 @@ const searchOptionElements = document.querySelectorAll(".search-by-option");
 const selectOptionButton = document.querySelector(".select-option-button");
 const togglesettingsProductButton = document.querySelector(".toggle-switch-button");
 
+const addNewProductIcon = document.querySelector(".add-product-icon");
+
+addNewProductIcon.addEventListener("click", () => {
+  window.location.href = "addNewProduct.html"
+})
+
+
 const getProducts = async () => {
 
   const URLData = "https://striveschool-api.herokuapp.com/api/product/"
