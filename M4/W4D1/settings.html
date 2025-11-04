@@ -103,6 +103,70 @@
 
   </main>
 
+  <div class="modal" id="editProductModal" tabindex="-1">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Edit a product!</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <form class="edit-product-form">
+          <div class="modal-body">
+            <h5 class="mb-3 text-decoration-underline">The product to edit:</h5>
+
+            <div class="selected-to-edit-product-modal-container">
+
+            </div>
+
+            <hr>
+
+            <h5 class="mb-3 text-decoration-underline">The edited product:</h5>
+
+            <div class="edited-product-name-container d-flex flex-column align-items-start">
+              <label for="edited-product-name">Product Name:</label>
+              <input class="form-control" id="edited-product-name" type="text" placeholder="Name">
+              <div class="invalid-feedback text-start d-none" id="edited-product-name-invalid-feedback">Example invalid
+                feedback text</div>
+            </div>
+
+            <div class="edited-product-brand-container d-flex flex-column align-items-start">
+              <label for="edited-product-brand">Product Brand:</label>
+              <input class="form-control" id="edited-product-brand" type="text" placeholder="Brand">
+              <div class="invalid-feedback text-start d-none" id="edited-product-brand-invalid-feedback">Example invalid
+                feedback text</div>
+            </div>
+
+            <div class="edited-product-price-container d-flex flex-column align-items-start">
+              <label for="edited-product-price">Product Price:</label>
+              <input class="form-control" id="edited-product-price" type="text" placeholder="Price">
+              <div class="invalid-feedback text-start d-none" id="edited-product-price-invalid-feedback">Example invalid
+                feedback text</div>
+            </div>
+
+            <div class="edited-product-url-image-container d-flex flex-column align-items-start">
+              <label for="edited-product-url-image">Product URL Image:</label>
+              <input class="form-control" id="edited-product-url-image" type="text" placeholder="URL Image">
+              <div class="invalid-feedback text-start d-none" id="edited-product-url-image-invalid-feedback">Example
+                invalid feedback text</div>
+            </div>
+
+            <div class="edited-product-description-container d-flex flex-column align-items-start">
+              <label for="edited-product-description">Product Description:</label>
+              <input class="form-control" id="edited-product-description" type="text" placeholder="Short Description">
+              <div class="invalid-feedback text-start d-none" id="edited-product-description-invalid-feedback">Example
+                invalid feedback text</div>
+            </div>
+
+
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <button type="submit" class="btn btn-dark">Edit Changes</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
 
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"

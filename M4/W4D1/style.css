@@ -113,6 +113,18 @@ input:focus {
   box-shadow: none !important;
 }
 
+.add-new-product-form-btn {
+  background-color: #2196F3;
+}
+
+.add-new-product-form-btn:hover {
+   background-color: #38a6ff; 
+}
+
+.add-new-product-form-btn:active {
+  background-color: rgb(0, 0, 255) !important;
+}
+
 .product-details-price::before {
   content: "price: ";
 }
@@ -162,6 +174,42 @@ input:focus {
 
 .product-details-img-container {
   max-width: 50%;
+}
+
+.to-edit-product-name:before,
+.to-edit-product-brand:before,
+.to-edit-product-price:before,
+.to-edit-product-image-url:before,
+.to-edit-product-description:before {
+  content: "Current product name: ";
+  font-weight: 200;
+  font-size: 12px;
+  display: flex;
+  flex-direction: column;
+}
+
+.to-edit-product-name:before {
+  content: "Current product name: ";
+}
+
+.to-edit-product-brand:before {
+  content: "Current product brand: ";
+}
+
+.to-edit-product-image-url {
+  padding-bottom: 12px;
+  margin-bottom: 6px;
+  overflow-x: scroll;
+  width: 100%;
+  text-wrap: nowrap;
+}
+
+.to-edit-product-image-url:before {
+  content: "Current product URL Image: ";
+}
+
+.to-edit-product-description:before {
+  content: "Current product description: ";
 }
 
 .switch {
