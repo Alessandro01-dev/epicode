@@ -204,7 +204,7 @@ const editProduct = async (editedObj, productId) => {
       body: JSON.stringify(editedObj)
     })
 
-    return await response.json(editedObj)
+    return await response.json()
 
   } catch (error) {
     console.log(error)
@@ -263,6 +263,7 @@ const filterProducts = (arr) => {
 const createProductItem = (product, container) => {
 
   const settingsProductRowItem = document.createElement("tr");
+  settingsProductRowItem.dataset.id = product._id;
   container.appendChild(settingsProductRowItem);
 
   const settingsProductImageContainerTableHeader = document.createElement("th");
@@ -343,9 +344,12 @@ const createProductItem = (product, container) => {
 
     settingsProductEditButton.setAttribute("data-bs-toggle", "modal");
     settingsProductEditButton.setAttribute("data-bs-target", "#editProductModal");
+
+    let productId = null;
+
     settingsProductEditButton.addEventListener("click", (event) => {
 
-      const productId = event.target.dataset.id;
+      productId = event.target.dataset.id;
 
       getProducts()
         .then(data => {
@@ -355,33 +359,36 @@ const createProductItem = (product, container) => {
           selectedToEditProductModalContainer.innerHTML = "";
 
           showToEditProductInfo(productToEdit, selectedToEditProductModalContainer)
-
-          editProductForm.addEventListener("submit", async (e) => {
-            e.preventDefault()
-
-            if (validateForm()) {
-
-              returnEditedProductObjFromInputValues()
-
-              await editProduct(editedProductObj, productId)
-                .then(res => console.log(res))
-
-              console.log(editedProductObj)
-
-              editProductForm.reset()
-
-              updateProducts()
-
-              const editModalInstance = bootstrap.Modal.getInstance(editProductModal);
-              editModalInstance.hide();
-
-              alert("Product edited successfully!");
-
-            }
-
-          })
-
         })
+
+      editProductForm.addEventListener("submit", async (e) => {
+        e.preventDefault()
+
+        if (validateForm()) {
+
+          returnEditedProductObjFromInputValues()
+
+          await editProduct(editedProductObj, productId)
+            .then(res => console.log(res))
+
+          console.log(editedProductObj)
+
+          editProductForm.reset()
+
+          await updateProducts()
+
+          const editModalInstance = bootstrap.Modal.getInstance(editProductModal);
+          editModalInstance.hide();
+
+          alert("Product edited successfully!");
+
+          animateEditedItem(productId);
+
+        }
+
+      })
+
+
     })
   }
 }
@@ -454,6 +461,18 @@ const deleteProduct = async (product) => {
   } catch (error) {
     console.log(error)
   }
+}
+
+const animateEditedItem = (productId) => {
+
+  const editedProductRowItem = document.querySelector(`tr[data-id="${productId}"]`);
+
+  editedProductRowItem.classList.add("edited-product-row-item");
+
+  setTimeout(() => {
+    editedProductRowItem.classList.remove("edited-product-row-item");
+  }, 5000);
+
 }
 
 const updateProducts = async () => {
