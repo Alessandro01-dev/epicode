@@ -4,7 +4,11 @@ const searchOptionElements = document.querySelectorAll(".search-by-option");
 const selectOptionButton = document.querySelector(".select-option-button");
 const togglesettingsProductButton = document.querySelector(".toggle-switch-button");
 
+const toRemoveModalProduct = document.querySelector(".to-remove-modal-product");
+const removeProductModalBtn = document.getElementById("remove-product-modal-btn");
+
 const editProductModal = document.getElementById("editProductModal")
+const removeProductModal = document.getElementById("removeProductModal")
 const selectedToEditProductModalContainer = document.querySelector(".selected-to-edit-product-modal-container");
 
 const addNewProductIcon = document.querySelector(".add-product-icon");
@@ -298,11 +302,36 @@ const createProductItem = (product, container) => {
 
     const settingsProductRemoveButton = document.createElement("button");
     settingsProductRemoveButton.setAttribute("class", "settings-product-remove-button");
+    settingsProductRemoveButton.setAttribute("data-bs-toggle", "modal");
+    settingsProductRemoveButton.setAttribute("data-bs-target", "#removeProductModal");
     settingsProductRemoveButton.innerText = "Remove";
     settingsProductRemoveButton.dataset.id = product._id
     settingsProductButtonContainer.appendChild(settingsProductRemoveButton);
 
-    settingsProductRemoveButton.addEventListener("click", deleteProduct)
+    settingsProductRemoveButton.addEventListener("click", (event) => {
+
+      const productId = event.target.dataset.id;
+
+      getProducts()
+        .then(data => {
+
+          const productToRemove = data.find(product => product._id === productId)
+
+          toRemoveModalProduct.innerText = productToRemove.name
+
+          removeProductModalBtn.addEventListener("click", () => {
+
+            deleteProduct(productToRemove);
+
+            const removeModalInstance = bootstrap.Modal.getInstance(removeProductModal);
+            removeModalInstance.hide();
+
+            alert("Product removed successfully!")
+
+          })
+
+        })
+    })
 
   } else if (togglesettingsProductButton.checked) {
 
@@ -341,9 +370,12 @@ const createProductItem = (product, container) => {
 
               editProductForm.reset()
 
-              alert("Product edited successfully!")
-
               updateProducts()
+
+              const editModalInstance = bootstrap.Modal.getInstance(editProductModal);
+              editModalInstance.hide();
+
+              alert("Product edited successfully!");
 
             }
 
@@ -403,10 +435,10 @@ settingProductsSearchInput.addEventListener("input", async () => {
   filterProducts(data);
 })
 
-const deleteProduct = async (event) => {
+const deleteProduct = async (product) => {
 
   const URLData = "https://striveschool-api.herokuapp.com/api/product/"
-  const productId = event.target.dataset.id
+  const productId = product._id
 
   try {
 

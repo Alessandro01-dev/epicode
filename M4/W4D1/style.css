@@ -181,7 +181,6 @@ input:focus {
 .to-edit-product-price:before,
 .to-edit-product-image-url:before,
 .to-edit-product-description:before {
-  content: "Current product name: ";
   font-weight: 200;
   font-size: 12px;
   display: flex;
@@ -194,6 +193,10 @@ input:focus {
 
 .to-edit-product-brand:before {
   content: "Current product brand: ";
+}
+
+.to-edit-product-price:before {
+  content: "Current product price: ";
 }
 
 .to-edit-product-image-url {
