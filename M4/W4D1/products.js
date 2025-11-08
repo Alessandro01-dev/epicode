@@ -1,8 +1,19 @@
 const productsContainer = document.getElementById("products-container");
+const spinner = document.querySelector(".loader")
 
 const URLData = "https://striveschool-api.herokuapp.com/api/product/"
 
+const showSpinner = () => {
+  spinner.classList.remove("d-none");
+}
+
+const hideSpinner = () => {
+  spinner.classList.add("d-none");
+}
+
 const getProducts = async () => {
+
+  showSpinner()
 
   try {
 
@@ -16,6 +27,8 @@ const getProducts = async () => {
 
   } catch (error) {
     console.log(error)
+  } finally {
+    hideSpinner()
   }
 
 }
