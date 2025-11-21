@@ -1,0 +1,65 @@
+import "./style.css"
+import { Col, Card, Button } from "react-bootstrap"
+import { useState } from 'react'
+
+const SingleBook = ({ book }) => {
+
+  const [selected, setSelected] = useState(false)
+
+  const handlerCardSelection = () => {
+    setSelected(!selected)
+  }
+
+  return (
+
+    <Col
+      xs={6}
+      md={4}
+      lg={3}
+    >
+      <Card
+        onClick={handlerCardSelection}
+        className={`book-card ${selected && ("border border-danger")}`}
+      >
+        <Card.Img
+          className="book-card-img"
+          variant="top"
+          src={book.img}
+          alt={book.title}
+        />
+        <Card.Body
+          className="d-flex flex-column gap-3"
+        >
+          <Card.Title
+            className="book-card-title"
+          >
+            {book.title}
+          </Card.Title>
+          <div
+            className="d-flex justify-content-between align-items-center"
+          >
+            <Card.Text
+              className="badge bg-dark m-0 book-card-category-badge"
+            >
+              {book.category}
+            </Card.Text>
+            <Card.Text>
+              {book.price} $
+            </Card.Text>
+          </div>
+          <Button
+            className="align-self-end book-card-comment-button"
+            variant="dark"
+            size="sm"
+          >
+            Add a comment
+          </Button>
+        </Card.Body>
+      </Card>
+    </Col >
+
+  )
+
+}
+
+export default SingleBook
