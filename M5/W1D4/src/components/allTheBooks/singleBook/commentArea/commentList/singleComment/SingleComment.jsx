@@ -3,14 +3,23 @@ import { Trash2, SquarePen } from "lucide-react"
 import "./style.css"
 import { useState } from "react"
 import EditComment from "./editComment/EditComment"
+import MyToast from "../../../../../../utils/myToast/MyToast"
 
 const SingleComment = ({ review }) => {
+
+  const [showMyToast, setShowMyToast] = useState(false)
 
   const [isToEdit, setIsToEdit] = useState(false)
 
   const handlerToEditReview = () => {
 
     setIsToEdit(!isToEdit)
+
+  }
+
+  const renderSuccessToast = () => {
+
+    setShowMyToast(true)
 
   }
 
@@ -36,6 +45,12 @@ const SingleComment = ({ review }) => {
         },
       })
 
+      if (response.ok) {
+
+        renderSuccessToast()
+
+      }
+
     } catch (error) {
       console.log(error.message)
     }
@@ -43,42 +58,54 @@ const SingleComment = ({ review }) => {
   }
 
   return (
-    <div
-      className="border m-2"
-    >
+
+    <>
       <div
-        className="d-flex align-items-start justify-content-between gap-2 m-2"
+        className="border m-2"
       >
-        <ul
-          className="d-flex flex-column justify-content-between align-items-start"
+        <div
+          className="d-flex align-items-start justify-content-between gap-2 m-2"
         >
-          <li
-            className="comment-author-list-item"
-          >{review.author}</li>
-          <li>{review.comment}</li>
-          <li
-            className="comment-rate-list-item"
-          >{review.rate}</li>
-          <li>{(formatDate(review.createdAt)) + (review.updatedAt === review.createdAt ? "" : (` (edited on ${formatDate(review.updatedAt)})`))}</li>
-        </ul>
-        <div className="review-icons-container d-flex flex-column gap-1 align-items-end">
-          <Trash2
-            className="review-icon"
-            onClick={deleteReview}
-          />
-          <SquarePen
-            className="review-icon"
-            onClick={handlerToEditReview}
-          />
+          <ul
+            className="d-flex flex-column justify-content-between align-items-start"
+          >
+            <li
+              className="comment-author-list-item"
+            >{review.author}</li>
+            <li>{review.comment}</li>
+            <li
+              className="comment-rate-list-item"
+            >{review.rate}</li>
+            <li>{(formatDate(review.createdAt)) + (review.updatedAt === review.createdAt ? "" : (` (edited on ${formatDate(review.updatedAt)})`))}</li>
+          </ul>
+          <div className="review-icons-container d-flex flex-column gap-1 align-items-end">
+            <Trash2
+              className="review-icon"
+              onClick={deleteReview}
+            />
+            <SquarePen
+              className="review-icon"
+              onClick={handlerToEditReview}
+            />
+          </div>
         </div>
+        {
+          isToEdit &&
+          <EditComment
+            review={review}
+          />
+        }
       </div>
       {
-        isToEdit &&
-        <EditComment
-          review={review}
-        />
+        showMyToast && (<MyToast
+          show={showMyToast}
+          onClose={() => setShowMyToast(false)}
+          bg="danger"
+          message="Comment deleted successfully!"
+        />)
       }
-    </div>
+    </>
+
   )
 
 }
