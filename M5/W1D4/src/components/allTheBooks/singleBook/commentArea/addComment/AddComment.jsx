@@ -2,6 +2,7 @@ import { Form, FloatingLabel, Button } from "react-bootstrap"
 import { authenticationToken } from "../../../../../data/books/studentLogin/studentLogin"
 import { useState } from "react"
 import MyToast from "../../../../../utils/myToast/MyToast"
+import MyAlert from "../../../../../utils/myAlert/MyAlert"
 
 const AddComment = ({ asin }) => {
 
@@ -12,6 +13,16 @@ const AddComment = ({ asin }) => {
     rate: 0,
     elementId: asin
   })
+
+  const [showMyAlert, setShowMyAlert] = useState(false)
+
+  const [errorMessage, setErrorMessage] = useState("")
+
+  const renderErrorAlert = () => {
+
+    setShowMyAlert(true)
+
+  }
 
   const renderSuccessToast = () => {
 
@@ -39,7 +50,11 @@ const AddComment = ({ asin }) => {
       }
 
     } catch (error) {
-      console.log(error.message)
+      
+      setErrorMessage(error.message)
+
+      renderErrorAlert()
+
     }
 
   }
@@ -99,6 +114,10 @@ const AddComment = ({ asin }) => {
         onClose={() => setShowMyToast(false)}
         bg="success"
         message="Comment added successfully!"
+      />)}
+      {showMyAlert && (<MyAlert 
+        message={errorMessage}
+        onClose={() => setShowMyAlert(false)}
       />)}
     </>
   )

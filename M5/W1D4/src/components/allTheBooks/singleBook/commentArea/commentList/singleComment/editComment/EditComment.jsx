@@ -3,16 +3,27 @@ import { authenticationToken } from "../../../../../../../data/books/studentLogi
 import { useState } from "react"
 import "./style.css"
 import MyToast from "../../../../../../../utils/myToast/MyToast"
+import MyAlert from "../../../../../../../utils/myAlert/MyAlert"
 
 const EditComment = ({ review }) => {
 
   const [showMyToast, setShowMyToast] = useState(false)
+
+  const [showMyAlert, setShowMyAlert] = useState(false)
+
+  const [errorMessage, setErrorMessage] = useState("")
 
   const [editingReview, setEditingReview] = useState({
     comment: review.comment,
     rate: review.rate,
     elementId: review.elementId
   })
+
+  const renderErrorAlert = () => {
+
+    setShowMyAlert(true)
+
+  }
 
   const renderSuccessToast = () => {
 
@@ -38,7 +49,11 @@ const EditComment = ({ review }) => {
       }
 
     } catch (error) {
-      console.log(error.message)
+
+      setErrorMessage(error.message)
+
+      renderErrorAlert()
+
     }
 
   }
@@ -56,6 +71,10 @@ const EditComment = ({ review }) => {
 
   return (
     <>
+      {showMyAlert && (<MyAlert
+        message={errorMessage}
+        onClose={() => setShowMyAlert(false)}
+      />)}
       <Form
         className="d-flex flex-column m-2"
         onSubmit={(e) => {

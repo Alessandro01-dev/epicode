@@ -1,12 +1,28 @@
 import { useState, useEffect } from "react"
 import CommentList from "./commentList/CommentList"
 import AddComment from "./addComment/AddComment"
+import MySpinner from "../../../../utils/mySpinner/MySpinner"
+import MyAlert from "../../../../utils/myAlert/MyAlert"
 
 const CommentArea = ({ asin }) => {
 
   const [reviews, setReviews] = useState([])
 
+  const [errorMessage, setErrorMessage] = useState("")
+
+  const [showMyAlert, setShowMyAlert] = useState(false)
+
+  const renderErrorAlert = () => {
+
+    setShowMyAlert(true)
+
+  }
+
+  const [showMySpinner, setShowMySpinner] = useState(false)
+
   const getReviews = async () => {
+
+    setShowMySpinner(true)
 
     try {
 
@@ -16,7 +32,15 @@ const CommentArea = ({ asin }) => {
       setReviews(data)
 
     } catch (error) {
-      console.log(error.message)
+
+      setErrorMessage(error.message)
+
+      renderErrorAlert()
+
+    } finally {
+
+      setShowMySpinner(false)
+
     }
 
   }
@@ -29,10 +53,23 @@ const CommentArea = ({ asin }) => {
 
   return (
     <>
+      {showMyAlert && !showMySpinner && (
+
+        <MyAlert
+          message={errorMessage}
+          onClose={() => setShowMyAlert(false)}
+        />
+
+      )}
+      {!errorMessage && showMySpinner && (
+
+        <MySpinner />
+
+      )}
       <CommentList
         reviews={reviews}
       />
-      <AddComment 
+      <AddComment
         asin={asin}
       />
     </>

@@ -4,12 +4,24 @@ import "./style.css"
 import { useState } from "react"
 import EditComment from "./editComment/EditComment"
 import MyToast from "../../../../../../utils/myToast/MyToast"
+import { parseISO } from "date-fns"
+import MyAlert from "../../../../../../utils/myAlert/MyAlert"
 
 const SingleComment = ({ review }) => {
 
   const [showMyToast, setShowMyToast] = useState(false)
 
   const [isToEdit, setIsToEdit] = useState(false)
+
+  const [showMyAlert, setShowMyAlert] = useState(false)
+
+  const [errorMessage, setErrorMessage] = useState("")
+
+  const renderErrorAlert = () => {
+
+    setShowMyAlert(true)
+
+  }
 
   const handlerToEditReview = () => {
 
@@ -25,13 +37,22 @@ const SingleComment = ({ review }) => {
 
   const formatDate = (isoString) => {
 
-    const date = new Date(isoString);
 
-    const localedateformat = date.toLocaleDateString("it-IT");
-    const localetimeformat = date.toLocaleTimeString("it-IT");
+    // con libreria date-fns
 
-    return localedateformat + " at " + localetimeformat
+    const date = parseISO(isoString)
 
+    return date.toString().slice(0, 24);
+
+    // o in alternativa con metodo js
+    /*
+        const date = new Date(isoString);
+    
+        const localedateformat = date.toLocaleDateString("it-IT");
+        const localetimeformat = date.toLocaleTimeString("it-IT");
+    
+        return localedateformat + " at " + localetimeformat
+    */
   }
 
   const deleteReview = async () => {
@@ -52,7 +73,11 @@ const SingleComment = ({ review }) => {
       }
 
     } catch (error) {
-      console.log(error.message)
+
+      setErrorMessage(error.message)
+
+      renderErrorAlert()
+
     }
 
   }
@@ -60,6 +85,12 @@ const SingleComment = ({ review }) => {
   return (
 
     <>
+      {
+        showMyAlert && (<MyAlert
+          message={errorMessage}
+          onClose={() => setShowMyAlert(false)}
+        />)
+      }
       <div
         className="border m-2"
       >
@@ -76,7 +107,11 @@ const SingleComment = ({ review }) => {
             <li
               className="comment-rate-list-item"
             >{review.rate}</li>
-            <li>{(formatDate(review.createdAt)) + (review.updatedAt === review.createdAt ? "" : (` (edited on ${formatDate(review.updatedAt)})`))}</li>
+            <li>
+              {(formatDate(review.createdAt))}
+            </li>
+            {review.updatedAt === review.createdAt ? null : (<li>
+              (edited on {formatDate(review.updatedAt)})</li>)}
           </ul>
           <div className="review-icons-container d-flex flex-column gap-1 align-items-end">
             <Trash2
@@ -95,7 +130,7 @@ const SingleComment = ({ review }) => {
             review={review}
           />
         }
-      </div>
+      </div >
       {
         showMyToast && (<MyToast
           show={showMyToast}

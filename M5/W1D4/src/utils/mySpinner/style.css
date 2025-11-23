@@ -1,0 +1,12 @@
+.dot {
+  width: 14px;
+  height: 14px;
+}
+
+.second-dot {
+  animation-delay: 0.1s;
+}
+
+.third-dot {
+  animation-delay: 0.2s;
+}
