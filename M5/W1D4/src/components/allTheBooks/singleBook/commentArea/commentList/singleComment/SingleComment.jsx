@@ -52,9 +52,13 @@ const SingleComment = ({ review }) => {
         <ul
           className="d-flex flex-column justify-content-between align-items-start"
         >
-          <li>{review.author}</li>
+          <li
+            className="comment-author-list-item"
+          >{review.author}</li>
           <li>{review.comment}</li>
-          <li>{review.rate}</li>
+          <li
+            className="comment-rate-list-item"
+          >{review.rate}</li>
           <li>{(formatDate(review.createdAt)) + (review.updatedAt === review.createdAt ? "" : (` (edited on ${formatDate(review.updatedAt)})`))}</li>
         </ul>
         <div className="review-icons-container d-flex flex-column gap-1 align-items-end">
@@ -70,7 +74,7 @@ const SingleComment = ({ review }) => {
       </div>
       {
         isToEdit &&
-        <EditComment 
+        <EditComment
           review={review}
         />
       }
