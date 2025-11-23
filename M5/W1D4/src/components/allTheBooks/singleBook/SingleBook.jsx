@@ -1,12 +1,13 @@
 import "./style.css"
 import { Col, Card, Button } from "react-bootstrap"
-import { useState } from 'react'
+import { useState } from "react"
+import CommentArea from "./commentArea/CommentArea"
 
 const SingleBook = ({ book }) => {
 
   const [selected, setSelected] = useState(false)
 
-  const handlerCardSelection = () => {
+  const handlerSelection = () => {
     setSelected(!selected)
   }
 
@@ -18,8 +19,7 @@ const SingleBook = ({ book }) => {
       lg={3}
     >
       <Card
-        onClick={handlerCardSelection}
-        className={`book-card ${selected && ("border border-danger")}`}
+        className="book-card"
       >
         <Card.Img
           className="book-card-img"
@@ -48,13 +48,19 @@ const SingleBook = ({ book }) => {
             </Card.Text>
           </div>
           <Button
+            onClick={handlerSelection}
             className="align-self-end book-card-comment-button"
             variant="dark"
             size="sm"
           >
-            Add a comment
+            Show comments
           </Button>
         </Card.Body>
+        {selected && (
+          <CommentArea 
+            asin={book.asin}
+          />
+        )}
       </Card>
     </Col >
 

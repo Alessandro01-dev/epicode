@@ -1,0 +1,1 @@
+export const authenticationToken = "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2OGViZGRkNjQ3N2VkYTAwMTU3MzU2OTUiLCJpYXQiOjE3NjM3NzM0NjIsImV4cCI6MTc2NDk4MzA2Mn0.dq_KSs48Zrn-A3rGJQ_oNrjKtcYIZX8YgsRXjWybUB4";
