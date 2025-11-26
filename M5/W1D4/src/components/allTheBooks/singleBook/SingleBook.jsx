@@ -15,8 +15,9 @@ const SingleBook = ({ book }) => {
 
     <Col
       xs={6}
-      md={4}
-      lg={3}
+      sm={4}
+      md={3}
+      lg={2}
     >
       <Card
         className="book-card"
@@ -28,7 +29,7 @@ const SingleBook = ({ book }) => {
           alt={book.title}
         />
         <Card.Body
-          className="d-flex flex-column gap-3"
+          className="d-flex flex-column gap-3 px-0"
         >
           <Card.Title
             className="book-card-title"
@@ -53,7 +54,7 @@ const SingleBook = ({ book }) => {
             variant="dark"
             size="sm"
           >
-            Show comments
+            {`${!selected ? "Show comments" : "Hide comments"}`}
           </Button>
         </Card.Body>
         {selected && (

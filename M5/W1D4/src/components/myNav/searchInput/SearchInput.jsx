@@ -1,8 +1,12 @@
 import { Form, Button } from "react-bootstrap"
-import { useState } from "react";
+import { useContext, useState } from "react";
+import { BookContext } from "../../../context/BookContext";
+import "./style.css"
 
-const SearchInput = ({ books, setBooks }) => {
-  const [allBooks] = useState([...books])
+const SearchInput = () => {
+
+  const { allBooks, setBooks } = useContext(BookContext)
+
   const [searchBook, setSearchBook] = useState("")
 
   const handlerOnChange = (e) => {
@@ -16,14 +20,13 @@ const SearchInput = ({ books, setBooks }) => {
     }
 
   }
-  console.log(allBooks)
 
   const filterBooksBytitle = (e) => {
     e.preventDefault()
 
     const searchedBook = searchBook.toLowerCase()
 
-    const filteredBooks = books.filter(book => book.title.toLowerCase().includes(searchedBook))
+    const filteredBooks = allBooks.filter(book => book.title.toLowerCase().includes(searchedBook))
 
     setBooks(filteredBooks)
 
@@ -38,10 +41,11 @@ const SearchInput = ({ books, setBooks }) => {
         onChange={handlerOnChange}
         type="search"
         placeholder="Search a book..."
-        className="me-2"
+        className="search-input me-2"
         aria-label="Search"
       />
       <Button
+        className="search-button"
         type="submit"
         variant="outline-light"
       >Search</Button>

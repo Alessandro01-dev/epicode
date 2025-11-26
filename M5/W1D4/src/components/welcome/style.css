@@ -1,0 +1,37 @@
+.hero-container {
+  width: 100%;
+  max-height: 600px;
+  overflow: hidden;
+}
+
+.arched-text {
+  font-size: 20px;
+  top: 30%;
+  left: 50%;
+  background: transparent;
+  transform: translate(-100%, -50%);
+}
+
+.arched-text text {
+  font-size: 54px;
+  font-weight: 100;
+  letter-spacing: 8px;
+  text-anchor: middle;
+}
+
+.hero-bottom-text {
+  text-wrap: nowrap;
+  bottom: 4%;
+  right: 10%;
+  font-size: 48px;
+  font-weight: bold;
+  color: rgb(166, 166, 166);
+}
+
+@media (max-width: 768px) {
+  .hero-bottom-text {
+    font-size: 30px;
+    bottom: 10%;
+    right: 4%;
+  }
+}

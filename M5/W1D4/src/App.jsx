@@ -1,34 +1,19 @@
 import MyNav from "./components/myNav/MyNav"
 import MyFooter from "./components/myFooter/MyFooter"
-{/*import Welcome from "./components/welcome/Welcome"*/}
-import Books from "./data/books/fantasy.json"
+import Welcome from "./components/welcome/Welcome"
 import AllTheBooks from "./components/allTheBooks/AllTheBooks"
-import { useState, useEffect } from "react"
+import { BookProvider } from './context/BookContext.jsx';
 
 const App = () => {
 
-  const [books, setBooks] = useState([])
-
-   useEffect(() => {
-        setBooks(Books)
-    }, [])
-
   return (
 
-    <div>
-      <MyNav 
-        books={Books}
-        setBooks={setBooks}
-      />
-
-      {/* Welcome component M5/W1D4 n.5
-      <Welcome />*/}
-
-      <AllTheBooks 
-        books={books}
-      />
+    <BookProvider>
+      <MyNav />      
+      <Welcome />
+      <AllTheBooks />
       <MyFooter />
-    </div>
+    </BookProvider>
 
   )
 }

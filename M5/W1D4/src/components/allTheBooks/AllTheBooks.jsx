@@ -1,25 +1,37 @@
 import Container from "react-bootstrap/Container"
 import Row from "react-bootstrap/Row"
 import SingleBook from "./singleBook/SingleBook"
+import { useContext } from "react"
+import { BookContext } from "../../context/BookContext"
+import "./style.css"
+import MySpinner from "../../utils/mySpinner/MySpinner"
+import MyAlert from "../../utils/myAlert/MyAlert"
 
 
-const AllTheBooks = ( { books } ) => {
+const AllTheBooks = () => {
+
+  const { books, isLoading, error } = useContext(BookContext)
 
   return (
 
     <Container
-      className="py-5"
+      className="main-container pt-5"
     >
       <Row
         className="g-4"
       >
 
-        {books.map(book => (
-          < SingleBook
-            key={book.asin}
-            book={book}
-          />
-        ))}
+        {isLoading && <MySpinner />}
+        {!isLoading && error && <MyAlert
+          message={error}
+        />}
+        {!isLoading && !error &&
+          books.map((book, index) => (
+            < SingleBook
+              key={`${index}${book.asin}`}
+              book={book}
+            />
+          ))}
 
       </Row>
     </Container>

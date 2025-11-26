@@ -1,4 +1,4 @@
-import { authenticationToken } from "../../../../../../data/books/studentLogin/studentLogin"
+import { authenticationToken } from "../../../../../../data/studentLogin/studentLogin"
 import { Trash2, SquarePen } from "lucide-react"
 import "./style.css"
 import { useState } from "react"
