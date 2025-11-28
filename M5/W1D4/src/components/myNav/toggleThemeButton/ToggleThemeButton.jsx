@@ -25,7 +25,7 @@ const ToggleThemeButton = () => {
           type="checkbox"
           onClick={Themehandler}
         />
-        <span class="slider round"></span>
+        <span className="slider round"></span>
       </label>
     </div>
 

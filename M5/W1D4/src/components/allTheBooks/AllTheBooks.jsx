@@ -1,5 +1,4 @@
-import Container from "react-bootstrap/Container"
-import Row from "react-bootstrap/Row"
+import { Container, Row } from "react-bootstrap"
 import SingleBook from "./singleBook/SingleBook"
 import { useContext } from "react"
 import { BookContext } from "../../context/BookContext"
@@ -33,7 +32,7 @@ const AllTheBooks = () => {
               book={book}
             />
           ))}
-
+          
       </Row>
     </Container>
 

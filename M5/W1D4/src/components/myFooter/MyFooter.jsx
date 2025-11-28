@@ -1,22 +1,26 @@
+import { useContext } from "react"
 import "./style.css"
+import { ThemeContext } from "../../context/ThemeContext"
 
 const MyFooter = () => {
+
+  const { isDark } = useContext(ThemeContext)
 
   return (
 
     <>
       <footer
-        className="bottom-0 start-0 end-0 bg-dark d-flex flex-column flex-md-row justify-content-around p-5"
+        className={`bottom-0 start-0 end-0 d-flex flex-column flex-md-row justify-content-around p-5 ${isDark ? "bg-black" : "bg-white"}`}
       >
         <div
           className="d-flex flex-column"
         >
-          <h6 
-            className="text-white text-uppercase">
-              company
+          <h6
+            className={`text-uppercase ${isDark ? "text-white" : "text-black"}`}>
+            company
           </h6>
           <ul
-            className="d-flex flex-row flex-md-column gap-2 text-white list-unstyled flex-wrap text-nowrap">
+            className="d-flex flex-row flex-md-column gap-2 list-unstyled flex-wrap text-nowrap">
             <li>About</li>
             <li>Press</li>
             <li>Work Here</li>
@@ -28,15 +32,15 @@ const MyFooter = () => {
             <li>Cookie Policy</li>
           </ul>
         </div>
-                <div
+        <div
           className="d-flex flex-column"
         >
-          <h6 
-            className="text-white text-uppercase">
-              company
+          <h6
+            className={`text-uppercase ${isDark ? "text-white" : "text-black"}`}>
+            company
           </h6>
           <ul
-            className="d-flex flex-row flex-md-column gap-2 text-white list-unstyled flex-wrap text-nowrap">
+            className="d-flex flex-row flex-md-column gap-2 list-unstyled flex-wrap text-nowrap">
             <li>About</li>
             <li>Press</li>
             <li>Work Here</li>
@@ -48,15 +52,15 @@ const MyFooter = () => {
             <li>Cookie Policy</li>
           </ul>
         </div>
-                <div
+        <div
           className="d-flex flex-column"
         >
-          <h6 
-            className="text-white text-uppercase">
-              company
+          <h6
+            className={`text-uppercase ${isDark ? "text-white" : "text-black"}`}>
+            company
           </h6>
           <ul
-            className="d-flex flex-row flex-md-column gap-2 text-white list-unstyled flex-wrap text-nowrap">
+            className="d-flex flex-row flex-md-column gap-2 list-unstyled flex-wrap text-nowrap">
             <li>About</li>
             <li>Press</li>
             <li>Work Here</li>

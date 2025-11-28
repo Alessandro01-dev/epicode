@@ -5,15 +5,16 @@ const MyToast = ({ show, onClose, bg, message }) => {
   return (
 
     <ToastContainer
+      className="position-fixed bottom-0 end-0 m-3"
       position="bottom-end"
-      className="position-fixed m-3"
+      style={{ zIndex: 99999 }}
     >
       <Toast
         onClose={onClose}
         show={show}
         delay={5000}
         autohide
-        bg={bg}  
+        bg={bg}
       >
         <Toast.Header>
           <img

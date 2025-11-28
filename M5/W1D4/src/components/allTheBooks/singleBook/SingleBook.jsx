@@ -60,12 +60,12 @@ const SingleBook = ({ book }) => {
             {`${!selected ? "Show comments" : "Hide comments"}`}
           </Button>
         </Card.Body>
-        {selected && (
-          <CommentArea
-            asin={book.asin}
-          />
-        )}
       </Card>
+      {selected && (
+        <CommentArea
+          asin={book.asin}
+        />
+      )}
     </Col >
 
   )
