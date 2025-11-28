@@ -6,7 +6,7 @@ const MyFooter = () => {
 
     <>
       <footer
-        className="bottom-0 start-0 end-0 bg-dark d-flex flex-column flex-md-row justify-content-around p-5 mt-5"
+        className="bottom-0 start-0 end-0 bg-dark d-flex flex-column flex-md-row justify-content-around p-5"
       >
         <div
           className="d-flex flex-column"

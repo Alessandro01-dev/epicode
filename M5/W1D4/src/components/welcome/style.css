@@ -25,12 +25,12 @@
   right: 10%;
   font-size: 48px;
   font-weight: bold;
-  color: rgb(166, 166, 166);
+  color: rgb(210, 210, 210);
 }
 
 @media (max-width: 768px) {
   .hero-bottom-text {
-    font-size: 30px;
+    font-size: 28px;
     bottom: 10%;
     right: 4%;
   }

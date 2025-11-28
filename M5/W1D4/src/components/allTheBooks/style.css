@@ -1,9 +1,10 @@
 .main-container {
-  min-height: calc(100vh - 56px - 365px);
+  min-height: calc(100vh - 76px - 365px);
+  background-color: rgb(210, 210, 210);
 }
 
 @media (max-width: 768px) {
   .main-container {
-    min-height: calc(100vh - 56px - 280px)
+    min-height: calc(100vh - 76px - 280px)
   }
 }

@@ -2,12 +2,19 @@
   border-radius: 18px;
 }
 
-.search-input:focus,
-.search-input:active {
+.search-input-dark:focus,
+.search-input-dark:active {
   border: 1px solid white;
+  box-shadow: none;
+}
+
+.search-input-light:focus,
+.search-input-light:active {
+  border: 1px solid black;
   box-shadow: none;
 }
 
 .search-button {
   border-radius: 24px;
+  font-weight: 200;
 }

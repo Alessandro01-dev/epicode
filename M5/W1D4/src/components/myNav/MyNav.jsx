@@ -4,12 +4,17 @@ import Navbar from 'react-bootstrap/Navbar';
 import SearchInput from './searchInput/SearchInput';
 import { Glasses } from 'lucide-react';
 import "./style.css"
+import ToggleThemeButton from './toggleThemeButton/ToggleThemeButton';
+import { useContext } from 'react';
+import { ThemeContext } from '../../context/ThemeContext';
 
 const MyNav = () => {
 
+  const {isDark} = useContext(ThemeContext)
+
   return (
     <>
-      <Navbar bg="black" data-bs-theme="dark">
+      <Navbar bg={isDark ? "black" : "white"} data-bs-theme={isDark ? "dark" : "light"}>
         <Container>
           <Navbar.Brand
             className='fs-2'
@@ -25,6 +30,7 @@ const MyNav = () => {
             <Nav.Link href="#">Browse</Nav.Link>
           </Nav>
           <SearchInput />
+          <ToggleThemeButton />
         </Container>
       </Navbar>
     </>

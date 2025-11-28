@@ -1,9 +1,12 @@
 import "./style.css"
 import { Col, Card, Button } from "react-bootstrap"
-import { useState } from "react"
+import { useContext, useState } from "react"
 import CommentArea from "./commentArea/CommentArea"
+import { ThemeContext } from "../../../context/ThemeContext"
 
 const SingleBook = ({ book }) => {
+
+  const { isDark } = useContext(ThemeContext)
 
   const [selected, setSelected] = useState(false)
 
@@ -20,7 +23,7 @@ const SingleBook = ({ book }) => {
       lg={2}
     >
       <Card
-        className="book-card"
+        className={`book-card ${isDark ? "book-card-dark" : ""}`}
       >
         <Card.Img
           className="book-card-img"
@@ -58,7 +61,7 @@ const SingleBook = ({ book }) => {
           </Button>
         </Card.Body>
         {selected && (
-          <CommentArea 
+          <CommentArea
             asin={book.asin}
           />
         )}

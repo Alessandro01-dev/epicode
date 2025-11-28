@@ -15,7 +15,8 @@ const AllTheBooks = () => {
   return (
 
     <Container
-      className="main-container pt-5"
+      fluid
+      className="main-container py-5"
     >
       <Row
         className="g-4"

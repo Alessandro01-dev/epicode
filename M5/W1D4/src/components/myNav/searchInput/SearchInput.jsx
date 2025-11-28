@@ -2,8 +2,11 @@ import { Form, Button } from "react-bootstrap"
 import { useContext, useState } from "react";
 import { BookContext } from "../../../context/BookContext";
 import "./style.css"
+import { ThemeContext } from "../../../context/ThemeContext";
 
 const SearchInput = () => {
+
+  const { isDark } = useContext(ThemeContext)
 
   const { allBooks, setBooks } = useContext(BookContext)
 
@@ -41,13 +44,13 @@ const SearchInput = () => {
         onChange={handlerOnChange}
         type="search"
         placeholder="Search a book..."
-        className="search-input me-2"
+        className={`search-input me-2 ${!isDark ? "search-input-light" : "search-input-dark"}`}
         aria-label="Search"
       />
       <Button
         className="search-button"
         type="submit"
-        variant="outline-light"
+        variant={`outline-${isDark ? "light" : "dark"}`}
       >Search</Button>
     </Form>
   );
