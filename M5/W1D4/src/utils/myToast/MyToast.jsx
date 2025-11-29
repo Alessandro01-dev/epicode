@@ -7,7 +7,7 @@ const MyToast = ({ show, onClose, bg, message }) => {
     <ToastContainer
       className="position-fixed bottom-0 end-0 m-3"
       position="bottom-end"
-      style={{ zIndex: 99999 }}
+      style={{ zIndex: 999 }}
     >
       <Toast
         onClose={onClose}

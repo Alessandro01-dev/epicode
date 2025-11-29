@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react"
+import { useState, useEffect, useContext } from "react"
 import CommentList from "./commentList/CommentList"
 import AddComment from "./addComment/AddComment"
 import MySpinner from "../../../../utils/mySpinner/MySpinner"
@@ -31,6 +31,8 @@ const CommentArea = ({ asin }) => {
       const data = await response.json()
       setReviews(data)
 
+      return data
+
     } catch (error) {
 
       setErrorMessage(error.message)
@@ -47,12 +49,11 @@ const CommentArea = ({ asin }) => {
 
   useEffect(() => {
     getReviews()
-  }, [])
-
-  console.log(reviews)
+  }, [asin])
 
   return (
     <>
+
       {showMyAlert && !showMySpinner && (
 
         <MyAlert
@@ -66,12 +67,20 @@ const CommentArea = ({ asin }) => {
         <MySpinner />
 
       )}
-      <CommentList
-        reviews={reviews}
-      />
-      <AddComment
-        asin={asin}
-      />
+
+      {!showMySpinner && !showMyAlert &&
+        <>
+          <CommentList
+            reviews={reviews}
+            getReviews={getReviews}
+          />
+          <AddComment
+            asin={asin}
+            getReviews={getReviews}
+          />
+        </>
+      }
+
     </>
   )
 

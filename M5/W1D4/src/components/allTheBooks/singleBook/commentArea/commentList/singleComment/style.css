@@ -1,8 +1,6 @@
 ul {
   list-style: none;
   padding-left: 4px;
-  overflow-y: scroll;
-  max-height: 300px;
 }
 
 .comment-author-list-item {

@@ -3,26 +3,28 @@ import { Col, Card, Button } from "react-bootstrap"
 import { useContext, useState } from "react"
 import CommentArea from "./commentArea/CommentArea"
 import { ThemeContext } from "../../../context/ThemeContext"
+import { SelectedBookContext } from "../../../context/SelectedBookContext"
 
 const SingleBook = ({ book }) => {
 
   const { isDark } = useContext(ThemeContext)
 
-  const [selected, setSelected] = useState(false)
+  const { setIsSelected } = useContext(SelectedBookContext)
 
   const handlerSelection = () => {
-    setSelected(!selected)
+    setIsSelected(book.asin)
   }
 
   return (
 
     <Col
-      xs={6}
-      sm={4}
-      md={3}
-      lg={2}
+      xs={12}
+      sm={6}
+      md={4}
+      lg={3}
     >
       <Card
+        onClick={handlerSelection}
         className={`book-card ${isDark ? "book-card-dark" : ""}`}
       >
         <Card.Img
@@ -51,21 +53,8 @@ const SingleBook = ({ book }) => {
               {book.price} $
             </Card.Text>
           </div>
-          <Button
-            onClick={handlerSelection}
-            className="align-self-end book-card-comment-button"
-            variant="dark"
-            size="sm"
-          >
-            {`${!selected ? "Show comments" : "Hide comments"}`}
-          </Button>
         </Card.Body>
       </Card>
-      {selected && (
-        <CommentArea
-          asin={book.asin}
-        />
-      )}
     </Col >
 
   )

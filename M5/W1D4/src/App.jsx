@@ -4,6 +4,7 @@ import Welcome from "./components/welcome/Welcome"
 import AllTheBooks from "./components/allTheBooks/AllTheBooks"
 import { BookProvider } from './context/BookContext.jsx';
 import { ThemeProvider } from "./context/ThemeContext.jsx";
+import { SelectedBookProvider } from "./context/SelectedBookContext.jsx";
 
 const App = () => {
 
@@ -11,10 +12,12 @@ const App = () => {
 
     <ThemeProvider>
       <BookProvider>
-        <MyNav />
-        <Welcome />
-        <AllTheBooks />
-        <MyFooter />
+        <SelectedBookProvider>
+          <MyNav />
+          <Welcome />
+          <AllTheBooks />
+          <MyFooter />
+        </SelectedBookProvider>
       </BookProvider>
     </ThemeProvider>
 

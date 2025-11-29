@@ -5,7 +5,7 @@ import "./style.css"
 import MyToast from "../../../../../../../utils/myToast/MyToast"
 import MyAlert from "../../../../../../../utils/myAlert/MyAlert"
 
-const EditComment = ({ review }) => {
+const EditComment = ({ review, getReviews }) => {
 
   const [showMyToast, setShowMyToast] = useState(false)
 
@@ -45,7 +45,13 @@ const EditComment = ({ review }) => {
       })
 
       if (response.ok) {
+
         renderSuccessToast()
+
+        setTimeout(() => {
+          getReviews()
+        }, 5000);
+
       }
 
     } catch (error) {

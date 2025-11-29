@@ -4,7 +4,7 @@ import { useState } from "react"
 import MyToast from "../../../../../utils/myToast/MyToast"
 import MyAlert from "../../../../../utils/myAlert/MyAlert"
 
-const AddComment = ({ asin }) => {
+const AddComment = ({ asin, getReviews }) => {
 
   const [showMyToast, setShowMyToast] = useState(false)
 
@@ -47,10 +47,15 @@ const AddComment = ({ asin }) => {
 
         renderSuccessToast()
 
+        setTimeout(() => {
+          getReviews()
+        }, 5000)
+        
+
       }
 
     } catch (error) {
-      
+
       setErrorMessage(error.message)
 
       renderErrorAlert()
@@ -115,7 +120,7 @@ const AddComment = ({ asin }) => {
         bg="success"
         message="Comment added successfully!"
       />)}
-      {showMyAlert && (<MyAlert 
+      {showMyAlert && (<MyAlert
         message={errorMessage}
         onClose={() => setShowMyAlert(false)}
       />)}

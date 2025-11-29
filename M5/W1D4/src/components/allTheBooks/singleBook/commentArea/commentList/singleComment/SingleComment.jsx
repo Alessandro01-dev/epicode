@@ -1,13 +1,13 @@
 import { authenticationToken } from "../../../../../../data/studentLogin/studentLogin"
 import { Trash2, SquarePen } from "lucide-react"
 import "./style.css"
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import EditComment from "./editComment/EditComment"
 import MyToast from "../../../../../../utils/myToast/MyToast"
 import { parseISO } from "date-fns"
 import MyAlert from "../../../../../../utils/myAlert/MyAlert"
 
-const SingleComment = ({ review }) => {
+const SingleComment = ({ review, getReviews }) => {
 
   const [showMyToast, setShowMyToast] = useState(false)
 
@@ -70,6 +70,10 @@ const SingleComment = ({ review }) => {
 
         renderSuccessToast()
 
+        setTimeout(() => {
+          getReviews()
+        }, 5000)
+
       }
 
     } catch (error) {
@@ -128,6 +132,7 @@ const SingleComment = ({ review }) => {
           isToEdit &&
           <EditComment
             review={review}
+            getReviews={getReviews}
           />
         }
       </div >
