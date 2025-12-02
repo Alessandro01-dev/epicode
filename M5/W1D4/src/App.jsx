@@ -1,25 +1,21 @@
-import MyNav from "./components/myNav/MyNav"
-import MyFooter from "./components/myFooter/MyFooter"
-import Welcome from "./components/welcome/Welcome"
-import AllTheBooks from "./components/allTheBooks/AllTheBooks"
-import { BookProvider } from './context/BookContext.jsx';
-import { ThemeProvider } from "./context/ThemeContext.jsx";
-import { SelectedBookProvider } from "./context/SelectedBookContext.jsx";
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import Homepage from './pages/Homepage'
+import About from './pages/About'
+import ErrorPage from './pages/ErrorPage'
 
 const App = () => {
 
   return (
 
-    <ThemeProvider>
-      <BookProvider>
-        <SelectedBookProvider>
-          <MyNav />
-          <Welcome />
-          <AllTheBooks />
-          <MyFooter />
-        </SelectedBookProvider>
-      </BookProvider>
-    </ThemeProvider>
+    <BrowserRouter>
+      <Routes>
+        <Route index path="/" element={<Homepage />} />
+        <Route path="/about" element={<About />} />
+
+        <Route path="*" element={<ErrorPage />} />
+
+      </Routes>
+    </BrowserRouter>
 
   )
 }

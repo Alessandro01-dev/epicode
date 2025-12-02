@@ -2,12 +2,10 @@ import { Form, FloatingLabel, Button } from "react-bootstrap"
 import { authenticationToken } from "../../../../../../../data/studentLogin/studentLogin"
 import { useState } from "react"
 import "./style.css"
-import MyToast from "../../../../../../../utils/myToast/MyToast"
 import MyAlert from "../../../../../../../utils/myAlert/MyAlert"
+import toast, { Toaster } from "react-hot-toast"
 
 const EditComment = ({ review, getReviews }) => {
-
-  const [showMyToast, setShowMyToast] = useState(false)
 
   const [showMyAlert, setShowMyAlert] = useState(false)
 
@@ -27,7 +25,13 @@ const EditComment = ({ review, getReviews }) => {
 
   const renderSuccessToast = () => {
 
-    setShowMyToast(true)
+    toast.success("Comment edited successfully!", {
+      duration: 4000,
+      position: 'bottom-right',
+      style: {
+        background: "yellow"
+      }
+    })
 
   }
 
@@ -47,10 +51,8 @@ const EditComment = ({ review, getReviews }) => {
       if (response.ok) {
 
         renderSuccessToast()
+        getReviews()
 
-        setTimeout(() => {
-          getReviews()
-        }, 5000);
 
       }
 
@@ -123,12 +125,7 @@ const EditComment = ({ review, getReviews }) => {
           Edit this comment
         </Button>
       </Form>
-      {showMyToast && (<MyToast
-        show={showMyToast}
-        onClose={() => setShowMyToast(false)}
-        bg="primary"
-        message="Comment edited successfully!"
-      />)}
+      <Toaster />
     </>
   )
 

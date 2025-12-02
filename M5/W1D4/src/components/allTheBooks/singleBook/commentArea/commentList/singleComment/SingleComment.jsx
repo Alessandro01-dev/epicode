@@ -1,15 +1,13 @@
 import { authenticationToken } from "../../../../../../data/studentLogin/studentLogin"
 import { Trash2, SquarePen } from "lucide-react"
 import "./style.css"
-import { useEffect, useState } from "react"
+import { useState } from "react"
 import EditComment from "./editComment/EditComment"
-import MyToast from "../../../../../../utils/myToast/MyToast"
 import { parseISO } from "date-fns"
 import MyAlert from "../../../../../../utils/myAlert/MyAlert"
+import toast, { Toaster } from 'react-hot-toast'
 
 const SingleComment = ({ review, getReviews }) => {
-
-  const [showMyToast, setShowMyToast] = useState(false)
 
   const [isToEdit, setIsToEdit] = useState(false)
 
@@ -31,7 +29,13 @@ const SingleComment = ({ review, getReviews }) => {
 
   const renderSuccessToast = () => {
 
-    setShowMyToast(true)
+    toast.success("Comment deleted successfully!", {
+      duration: 4000,
+      position: 'bottom-right',
+      style: {
+        background: "red"
+      }
+    })
 
   }
 
@@ -69,10 +73,7 @@ const SingleComment = ({ review, getReviews }) => {
       if (response.ok) {
 
         renderSuccessToast()
-
-        setTimeout(() => {
-          getReviews()
-        }, 5000)
+        getReviews()
 
       }
 
@@ -136,14 +137,7 @@ const SingleComment = ({ review, getReviews }) => {
           />
         }
       </div >
-      {
-        showMyToast && (<MyToast
-          show={showMyToast}
-          onClose={() => setShowMyToast(false)}
-          bg="danger"
-          message="Comment deleted successfully!"
-        />)
-      }
+      <Toaster />
     </>
 
   )

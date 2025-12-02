@@ -1,12 +1,10 @@
 import { Form, FloatingLabel, Button } from "react-bootstrap"
 import { authenticationToken } from "../../../../../data/studentLogin/studentLogin"
 import { useState } from "react"
-import MyToast from "../../../../../utils/myToast/MyToast"
 import MyAlert from "../../../../../utils/myAlert/MyAlert"
+import toast, { Toaster } from 'react-hot-toast';
 
 const AddComment = ({ asin, getReviews }) => {
-
-  const [showMyToast, setShowMyToast] = useState(false)
 
   const [newReview, setNewReview] = useState({
     comment: "",
@@ -26,7 +24,13 @@ const AddComment = ({ asin, getReviews }) => {
 
   const renderSuccessToast = () => {
 
-    setShowMyToast(true)
+    toast.success("Comment added successfully!", {
+      duration: 4000,
+      position: 'bottom-right',
+      style: {
+        background: "green"
+      }
+    })
 
   }
 
@@ -46,11 +50,7 @@ const AddComment = ({ asin, getReviews }) => {
       if (response.ok) {
 
         renderSuccessToast()
-
-        setTimeout(() => {
-          getReviews()
-        }, 5000)
-        
+        getReviews()
 
       }
 
@@ -114,12 +114,7 @@ const AddComment = ({ asin, getReviews }) => {
           Add a new comment
         </Button>
       </Form>
-      {showMyToast && (<MyToast
-        show={showMyToast}
-        onClose={() => setShowMyToast(false)}
-        bg="success"
-        message="Comment added successfully!"
-      />)}
+      <Toaster />
       {showMyAlert && (<MyAlert
         message={errorMessage}
         onClose={() => setShowMyAlert(false)}
