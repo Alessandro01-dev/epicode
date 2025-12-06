@@ -1,0 +1,13 @@
+.browse-page-main-container {
+  min-height: calc(100vh - 76px - 365px);
+  padding: 34px 0;
+  background-color: rgb(210, 210, 210);
+}
+
+@media (max-width: 768px) {
+  
+  .browse-page-main-container{
+    min-height: calc(100vh - 76px - 280px)
+  }
+
+}

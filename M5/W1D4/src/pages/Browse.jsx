@@ -1,19 +1,18 @@
-import AboutUs from "../components/aboutPage/AboutUs"
+import BrowseMain from "../components/browseMain/BrowseMain"
 import MainLayout from "../components/mainLayout/MainLayout"
 
-const About = () => {
+const Browse = () => {
 
   return (
 
     <>
       <MainLayout>
-        <AboutUs />
+        <BrowseMain />
       </MainLayout>
-
     </>
 
   )
 
 }
 
-export default About
+export default Browse

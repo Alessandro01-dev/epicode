@@ -1,14 +1,14 @@
-import MyFooter from "../components/myFooter/MyFooter"
-import MyNav from "../components/myNav/MyNav"
+import ErrorPageMain from "../components/errorPageMain/ErrorPageMain"
+import MainLayout from "../components/mainLayout/MainLayout"
 
 const ErrorPage = () => {
 
   return (
 
     <>
-      <MyNav />
-      <div>Pagina non trovata</div>
-      <MyFooter />
+      <MainLayout>
+        <ErrorPageMain />
+      </MainLayout>
     </>
 
 

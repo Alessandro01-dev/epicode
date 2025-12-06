@@ -1,9 +1,9 @@
 import "./style.css"
-import { Col, Card, Button } from "react-bootstrap"
-import { useContext, useState } from "react"
-import CommentArea from "./commentArea/CommentArea"
+import { Col, Card } from "react-bootstrap"
+import { useContext } from "react"
 import { ThemeContext } from "../../../context/ThemeContext"
 import { SelectedBookContext } from "../../../context/SelectedBookContext"
+import { Link } from "react-router-dom"
 
 const SingleBook = ({ book }) => {
 
@@ -53,6 +53,10 @@ const SingleBook = ({ book }) => {
               {book.price} $
             </Card.Text>
           </div>
+          <Link
+            to={`/book/${book.asin}`}
+            className={`btn btn-sm btn-outline-${isDark ? "light" : "dark"}`}
+          >Details</Link>
         </Card.Body>
       </Card>
     </Col >

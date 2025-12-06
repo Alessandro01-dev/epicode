@@ -100,6 +100,7 @@ const EditComment = ({ review, getReviews }) => {
             as="textarea"
             defaultValue={review.comment}
             onChange={handlerToEditReviewInputs}
+            data-testid="edit-comment-input-test"
           />
         </FloatingLabel>
         <FloatingLabel
@@ -121,6 +122,7 @@ const EditComment = ({ review, getReviews }) => {
           variant="primary"
           size="sm"
           className="edit-comment-btn align-self-end"
+          data-testid="edit-comment-btn-test"
         >
           Edit this comment
         </Button>

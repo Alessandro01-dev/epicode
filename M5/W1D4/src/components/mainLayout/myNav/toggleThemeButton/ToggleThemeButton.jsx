@@ -1,7 +1,7 @@
 import { Moon, Sun } from "lucide-react"
 import "./style.css"
 import { useContext } from "react"
-import { ThemeContext } from "../../../context/ThemeContext"
+import { ThemeContext } from "../../../../context/ThemeContext"
 
 const ToggleThemeButton = () => {
 
@@ -12,7 +12,7 @@ const ToggleThemeButton = () => {
     setIsDark(!isDark)
 
   }
-  console.log(isDark)
+  
   return (
     <div className="d-flex flex-column align-items-center gap-1 ms-3">
 

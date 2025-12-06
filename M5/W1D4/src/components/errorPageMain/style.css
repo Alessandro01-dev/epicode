@@ -1,0 +1,11 @@
+.error-page-main-container {
+  min-height: calc(100vh - 76px - 365px);
+  background-color: rgb(210, 210, 210);
+  padding: 34px 0;
+}
+
+@media (max-width: 768px) {
+  .error-page-main-container {
+    min-height: calc(100vh - 76px - 280px)
+  }
+}

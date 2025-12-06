@@ -6,7 +6,7 @@ import { Glasses } from 'lucide-react';
 import "./style.css"
 import ToggleThemeButton from './toggleThemeButton/ToggleThemeButton';
 import { useContext } from 'react';
-import { ThemeContext } from '../../context/ThemeContext';
+import { ThemeContext } from '../../../context/ThemeContext';
 
 const MyNav = () => {
 
@@ -18,16 +18,16 @@ const MyNav = () => {
         <Container>
           <Navbar.Brand
             className='fs-2'
-            href="#">
+            href="/">
             EpiB{
               (<Glasses
                 className="glasses-logo-icon"
               />)
             }ks</Navbar.Brand>
           <Nav className="me-auto d-none d-md-flex">
-            <Nav.Link href="#">Home</Nav.Link>
-            <Nav.Link href="#">About</Nav.Link>
-            <Nav.Link href="#">Browse</Nav.Link>
+            <Nav.Link href="/">Home</Nav.Link>
+            <Nav.Link href="/about">About</Nav.Link>
+            <Nav.Link href="/browse">Browse</Nav.Link>
           </Nav>
           <SearchInput />
           <ToggleThemeButton />
