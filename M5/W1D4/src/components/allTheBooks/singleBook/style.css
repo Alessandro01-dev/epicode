@@ -1,5 +1,6 @@
 .book-card {
   border: none;
+  height: 100%;
   cursor: pointer;
   border-radius: 8px;
   overflow: hidden;
@@ -11,6 +12,10 @@
 .book-card-dark {
   background-color: black;
   color: white;
+}
+
+.book-card-img {
+  min-height: 64%;
 }
 
 .book-card:hover {
@@ -32,8 +37,4 @@
 
 .book-card-comment-button {
   font-size: 8px;
-}
-
-.active-book-card {
-  border: 3px solid red;
 }

@@ -29,9 +29,24 @@
 }
 
 @media (max-width: 768px) {
+
   .hero-bottom-text {
-    font-size: 28px;
+    font-size: 24px;
     bottom: 10%;
     right: 4%;
   }
+}
+
+/* mobile large (my iphone: 414px) */
+
+@media (max-width: 425px) {
+
+  .arched-text {
+    transform: translate(-70%, -50%);
+  }
+
+  .arched-text text {
+    font-size: 32px;
+  }
+
 }

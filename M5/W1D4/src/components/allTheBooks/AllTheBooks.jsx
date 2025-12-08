@@ -56,7 +56,7 @@ const AllTheBooks = () => {
           </Col>
           <Col
             md={4}
-            xs={0}
+            className="d-none d-md-block"
           >
             {isSelected ? (<CommentArea
               asin={isSelected.asin}

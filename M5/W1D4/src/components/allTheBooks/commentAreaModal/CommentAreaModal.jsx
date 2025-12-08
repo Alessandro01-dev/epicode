@@ -1,8 +1,12 @@
 import { Modal, Button } from "react-bootstrap"
 import CommentArea from "../singleBook/commentArea/CommentArea"
 import './style.css'
+import { useContext } from "react"
+import { ThemeContext } from "../../../context/ThemeContext"
 
 const CommentAreaModal = ({ show, onHide, book }) => {
+
+  const {isDark} = useContext(ThemeContext)
 
   return (
 
@@ -42,7 +46,7 @@ const CommentAreaModal = ({ show, onHide, book }) => {
       </Modal.Body>
       <Modal.Footer>
         <Button
-          className="btn-dark"
+          variant={`${isDark ? "dark" : "outline-dark"}`}
           onClick={onHide}
         >Close</Button>
       </Modal.Footer>

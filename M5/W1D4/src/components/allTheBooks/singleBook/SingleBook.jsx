@@ -28,7 +28,7 @@ const SingleBook = ({ book, selected }) => {
           alt={book.title}
         />
         <Card.Body
-          className="d-flex flex-column gap-3 px-0"
+          className="d-flex flex-column justify-content-between gap-3 px-0"
         >
           <Card.Title
             className="book-card-title"
@@ -39,7 +39,7 @@ const SingleBook = ({ book, selected }) => {
             className="d-flex justify-content-between align-items-center"
           >
             <Card.Text
-              className="badge bg-dark m-0 book-card-category-badge"
+              className={`badge rounded-pill text-bg-danger text-${isDark ? "white" : "black"} m-0 book-card-category-badge`}
             >
               {book.category}
             </Card.Text>

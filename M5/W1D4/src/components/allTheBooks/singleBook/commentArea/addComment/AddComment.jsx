@@ -17,7 +17,7 @@ const AddComment = ({ asin, getReviews }) => {
 
   const [errorMessage, setErrorMessage] = useState("")
 
-  const {isDark} = useContext(ThemeContext)
+  const { isDark } = useContext(ThemeContext)
 
   const renderErrorAlert = () => {
 
@@ -111,7 +111,7 @@ const AddComment = ({ asin, getReviews }) => {
         </FloatingLabel>
         <Button
           type="submit"
-          variant="dark"
+          variant={`${isDark ? "dark" : "outline-dark"}`}
           size="sm"
         >
           Add a new comment
