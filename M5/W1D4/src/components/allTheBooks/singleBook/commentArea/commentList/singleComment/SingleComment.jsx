@@ -100,7 +100,7 @@ const SingleComment = ({ review, getReviews }) => {
         />)
       }
       <div
-        className={`border border-${isDark ? "dark" : "white"} rounded m-2`}
+        className={`border border-${isDark && !isToEdit ? "dark" : isToEdit ? "danger" : "white"} rounded m-2`}
       >
         <div
           className="d-flex justify-content-between gap-2 m-2"
@@ -127,7 +127,7 @@ const SingleComment = ({ review, getReviews }) => {
               onClick={deleteReview}
             />
             <SquarePen
-              className="review-icon"
+              className={`review-icon ${isToEdit ? "review-icon-active" : ""}`}
               onClick={handlerToEditReview}
             />
           </div>

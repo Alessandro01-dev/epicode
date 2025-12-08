@@ -26,3 +26,7 @@ ul {
 .review-icon:hover {
   color: red;
 }
+
+.review-icon-active {
+  color: red;
+}

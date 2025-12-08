@@ -1,11 +1,14 @@
 import { Form, FloatingLabel, Button } from "react-bootstrap"
 import { authenticationToken } from "../../../../../../../data/studentLogin/studentLogin"
-import { useState } from "react"
+import { useContext, useState } from "react"
 import "./style.css"
 import MyAlert from "../../../../../../../utils/myAlert/MyAlert"
 import toast, { Toaster } from "react-hot-toast"
+import { ThemeContext } from "../../../../../../../context/ThemeContext"
 
 const EditComment = ({ review, getReviews }) => {
+
+  const {isDark} = useContext(ThemeContext)
 
   const [showMyAlert, setShowMyAlert] = useState(false)
 
@@ -119,7 +122,7 @@ const EditComment = ({ review, getReviews }) => {
         </FloatingLabel>
         <Button
           type="submit"
-          variant="primary"
+          variant={`${isDark ? "dark" : "outline-dark"}`}
           size="sm"
           className="edit-comment-btn align-self-end"
           data-testid="edit-comment-btn-test"

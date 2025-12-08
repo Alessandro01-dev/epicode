@@ -14,6 +14,7 @@ describe("testing Welcome component", () => {
 
     expect(welcomeImg)
       .toBeInTheDocument()
+      .toHaveClass("object-fit-cover")
 
     const welcomeArchedText = screen.getByTestId("arched-text")
     

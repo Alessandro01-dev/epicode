@@ -62,7 +62,7 @@ const BookDetailsMain = () => {
                 />
               </div>
               <div
-                className="badge bg-dark"
+                className="badge rounded-pill text-bg-danger text-black"
               >{book.category}</div>
               <div>{book.price}$</div>
             </div>
