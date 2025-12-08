@@ -1,11 +1,12 @@
 import { authenticationToken } from "../../../../../../data/studentLogin/studentLogin"
 import { Trash2, SquarePen } from "lucide-react"
 import "./style.css"
-import { useState } from "react"
+import { useContext, useState } from "react"
 import EditComment from "./editComment/EditComment"
 import { parseISO } from "date-fns"
 import MyAlert from "../../../../../../utils/myAlert/MyAlert"
 import toast, { Toaster } from 'react-hot-toast'
+import { ThemeContext } from "../../../../../../context/ThemeContext"
 
 const SingleComment = ({ review, getReviews }) => {
 
@@ -14,6 +15,8 @@ const SingleComment = ({ review, getReviews }) => {
   const [showMyAlert, setShowMyAlert] = useState(false)
 
   const [errorMessage, setErrorMessage] = useState("")
+
+  const {isDark} = useContext(ThemeContext)
 
   const renderErrorAlert = () => {
 
@@ -97,10 +100,10 @@ const SingleComment = ({ review, getReviews }) => {
         />)
       }
       <div
-        className="border m-2"
+        className={`border border-${isDark ? "dark" : "white"} rounded m-2`}
       >
         <div
-          className="d-flex align-items-start justify-content-between gap-2 m-2"
+          className="d-flex justify-content-between gap-2 m-2"
         >
           <ul
             className="d-flex flex-column justify-content-between align-items-start"

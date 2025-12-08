@@ -7,6 +7,7 @@ import "./style.css"
 import ToggleThemeButton from './toggleThemeButton/ToggleThemeButton';
 import { useContext } from 'react';
 import { ThemeContext } from '../../../context/ThemeContext';
+import { Link } from 'react-router-dom';
 
 const MyNav = () => {
 
@@ -14,20 +15,21 @@ const MyNav = () => {
 
   return (
     <>
-      <Navbar bg={isDark ? "black" : "white"} data-bs-theme={isDark ? "dark" : "light"}>
+      <Navbar sticky="top" className="border-bottom" bg={isDark ? "black" : "white"} data-bs-theme={isDark ? "dark" : "light"}>
         <Container>
           <Navbar.Brand
+            as={Link}
             className='fs-2'
-            href="/">
+            to="/">
             EpiB{
               (<Glasses
                 className="glasses-logo-icon"
               />)
             }ks</Navbar.Brand>
           <Nav className="me-auto d-none d-md-flex">
-            <Nav.Link href="/">Home</Nav.Link>
-            <Nav.Link href="/about">About</Nav.Link>
-            <Nav.Link href="/browse">Browse</Nav.Link>
+            <Nav.Link as={Link} to="/">Home</Nav.Link>
+            <Nav.Link as={Link} to="/about">About</Nav.Link>
+            <Nav.Link as={Link} to="/browse">Browse</Nav.Link>
           </Nav>
           <SearchInput />
           <ToggleThemeButton />

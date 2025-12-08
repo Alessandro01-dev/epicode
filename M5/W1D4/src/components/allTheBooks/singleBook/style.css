@@ -33,3 +33,7 @@
 .book-card-comment-button {
   font-size: 8px;
 }
+
+.active-book-card {
+  border: 3px solid red;
+}

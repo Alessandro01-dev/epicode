@@ -1,0 +1,9 @@
+.modal-title-img-container {
+  width: 50px;
+  min-width: 50px;
+  flex-shrink: 0;
+}
+
+.comment-area-modal-body {
+  background-color: rgb(240, 240, 240);
+}

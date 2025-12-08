@@ -1,30 +1,24 @@
 import "./style.css"
 import { Col, Card } from "react-bootstrap"
-import { useContext } from "react"
+import { useContext, useState } from "react"
 import { ThemeContext } from "../../../context/ThemeContext"
-import { SelectedBookContext } from "../../../context/SelectedBookContext"
 import { Link } from "react-router-dom"
 
-const SingleBook = ({ book }) => {
+const SingleBook = ({ book, selected }) => {
 
   const { isDark } = useContext(ThemeContext)
-
-  const { setIsSelected } = useContext(SelectedBookContext)
-
-  const handlerSelection = () => {
-    setIsSelected(book.asin)
-  }
 
   return (
 
     <Col
-      xs={12}
-      sm={6}
-      md={4}
-      lg={3}
+      xs={6}
+      sm={4}
+      md={6}
+      lg={4}
+      xl={3}
     >
       <Card
-        onClick={handlerSelection}
+        onClick={selected}
         className={`book-card ${isDark ? "book-card-dark" : ""}`}
       >
         <Card.Img

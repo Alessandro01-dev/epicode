@@ -1,8 +1,9 @@
 import { Form, FloatingLabel, Button } from "react-bootstrap"
 import { authenticationToken } from "../../../../../data/studentLogin/studentLogin"
-import { useState } from "react"
+import { useContext, useState } from "react"
 import MyAlert from "../../../../../utils/myAlert/MyAlert"
 import toast, { Toaster } from 'react-hot-toast';
+import { ThemeContext } from "../../../../../context/ThemeContext";
 
 const AddComment = ({ asin, getReviews }) => {
 
@@ -15,6 +16,8 @@ const AddComment = ({ asin, getReviews }) => {
   const [showMyAlert, setShowMyAlert] = useState(false)
 
   const [errorMessage, setErrorMessage] = useState("")
+
+  const {isDark} = useContext(ThemeContext)
 
   const renderErrorAlert = () => {
 
@@ -78,7 +81,7 @@ const AddComment = ({ asin, getReviews }) => {
   return (
     <>
       <Form
-        className="d-flex flex-column m-2 p-2 border"
+        className={`d-flex flex-column m-1 p-2 border border-${isDark ? "black" : "white"} rounded`}
         onSubmit={(e) => {
           e.preventDefault()
           postNewReview()

@@ -3,8 +3,11 @@ import { useContext, useState } from "react";
 import { BookContext } from "../../../../context/BookContext";
 import "./style.css"
 import { ThemeContext } from "../../../../context/ThemeContext";
+import { SelectedBookContext } from "../../../../context/SelectedBookContext";
 
 const SearchInput = () => {
+
+  const { setIsSelected } = useContext(SelectedBookContext)
 
   const { isDark } = useContext(ThemeContext)
 
@@ -19,6 +22,9 @@ const SearchInput = () => {
     setSearchBook(value)
 
     if (value === "") {
+
+      setIsSelected("")
+
       setBooks(allBooks)
     }
 
@@ -30,6 +36,8 @@ const SearchInput = () => {
     const searchedBook = searchBook.toLowerCase()
 
     const filteredBooks = allBooks.filter(book => book.title.toLowerCase().includes(searchedBook))
+
+    setIsSelected("")
 
     setBooks(filteredBooks)
 

@@ -1,7 +1,7 @@
-import { fireEvent, getByTestId, render, screen, waitFor } from '@testing-library/react';
+import { render, screen, waitFor } from '@testing-library/react';
 import { describe, it, expect, vi, beforeEach } from 'vitest';
 import EditComment from './EditComment';
-import toast, { Toaster } from 'react-hot-toast';
+import toast from 'react-hot-toast';
 
 vi.mock('react-hot-toast', () => { const toast = { success: vi.fn(), error: vi.fn(), loading: vi.fn(), custom: vi.fn(), }; return { default: toast, toast: toast, Toaster: () => null, }; });
 

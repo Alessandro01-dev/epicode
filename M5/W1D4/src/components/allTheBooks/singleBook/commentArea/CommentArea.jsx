@@ -3,8 +3,15 @@ import CommentList from "./commentList/CommentList"
 import AddComment from "./addComment/AddComment"
 import MySpinner from "../../../../utils/mySpinner/MySpinner"
 import MyAlert from "../../../../utils/myAlert/MyAlert"
+import "./style.css"
+import { SelectedBookContext } from "../../../../context/SelectedBookContext"
+import { useWindowSize } from "../../../../hooks/useWindowSize"
 
 const CommentArea = ({ asin }) => {
+
+  const size = useWindowSize()
+
+  const { isSelected } = useContext(SelectedBookContext)
 
   const [reviews, setReviews] = useState([])
 
@@ -52,7 +59,7 @@ const CommentArea = ({ asin }) => {
   }, [asin])
 
   return (
-    <>
+    <div className="comment-area-main-container">
 
       {showMyAlert && !showMySpinner && (
 
@@ -70,6 +77,12 @@ const CommentArea = ({ asin }) => {
 
       {!showMySpinner && !showMyAlert &&
         <>
+          {size > 768 &&
+            <h3
+              className="text-center"
+            >
+              {isSelected.title}
+            </h3>}
           <CommentList
             reviews={reviews}
             getReviews={getReviews}
@@ -81,7 +94,7 @@ const CommentArea = ({ asin }) => {
         </>
       }
 
-    </>
+    </div >
   )
 
 }

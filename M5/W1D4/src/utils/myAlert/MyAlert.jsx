@@ -8,7 +8,6 @@ const MyAlert = ({ message, onClose }) => {
       className="text-center m-2"
       variant="danger"
       onClose={onClose}
-      dismissible
     >
       {message}
     </Alert>

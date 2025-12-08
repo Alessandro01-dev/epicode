@@ -1,6 +1,8 @@
 ul {
   list-style: none;
   padding-left: 4px;
+  min-width: 12px;
+  overflow-x: scroll;
 }
 
 .comment-author-list-item {
