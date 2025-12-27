@@ -1,8 +1,18 @@
 const AuthorSchema = require("./author.schema")
 
-const getAuthors = async () => {
+const getAuthors = async (page, pageSize) => {
   const users = await AuthorSchema.find()
-  return users
+    .limit(pageSize)
+    .skip((page - 1) * pageSize)
+  const totalUsers = await AuthorSchema.countDocuments()
+  const totalPages = Math.ceil(totalUsers / pageSize)
+  return {
+    page,
+    pageSize,
+    totalUsers,
+    totalPages,
+    users
+  }
 }
 
 const getAuthorById = async (userId) => {

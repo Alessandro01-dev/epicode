@@ -1,54 +1,54 @@
-const authorService = require("./author.service")
+const blogPostService = require("./blogPost.service")
 
 const findAll = async (request, response) => {
   const { page = 1, pageSize = 3 } = request.query
   try {
     const {
-      totalUsers,
+      totalBlogPosts,
       totalPages,
-      users
-    } = await authorService.getAuthors(page, pageSize)
-    if (users.length === 0) {
+      blogPosts
+    } = await blogPostService.getBlogPosts(page, pageSize)
+    if (blogPosts.length === 0) {
       return response.status(404).send({
         statusCode: 404,
-        message: "Authors not found"
+        message: "Blog posts not found"
       })
     }
     response.status(200).send({
       statusCode: 200,
       page: Number(page),
       pageSize: Number(pageSize),
+      totalBlogPosts: Number(totalBlogPosts),
       totalPages: Number(totalPages),
-      totalUsers: Number(totalUsers),
-      users
+      blogPosts
     })
   } catch (error) {
     response.status(500).send({
-      statuscode: 500,
+      statusCode: 500,
       message: "Error during the request"
     })
   }
 }
 
 const findOne = async (request, response) => {
+  const { blogPostId } = request.params
   try {
-    const { userId } = request.params
-    if (!userId) {
+    if (!blogPostId) {
       return response.status(400).send({
         statusCode: 400,
         message: "Invalid param provided"
       })
     }
-    const author = await authorService.getAuthorById(userId)
-    if (!author) {
+    const blogPost = await blogPostService.getBlogPostById(blogPostId)
+    if (!blogPost) {
       return response.status(404).send({
         statusCode: 404,
-        message: "Author not found"
+        message: "Blog post not found"
       })
     }
     response.status(200).send({
       statusCode: 200,
-      author
+      blogPost
     })
   } catch (error) {
     response.status(500).send({
@@ -61,11 +61,11 @@ const findOne = async (request, response) => {
 const create = async (request, response) => {
   const { body } = request
   try {
-    const newAuthor = await authorService.createAuthor(body)
+    const newBlogPost = await blogPostService.createBlogPost(body)
     response.status(201).send({
       statusCode: 201,
-      message: "Author created successfully",
-      newAuthor
+      message: "Blog post created successfully",
+      newBlogPost
     })
   } catch (error) {
     response.status(500).send({
@@ -76,21 +76,20 @@ const create = async (request, response) => {
 }
 
 const update = async (request, response) => {
-
   const { body } = request
-  const { userId } = request.params
+  const { blogPostId } = request.params
   try {
-    const updatedAuthor = await authorService.updateAuthor(userId, body)
-    if (!userId) {
-      return response.status(400).send({
-        statusCode: 400,
-        message: "Cannot update author"
+    const updatedBlogPost = await blogPostService.updateBlogPost(blogPostId, body)
+    if (!blogPostId) {
+      return response.status(404).send({
+        statusCode: 404,
+        message: "Cannot update blog post"
       })
     }
     response.status(200).send({
       statusCode: 200,
-      message: "Author updated successfully",
-      updatedAuthor
+      message: "Blog post updated successfully",
+      updatedBlogPost
     })
   } catch (error) {
     response.status(500).send({
@@ -98,25 +97,22 @@ const update = async (request, response) => {
       message: "Error during the request"
     })
   }
-
 }
 
 const deleteOne = async (request, response) => {
-
-  const { userId } = request.params
+  const { blogPostId } = request.params
   try {
-    if (!userId) {
+    if (!blogPostId) {
       return response.status(400).send({
         statusCode: 400,
-        message: "Invalid params provided"
+        message: "Invalid param provided"
       })
     }
-
-    await authorService.deleteAuthor(userId)
+    await blogPostService.deleteBlogPost(blogPostId)
 
     response.status(200).send({
       statusCode: 200,
-      message: "Author deleted successfully"
+      message: "Blog post deleted successfully"
     })
   } catch (error) {
     response.status(500).send({
@@ -124,7 +120,6 @@ const deleteOne = async (request, response) => {
       message: "Error during the request"
     })
   }
-
 }
 
 module.exports = {
@@ -132,5 +127,5 @@ module.exports = {
   findOne,
   create,
   update,
-  deleteOne
+  deleteOne,
 }
