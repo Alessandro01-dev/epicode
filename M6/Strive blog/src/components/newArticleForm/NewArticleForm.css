@@ -1,0 +1,9 @@
+input,
+select,
+textarea {
+  box-shadow: none !important;
+}
+
+textarea {
+  height: 300px !important;
+}
