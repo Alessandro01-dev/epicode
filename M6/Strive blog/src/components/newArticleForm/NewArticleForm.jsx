@@ -1,12 +1,10 @@
 import { Col, Container, Form, Row, Button } from "react-bootstrap"
 import { Editor } from '@tinymce/tinymce-react'
-import { useState, useRef } from "react"
+import { useState } from "react"
 import "./NewArticleForm.css"
 import useBlogPosts from "../../hooks/useBlogPosts"
 
 const NewArticleForm = () => {
-
-  const editorRef = useRef(null)
 
   const [newArticleForm, setNewArticleForm] = useState({
     title: "",
@@ -146,7 +144,7 @@ const NewArticleForm = () => {
             <Editor
               onEditorChange={handleEditorChange}
               selector='textarea'
-              apiKey="8mw5fl0s8eftp2dv5irtefwkjsm7dkuj18dwy510b53a1vlt"
+              apiKey={import.meta.env.VITE_TINYMCE_API_KEY}
               init={{
                 plugins: [
                   'anchor', 'autolink', 'charmap', 'codesample', 'emoticons', 'link', 'lists', 'media', 'searchreplace', 'table', 'visualblocks', 'wordcount',
