@@ -1,7 +1,17 @@
 import { Container, Row } from "react-bootstrap"
 import SingleArticleCard from "./singleArticleCard/SingleArticleCard"
+import useBlogPosts from "../../hooks/useBlogPosts"
+import { useEffect } from "react"
 
 const ArticleCardsListing = () => {
+
+  const { getBlogPosts, blogPostsData } = useBlogPosts()
+
+  useEffect(() => {
+    getBlogPosts()
+  }, [])
+
+  console.log(blogPostsData)
 
   return (
 
@@ -9,19 +19,16 @@ const ArticleCardsListing = () => {
       className="py-5"
     >
       <Row
-      className="g-3"
+        className="g-3"
       >
-        <SingleArticleCard />
-        <SingleArticleCard />
-        <SingleArticleCard />
-        <SingleArticleCard />
-        <SingleArticleCard />
-        <SingleArticleCard />
-        <SingleArticleCard />
-        <SingleArticleCard />
-        <SingleArticleCard />
-        <SingleArticleCard />
-        <SingleArticleCard />
+        {blogPostsData.blogPosts?.map(blogPost => (
+          <SingleArticleCard
+            title={blogPost.title}
+            coverImg={blogPost.cover}
+            author={blogPost.author}
+            blogPostId={blogPost._id}
+          />
+        ))}
       </Row>
     </Container>
 

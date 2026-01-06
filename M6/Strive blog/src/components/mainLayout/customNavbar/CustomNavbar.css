@@ -9,6 +9,21 @@
 }
 
 .navbar-logo-container img {
+  transition: all 0.5s ease-in-out;
   width: 180px;
   object-fit: cover;
+}
+
+.shrinked-logo img {
+  transition: all 0.5s ease-in-out;
+  width: 120px;
+}
+
+.post-article-btn {
+  transition: all 0.5s ease-in-out;
+}
+
+.shrinked-btn {
+  transition: all 0.5s ease-in-out;
+  font-size: 12px;
 }

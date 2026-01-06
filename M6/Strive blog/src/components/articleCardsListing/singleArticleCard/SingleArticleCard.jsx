@@ -2,7 +2,7 @@ import { Card, Col } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import "./SingleArticleCard.css"
 
-const SingleArticleCard = () => {
+const SingleArticleCard = ({ title, coverImg, author, blogPostId }) => {
 
   return (
 
@@ -15,15 +15,14 @@ const SingleArticleCard = () => {
       <Card
         className='article-card-main-container text-decoration-none'
         as={Link}
-        to="/detailsArticlePage"
+        to={`/detailsArticlePage/${blogPostId}`}
       >
         <Card.Img
           variant="top"
-          src="https://picsum.photos/200"
+          src={coverImg}
         />
         <Card.Body>
-          <Card.Title>This card has supporting text below as a natural lead-in to
-            additional content.</Card.Title>
+          <Card.Title>{title}</Card.Title>
         </Card.Body>
         <Card.Footer>
           <div
@@ -46,7 +45,7 @@ const SingleArticleCard = () => {
               </div>
               <h6
                 className='m-0'
-              >Author Name
+              >{author}
               </h6>
             </div>
           </div>

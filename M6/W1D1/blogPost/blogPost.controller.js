@@ -1,7 +1,7 @@
 const blogPostService = require("./blogPost.service")
 
 const findAll = async (request, response) => {
-  const { page = 1, pageSize = 3 } = request.query
+  const { page = 1, pageSize = 4 } = request.query
   try {
     const {
       totalBlogPosts,

@@ -2,7 +2,7 @@ import { useState } from "react"
 
 const useBlogPosts = () => {
   const [blogPostsIsLoading, setBlogPostsIsLoading] = useState(false)
-  const [blogPostsData, setBlogPostsData] = useState(null)
+  const [blogPostsData, setBlogPostsData] = useState([])
   const [blogPostsError, setBlogPostsError] = useState(null)
 
   const URL = "http://localhost:4545"

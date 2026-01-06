@@ -1,8 +1,12 @@
-import { Col, Container, Form, Row, FloatingLabel, Button } from "react-bootstrap"
-import { useState } from "react"
+import { Col, Container, Form, Row, Button } from "react-bootstrap"
+import { Editor } from '@tinymce/tinymce-react'
+import { useState, useRef } from "react"
 import "./NewArticleForm.css"
+import useBlogPosts from "../../hooks/useBlogPosts"
 
 const NewArticleForm = () => {
+
+  const editorRef = useRef(null)
 
   const [newArticleForm, setNewArticleForm] = useState({
     title: "",
@@ -12,9 +16,11 @@ const NewArticleForm = () => {
       value: 0,
       unit: ""
     },
-    author: "",
+    author: "Ryan Almeida",
     content: ""
   })
+
+  const { createBlogPost } = useBlogPosts()
 
   const handleFormOnChange = (e) => {
 
@@ -45,11 +51,23 @@ const NewArticleForm = () => {
 
   }
 
-  const handleFormSubmit = (e) => {
+  const handleEditorChange = (content) => {
+    setNewArticleForm({
+      ...newArticleForm,
+      content: content
+    })
+  }
+  const handleFormSubmit = async (e) => {
     e.preventDefault()
 
-    console.log("for submitted successfully!")
     console.log(newArticleForm)
+
+    try {
+      await createBlogPost(newArticleForm)
+    } catch (error) {
+      console.log(error)
+    }
+
   }
 
   return (
@@ -125,17 +143,29 @@ const NewArticleForm = () => {
             <h6
               className="fw-normal"
             >Blog Content</h6>
-            <FloatingLabel
-              label="Insert here your article..."
-            >
-              <Form.Control
-                as="textarea"
-                placeholder="Insert here your article..."
-                name="content"
-                value={newArticleForm.content}
-                onChange={handleFormOnChange}
-              />
-            </FloatingLabel>
+            <Editor
+              onEditorChange={handleEditorChange}
+              selector='textarea'
+              apiKey="8mw5fl0s8eftp2dv5irtefwkjsm7dkuj18dwy510b53a1vlt"
+              init={{
+                plugins: [
+                  'anchor', 'autolink', 'charmap', 'codesample', 'emoticons', 'link', 'lists', 'media', 'searchreplace', 'table', 'visualblocks', 'wordcount',
+                  // Your account includes a free trial of TinyMCE premium features
+                  // Try the most popular premium features until Jan 19, 2026:
+                  'checklist', 'mediaembed', 'casechange', 'formatpainter', 'pageembed', 'a11ychecker', 'tinymcespellchecker', 'permanentpen', 'powerpaste', 'advtable', 'advcode', 'advtemplate', 'ai', 'uploadcare', 'mentions', 'tinycomments', 'tableofcontents', 'footnotes', 'mergetags', 'autocorrect', 'typography', 'inlinecss', 'markdown', 'importword', 'exportword', 'exportpdf'
+                ],
+                toolbar: 'undo redo | blocks fontfamily fontsize | bold italic underline strikethrough | link media table mergetags | addcomment showcomments | spellcheckdialog a11ycheck typography uploadcare | align lineheight | checklist numlist bullist indent outdent | emoticons charmap | removeformat',
+                tinycomments_mode: 'embedded',
+                tinycomments_author: 'Author name',
+                mergetags_list: [
+                  { value: 'First.Name', title: 'First Name' },
+                  { value: 'Email', title: 'Email' },
+                ],
+                ai_request: (request, respondWith) => respondWith.string(() => Promise.reject('See docs to implement AI Assistant')),
+                uploadcare_public_key: '315cdb1c3d08db463796',
+              }}
+              initialValue="Insert here your article"
+            />
             <Button
               type="submit"
               className="btn-dark mt-3 d-block ms-auto"
@@ -146,6 +176,8 @@ const NewArticleForm = () => {
         </Col>
       </Row>
     </Container>
+
+
   )
 }
 
