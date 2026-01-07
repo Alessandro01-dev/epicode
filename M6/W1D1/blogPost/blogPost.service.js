@@ -1,4 +1,3 @@
-const authorSchema = require("../author/author.schema")
 const BlogPostSchema = require("./blogPost.schema")
 
 const getBlogPosts = async (page, pageSize) => {
@@ -6,6 +5,22 @@ const getBlogPosts = async (page, pageSize) => {
     .limit(pageSize)
     .skip((page - 1) * pageSize)
   const totalBlogPosts = await BlogPostSchema.countDocuments()
+  const totalPages = Math.ceil(totalBlogPosts / pageSize)
+  return {
+    page,
+    pageSize,
+    totalBlogPosts,
+    totalPages,
+    blogPosts
+  }
+}
+
+const getBlogPostsByTitle = async (searchedTitle, page, pageSize) => {
+  const searchQuery = { title: { $regex: searchedTitle, $options: 'i' } }
+  const blogPosts = await BlogPostSchema.find(searchQuery)
+    .limit(pageSize)
+    .skip((page - 1) * pageSize)
+  const totalBlogPosts = await BlogPostSchema.find(searchQuery).countDocuments()
   const totalPages = Math.ceil(totalBlogPosts / pageSize)
   return {
     page,
@@ -38,6 +53,7 @@ const deleteBlogPost = async (blogPostId) => {
 
 module.exports = {
   getBlogPosts,
+  getBlogPostsByTitle,
   getBlogPostById,
   createBlogPost,
   updateBlogPost,

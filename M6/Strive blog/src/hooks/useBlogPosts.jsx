@@ -49,7 +49,7 @@ const useBlogPosts = () => {
   const getBlogPostsByTitle = async (query) => {
     setBlogPostsIsLoading(true)
     try {
-      const response = await fetch(`${URL}/blogPosts?title=${query}`)
+      const response = await fetch(`${URL}/search/blogPosts?title=${query}`)
       const data = await response.json()
       setBlogPostsData(data)
     } catch (error) {

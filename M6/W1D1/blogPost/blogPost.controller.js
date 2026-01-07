@@ -30,6 +30,36 @@ const findAll = async (request, response) => {
   }
 }
 
+const findByTitle = async (request, response) => {
+  const { title, page = 1, pageSize = 4 } = request.query
+  try {
+    const {
+      totalBlogPosts,
+      totalPages,
+      blogPosts
+    } = await blogPostService.getBlogPostsByTitle(title, page, pageSize)
+    if (blogPosts.length === 0) {
+      return response.status(404).send({
+        statusCode: 404,
+        message: "Blog posts not found"
+      })
+    }
+    response.status(200).send({
+      statusCode: 200,
+      page: Number(page),
+      pageSize: Number(pageSize),
+      totalBlogPosts: Number(totalBlogPosts),
+      totalPages: Number(totalPages),
+      blogPosts
+    })
+  } catch (error) {
+    response.status(500).send({
+      statusCode: 500,
+      message: "Error during the request"
+    })
+  }
+}
+
 const findOne = async (request, response) => {
   const { blogPostId } = request.params
   try {
@@ -124,6 +154,7 @@ const deleteOne = async (request, response) => {
 
 module.exports = {
   findAll,
+  findByTitle,
   findOne,
   create,
   update,
