@@ -10,8 +10,8 @@ const serverLog = require('./middlewares/serverLog')
 const checkUniqueVisitor = require('./middlewares/singleVisitorCounter')
 
 // routes imports
-const authorRoute = require("./author/author.route")
-const blogPostRoute = require("./blogPost/blogPost.route")
+const authorRoute = require("./modules/author/author.route")
+const blogPostRoute = require("./modules/blogPost/blogPost.route")
 
 const cors = require("cors")
 
@@ -23,7 +23,7 @@ app.use(cors())
 app.use(express.json())
 // app.use(checkCustomHeader)
 app.use(counter)
-app.use(serverLog)
+// app.use(serverLog)
 app.use(checkUniqueVisitor)
 
 // routes

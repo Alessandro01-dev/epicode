@@ -1,0 +1,9 @@
+.drag-n-drop-main-container {
+  width: 100% !important;
+}
+
+.updated-img-thumbnail {
+  width: 100px;
+  margin-top: 10px;
+  border-radius: 8px
+}

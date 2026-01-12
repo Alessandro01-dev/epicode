@@ -11,6 +11,4 @@ const checkCustomHeader = (req, res, next) => {
 
 }
 
-
-
 module.exports = checkCustomHeader

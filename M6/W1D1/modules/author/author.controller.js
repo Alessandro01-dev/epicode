@@ -1,4 +1,7 @@
 const authorService = require("./author.service")
+const EmailService = require('../mail/mail.service')
+
+const email = new EmailService()
 
 const findAll = async (request, response) => {
   const { page = 1, pageSize = 3 } = request.query
@@ -67,11 +70,27 @@ const create = async (request, response) => {
       message: "Author created successfully",
       newAuthor
     })
+    await email.send(
+      'newuser@gmail.com',
+      'Account created successfully',
+      'This is the email message/html'
+    )
   } catch (error) {
     response.status(500).send({
       statusCode: 500,
       message: "Error during the request"
     })
+  }
+}
+
+const uploadFileOnCloud = async (req, res, next) => {
+  try {
+    const img = req.file.path
+    res.status(200).json({
+      img: img
+    })
+  } catch (error) {
+    next(e)
   }
 }
 
@@ -131,6 +150,7 @@ module.exports = {
   findAll,
   findOne,
   create,
+  uploadFileOnCloud,
   update,
   deleteOne
 }

@@ -3,8 +3,22 @@ import { Editor } from '@tinymce/tinymce-react'
 import { useState } from "react"
 import "./NewArticleForm.css"
 import useBlogPosts from "../../hooks/useBlogPosts"
+import DragDrop from "./dragDrop/DragDrop"
 
 const NewArticleForm = () => {
+
+  const createRandomStringAuthor = (length) => {
+    const chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+    let result = "";
+    for (let i = 0; i < length; i++) {
+      result += chars.charAt(Math.floor(Math.random() * chars.length));
+    }
+    return result;
+  }
+
+  const [coverImageInputMode, setCoverImageInputMode] = useState("file")
+
+  const [file, setFile] = useState(null);
 
   const [newArticleForm, setNewArticleForm] = useState({
     title: "",
@@ -14,7 +28,7 @@ const NewArticleForm = () => {
       value: 0,
       unit: ""
     },
-    author: "Ryan Almeida",
+    author: createRandomStringAuthor(8),
     content: ""
   })
 
@@ -55,17 +69,63 @@ const NewArticleForm = () => {
       content: content
     })
   }
-  const handleFormSubmit = async (e) => {
-    e.preventDefault()
 
-    console.log(newArticleForm)
-
+  const uploadFile = async (file) => {
+    const fileData = new FormData()
+    fileData.append('cover', file)
     try {
-      await createBlogPost(newArticleForm)
+      const response = await fetch('http://localhost:4545/blogPosts/cover', {
+        method: 'POST',
+        body: fileData
+      })
+      return await response.json()
     } catch (error) {
       console.log(error)
     }
+  }
 
+  const handleFormSubmit = async (e) => {
+    e.preventDefault()
+
+    let coverImage = newArticleForm.cover
+
+    if (coverImageInputMode === 'file') {
+      if (!file) {
+        return
+      }
+      const uploadedFile = await uploadFile(file)
+      if (!uploadedFile) {
+        return
+      }
+      coverImage = uploadedFile.img
+    }
+
+    const totalFormData = {
+      ...newArticleForm,
+      cover: coverImage
+    }
+    try {
+      await createBlogPost(totalFormData)
+    } catch (error) {
+      console.log(error)
+    }
+  }
+  console.log(newArticleForm)
+
+
+  const switchCoverImageInputMode = (mode) => {
+    setCoverImageInputMode(mode)
+
+    if (mode === "file") {
+      setNewArticleForm(prev => ({
+        ...prev,
+        cover: ""
+      }))
+    }
+
+    if (mode === "url") {
+      setFile(null)
+    }
   }
 
   return (
@@ -75,6 +135,7 @@ const NewArticleForm = () => {
       <Row>
         <Col>
           <Form
+            encType="multipart/form-data"
             onSubmit={handleFormSubmit}
           >
             <Form.Group className="mb-3">
@@ -88,14 +149,40 @@ const NewArticleForm = () => {
               />
             </Form.Group>
             <Form.Group className="mb-3">
-              <Form.Label>Cover image</Form.Label>
-              <Form.Control
+              <Form.Label
+                className="d-flex align-items-center justify-content-between"
+              >
+                <p
+                  className="m-0"
+                >Cover image</p>
+                <div
+                  className="d-flex align-items-center justify-content-between gap-2"
+                >
+                  <p
+                    onClick={() => switchCoverImageInputMode('file')}
+                    className={`m-0 cover-image-mode-selection ${coverImageInputMode === 'file' ? "text-dark text-decoration-underline" : "text-secondary"}`}
+                  >Upload file</p>
+                  <p
+                    className="m-0"
+                  >|</p>
+                  <p
+                    onClick={() => switchCoverImageInputMode('url')
+                    }
+                    className={`m-0 cover-image-mode-selection ${coverImageInputMode === 'url' ? "text-dark text-decoration-underline" : "text-secondary"}`}
+                  >Paste URL</p>
+                </div>
+              </Form.Label>
+              {coverImageInputMode === "url" && <Form.Control
                 type="url"
                 placeholder="Image URL"
                 name="cover"
                 value={newArticleForm.cover}
                 onChange={handleFormOnChange}
-              />
+              />}
+              {coverImageInputMode === "file" && <DragDrop
+                file={file}
+                setFile={setFile}
+              />}
             </Form.Group>
             <Form.Group className="mb-3">
               <Form.Label>Category</Form.Label>
