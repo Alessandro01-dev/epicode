@@ -7,15 +7,6 @@ import DragDrop from "./dragDrop/DragDrop"
 
 const NewArticleForm = () => {
 
-  const createRandomStringAuthor = (length) => {
-    const chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
-    let result = "";
-    for (let i = 0; i < length; i++) {
-      result += chars.charAt(Math.floor(Math.random() * chars.length));
-    }
-    return result;
-  }
-
   const [coverImageInputMode, setCoverImageInputMode] = useState("file")
 
   const [file, setFile] = useState(null);
@@ -28,7 +19,7 @@ const NewArticleForm = () => {
       value: 0,
       unit: ""
     },
-    author: createRandomStringAuthor(8),
+    author: "69430120def06e09413f923b",
     content: ""
   })
 

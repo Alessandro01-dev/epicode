@@ -148,6 +148,10 @@ const update = async (request, response) => {
   }
 }
 
+const updateMany = async () => {
+  await blogPostService.updateAllDocuments()
+}
+
 const deleteOne = async (request, response) => {
   const { blogPostId } = request.params
   try {
@@ -178,5 +182,6 @@ module.exports = {
   create,
   uploadFileOnCloud,
   update,
+  updateMany,
   deleteOne,
 }

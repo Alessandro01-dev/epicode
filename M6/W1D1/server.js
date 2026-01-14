@@ -12,6 +12,7 @@ const checkUniqueVisitor = require('./middlewares/singleVisitorCounter')
 // routes imports
 const authorRoute = require("./modules/author/author.route")
 const blogPostRoute = require("./modules/blogPost/blogPost.route")
+const commentRoute = require("./modules/comment/comment.route")
 
 const cors = require("cors")
 
@@ -29,5 +30,6 @@ app.use(checkUniqueVisitor)
 // routes
 app.use("/", authorRoute)
 app.use("/", blogPostRoute)
+app.use("/", commentRoute)
 
 startServer(PORT, app)

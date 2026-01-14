@@ -11,6 +11,7 @@ router.post("/authors", authorController.create)
 
 router.patch("/authors/:userId/avatar", cloudUpload.single('avatar'), authorController.uploadFileOnCloud)
 router.patch("/authors/:userId", authorController.update)
+// router.patch("/authorAdmin", authorController.updateMany)
 
 router.delete("/authors/:userId", authorController.deleteOne)
 

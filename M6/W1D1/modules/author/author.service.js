@@ -34,6 +34,13 @@ const updateAuthor = async (userId, body) => {
 
 }
 
+const updateAllDocuments = async () => {
+  return await AuthorSchema.updateMany(
+    { comments: { $exists: false } },
+    { $set: { comments: [] } }
+  )
+}
+
 const deleteAuthor = async (userId) => {
 
   return await AuthorSchema.findByIdAndDelete(userId)
@@ -45,5 +52,6 @@ module.exports = {
   getAuthorById,
   createAuthor,
   updateAuthor,
+  updateAllDocuments,
   deleteAuthor
 }

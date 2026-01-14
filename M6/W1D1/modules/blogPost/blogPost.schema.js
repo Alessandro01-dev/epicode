@@ -24,10 +24,14 @@ const BlogPost = new mongoose.Schema({
     }
   },
   author: {
-    type: String,
-    required: true,
-    unique: true
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "author"
   },
+  comments: [{
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "comment",
+    default: []
+  }],
   content: {
     type: String,
     required: true

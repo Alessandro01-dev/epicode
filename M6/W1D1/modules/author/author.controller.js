@@ -120,6 +120,10 @@ const update = async (request, response) => {
 
 }
 
+const updateMany = async () => {
+  await authorService.updateAllDocuments()
+}
+
 const deleteOne = async (request, response) => {
 
   const { userId } = request.params
@@ -152,5 +156,6 @@ module.exports = {
   create,
   uploadFileOnCloud,
   update,
+  updateMany,
   deleteOne
 }

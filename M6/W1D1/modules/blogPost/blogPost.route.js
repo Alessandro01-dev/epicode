@@ -12,6 +12,7 @@ router.post("/blogPosts", blogPostController.create)
 
 router.patch("/blogPosts/:blogPostId/cover", cloudUpload.single('cover'), blogPostController.uploadFileOnCloud)
 router.patch("/blogPosts/:blogPostId", blogPostController.update)
+// router.patch("/blogPostsAdmin", blogPostController.updateMany)
 
 router.delete("/blogPosts/:blogPostId", blogPostController.deleteOne)
 
