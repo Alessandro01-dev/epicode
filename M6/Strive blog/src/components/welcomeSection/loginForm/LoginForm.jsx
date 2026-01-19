@@ -1,5 +1,6 @@
 import { useState } from "react"
 import { Form, Button } from "react-bootstrap"
+import useAuthentication from "../../../hooks/useAuthentication"
 
 const LoginForm = () => {
 
@@ -7,6 +8,8 @@ const LoginForm = () => {
     email: '',
     password: ''
   })
+
+  const { loginAndGetToken } = useAuthentication()
 
   const handleFormOnChange = (e) => {
 
@@ -21,6 +24,12 @@ const LoginForm = () => {
 
   const handleFormSubmit = async (e) => {
     e.preventDefault()
+
+    try {
+      await loginAndGetToken(loginAuthorForm)
+    } catch (error) {
+      console(error)
+    }
   }
 
   return (
