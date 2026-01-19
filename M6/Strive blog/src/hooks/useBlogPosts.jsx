@@ -5,7 +5,7 @@ const useBlogPosts = () => {
   const [blogPostsData, setBlogPostsData] = useState([])
   const [blogPostsError, setBlogPostsError] = useState(null)
 
-  const URL = "http://localhost:4545"
+  const URL = import.meta.env.VITE_BASE_SERVER_URL
 
   const getBlogPosts = async () => {
     setBlogPostsIsLoading(true)

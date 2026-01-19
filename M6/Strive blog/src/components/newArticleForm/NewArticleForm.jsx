@@ -5,6 +5,8 @@ import "./NewArticleForm.css"
 import useBlogPosts from "../../hooks/useBlogPosts"
 import DragDrop from "./dragDrop/DragDrop"
 
+const URL = import.meta.env.VITE_BASE_SERVER_URL
+
 const NewArticleForm = () => {
 
   const [coverImageInputMode, setCoverImageInputMode] = useState("file")
@@ -65,7 +67,7 @@ const NewArticleForm = () => {
     const fileData = new FormData()
     fileData.append('cover', file)
     try {
-      const response = await fetch('http://localhost:4545/blogPosts/cover', {
+      const response = await fetch(`${URL}/blogPosts/cover`, {
         method: 'POST',
         body: fileData
       })
