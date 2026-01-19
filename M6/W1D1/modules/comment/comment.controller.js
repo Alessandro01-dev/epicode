@@ -1,6 +1,6 @@
 const commentService = require("./comment.service")
 
-const findBlogPostComments = async (req, res) => {
+const findBlogPostComments = async (req, res, next) => {
   const { id } = req.params
   const { page = 1, pageSize = 4 } = req.query
   try {
@@ -24,14 +24,11 @@ const findBlogPostComments = async (req, res) => {
       comments
     })
   } catch (error) {
-    res.status(500).send({
-      statusCode: 500,
-      message: "Error during the request"
-    })
+    next(error)
   }
 }
 
-const findBlogPostCommentById = async (req, res) => {
+const findBlogPostCommentById = async (req, res, next) => {
   const { id, commentId } = req.params
   try {
     if (!id || !commentId) {
@@ -52,15 +49,12 @@ const findBlogPostCommentById = async (req, res) => {
       comment
     })
   } catch (error) {
-    res.status(500).send({
-      statusCode: 500,
-      message: "Error during the request"
-    })
+    next(error)
   }
 
 }
 
-const createComment = async (req, res) => {
+const createComment = async (req, res, next) => {
   const { id } = req.params
   const { body } = req
   try {
@@ -74,14 +68,11 @@ const createComment = async (req, res) => {
       newComment
     })
   } catch (error) {
-    res.status(500).send({
-      statusCode: 500,
-      message: "Error during the request"
-    })
+    next(error)
   }
 }
 
-const updateComment = async (req, res) => {
+const updateComment = async (req, res, next) => {
   const { content, rating } = req.body
   const { id, commentId } = req.params
   try {
@@ -98,14 +89,11 @@ const updateComment = async (req, res) => {
       updatedComment
     })
   } catch (error) {
-    res.status(500).send({
-      statusCode: 500,
-      message: "Error during the request"
-    })
+    next(error)
   }
 }
 
-const deleteComment = async (req, res) => {
+const deleteComment = async (req, res, next) => {
   const { id, commentId } = req.params
   try {
     if (!id || !commentId) {
@@ -127,10 +115,7 @@ const deleteComment = async (req, res) => {
       deletedComment
     })
   } catch (error) {
-    res.status(500).send({
-      statusCode: 500,
-      message: "Error during the request"
-    })
+    next(error)
   }
 }
 

@@ -3,7 +3,7 @@ const EmailService = require('../mail/mail.service')
 
 const email = new EmailService()
 
-const findAll = async (request, response) => {
+const findAll = async (request, response, next) => {
   const { page = 1, pageSize = 4 } = request.query
   try {
     const {
@@ -26,10 +26,7 @@ const findAll = async (request, response) => {
       blogPosts
     })
   } catch (error) {
-    response.status(500).send({
-      statusCode: 500,
-      message: "Error during the request"
-    })
+    next(error)
   }
 }
 
@@ -56,14 +53,11 @@ const findByTitle = async (request, response) => {
       blogPosts
     })
   } catch (error) {
-    response.status(500).send({
-      statusCode: 500,
-      message: "Error during the request"
-    })
+    next(error)
   }
 }
 
-const findOne = async (request, response) => {
+const findOne = async (request, response, next) => {
   const { blogPostId } = request.params
   try {
     if (!blogPostId) {
@@ -84,14 +78,11 @@ const findOne = async (request, response) => {
       blogPost
     })
   } catch (error) {
-    response.status(500).send({
-      statusCode: 500,
-      message: "Error during the request"
-    })
+    next(error)
   }
 }
 
-const create = async (request, response) => {
+const create = async (request, response, next) => {
   const { body } = request
   try {
     const newBlogPost = await blogPostService.createBlogPost(body)
@@ -106,10 +97,7 @@ const create = async (request, response) => {
       'This is the email message/html'
     )
   } catch (error) {
-    response.status(500).send({
-      statusCode: 500,
-      message: "Error during the request"
-    })
+    next(error)
   }
 }
 
@@ -120,11 +108,11 @@ const uploadFileOnCloud = async (req, res, next) => {
       img: img
     })
   } catch (error) {
-    next(e)
+    next(error)
   }
 }
 
-const update = async (request, response) => {
+const update = async (request, response, next) => {
   const { body } = request
   const { blogPostId } = request.params
   try {
@@ -141,10 +129,7 @@ const update = async (request, response) => {
       updatedBlogPost
     })
   } catch (error) {
-    response.status(500).send({
-      statusCode: 500,
-      message: "Error during the request"
-    })
+    next(error)
   }
 }
 
@@ -152,7 +137,7 @@ const updateMany = async () => {
   await blogPostService.updateAllDocuments()
 }
 
-const deleteOne = async (request, response) => {
+const deleteOne = async (request, response, next) => {
   const { blogPostId } = request.params
   try {
     if (!blogPostId) {
@@ -168,10 +153,7 @@ const deleteOne = async (request, response) => {
       message: "Blog post deleted successfully"
     })
   } catch (error) {
-    response.status(500).send({
-      statusCode: 500,
-      message: "Error during the request"
-    })
+    next(error)
   }
 }
 

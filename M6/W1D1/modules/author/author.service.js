@@ -36,8 +36,8 @@ const updateAuthor = async (userId, body) => {
 
 const updateAllDocuments = async () => {
   return await AuthorSchema.updateMany(
-    { comments: { $exists: false } },
-    { $set: { comments: [] } }
+    { password: { $exists: false } },
+    { $set: { password: '' } }
   )
 }
 

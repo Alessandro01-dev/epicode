@@ -1,4 +1,5 @@
 const mongoose = require("mongoose")
+const bcrypt = require('bcrypt')
 
 const Author = new mongoose.Schema({
   name: {
@@ -14,10 +15,14 @@ const Author = new mongoose.Schema({
     required: true,
     unique: true
   },
+  password: {
+    type: String,
+    required: true,
+  },
   dob: {
     type: Date,
     required: false,
-    default: Date.now()
+    default: Date.now
   },
   avatar: {
     type: String,
@@ -35,5 +40,22 @@ const Author = new mongoose.Schema({
     default: []
   }]
 }, { timestamps: true, strict: true })
+
+Author.pre('save', async function () {
+  if (!this.isModified('password')) {
+    return
+  }
+  const salt = await bcrypt.genSalt(10)
+  this.password = await bcrypt.hash(this.password, salt)
+})
+
+Author.pre('findOneAndUpdate', async function() {
+  const update = this.getUpdate()
+  if (update.password) {
+    const salt = await bcrypt.genSalt(10)
+    update.password = await bcrypt.hash(update.password, salt)
+    this.setUpdate(update)
+  }
+})
 
 module.exports = mongoose.model("author", Author, "authors")

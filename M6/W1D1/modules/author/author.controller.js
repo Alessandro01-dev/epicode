@@ -3,7 +3,7 @@ const EmailService = require('../mail/mail.service')
 
 const email = new EmailService()
 
-const findAll = async (request, response) => {
+const findAll = async (request, response, next) => {
   const { page = 1, pageSize = 3 } = request.query
   try {
     const {
@@ -26,14 +26,11 @@ const findAll = async (request, response) => {
       users
     })
   } catch (error) {
-    response.status(500).send({
-      statuscode: 500,
-      message: "Error during the request"
-    })
+    next(error)
   }
 }
 
-const findOne = async (request, response) => {
+const findOne = async (request, response, next) => {
   try {
     const { userId } = request.params
     if (!userId) {
@@ -54,14 +51,11 @@ const findOne = async (request, response) => {
       author
     })
   } catch (error) {
-    response.status(500).send({
-      statusCode: 500,
-      message: "Error during the request"
-    })
+    next(error)
   }
 }
 
-const create = async (request, response) => {
+const create = async (request, response, next) => {
   const { body } = request
   try {
     const newAuthor = await authorService.createAuthor(body)
@@ -76,10 +70,7 @@ const create = async (request, response) => {
       'This is the email message/html'
     )
   } catch (error) {
-    response.status(500).send({
-      statusCode: 500,
-      message: "Error during the request"
-    })
+    next(error)
   }
 }
 
@@ -94,7 +85,7 @@ const uploadFileOnCloud = async (req, res, next) => {
   }
 }
 
-const update = async (request, response) => {
+const update = async (request, response, next) => {
 
   const { body } = request
   const { userId } = request.params
@@ -112,10 +103,7 @@ const update = async (request, response) => {
       updatedAuthor
     })
   } catch (error) {
-    response.status(500).send({
-      statusCode: 500,
-      message: "Error during the request"
-    })
+    next(error)
   }
 
 }
@@ -124,7 +112,7 @@ const updateMany = async () => {
   await authorService.updateAllDocuments()
 }
 
-const deleteOne = async (request, response) => {
+const deleteOne = async (request, response, next) => {
 
   const { userId } = request.params
   try {
@@ -142,10 +130,7 @@ const deleteOne = async (request, response) => {
       message: "Author deleted successfully"
     })
   } catch (error) {
-    response.status(500).send({
-      statusCode: 500,
-      message: "Error during the request"
-    })
+    next(error)
   }
 
 }
