@@ -96,26 +96,30 @@ const SignupForm = () => {
       encType="multipart/form-data"
       onSubmit={handleFormSubmit}
     >
-      <Form.Group className="mb-3">
-        <Form.Label>Name</Form.Label>
-        <Form.Control
-          type="text"
-          placeholder="Name"
-          name="name"
-          value={newAuthorForm.name}
-          onChange={handleFormOnChange}
-        />
-      </Form.Group>
-      <Form.Group className="mb-3">
-        <Form.Label>Surname</Form.Label>
-        <Form.Control
-          type="text"
-          placeholder="Surname"
-          name="surname"
-          value={newAuthorForm.surname}
-          onChange={handleFormOnChange}
-        />
-      </Form.Group>
+      <div
+        className="d-flex align-items-center justify-content-between gap-4 w-100"
+      >
+        <Form.Group className="mb-3 w-50">
+          <Form.Label>Name</Form.Label>
+          <Form.Control
+            type="text"
+            placeholder="Name"
+            name="name"
+            value={newAuthorForm.name}
+            onChange={handleFormOnChange}
+          />
+        </Form.Group>
+        <Form.Group className="mb-3 w-50">
+          <Form.Label>Surname</Form.Label>
+          <Form.Control
+            type="text"
+            placeholder="Surname"
+            name="surname"
+            value={newAuthorForm.surname}
+            onChange={handleFormOnChange}
+          />
+        </Form.Group>
+      </div>
       <Form.Group className="mb-3">
         <Form.Label
           className="d-flex align-items-center justify-content-between"

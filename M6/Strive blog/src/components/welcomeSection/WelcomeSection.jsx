@@ -17,24 +17,39 @@ const WelcomeSection = () => {
 
   return (
     <Container
+      className="pt-5"
       fluid
     >
       <Row>
-        <Col>
-          <h1
-            className="text-center"
-          >{isLogin ? "Create new account" : "Enter into your account"}</h1>
+        <Col
+          md={6}
+        >
+          <Row>
+            <Col>
+              <h1
+                className="text-center fs-3"
+              >{isLogin ? "Enter into your account" : "Create new account"}</h1>
+            </Col>
+          </Row>
+          <Row>
+            <Col>
+              <ToggleLoginSignup onToggle={handleToggle} isLogin={isLogin} />
+              {isLogin ? <LoginForm /> : <SignupForm />}
+            </Col>
+          </Row>
+          <Row>
+            <Col>
+              {isLogin ? <OauthButtons /> : null}
+            </Col>
+          </Row>
         </Col>
-      </Row>
-      <Row>
-        <Col>
-          <ToggleLoginSignup onToggle={handleToggle} isLogin={isLogin} />
-          {isLogin ? <LoginForm /> : <SignupForm />}
-        </Col>
-      </Row>
-      <Row>
-        <Col>
-          {isLogin ? <OauthButtons /> : null}
+        <Col
+          md={6}
+        >
+          <img
+            className="img-fluid h-100 object-fit-contain d-block"
+            src={isLogin ? `https://img.freepik.com/premium-vector/tablet-login-concept-illustration_114360-7863.jpg` : `https://img.freepik.com/premium-vector/sign-up-concept-illustration_114360-7865.jpg`}
+            alt="" />
         </Col>
       </Row>
     </Container>

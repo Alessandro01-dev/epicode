@@ -9,6 +9,8 @@ const CustomNavbar = () => {
 
   const shrinkedNavbar = useScrollDown()
 
+  const isLoginOrRegistrationPage = location.pathname === "/login"
+
   return (
 
     <Navbar className="navbar-main-container">
@@ -33,20 +35,18 @@ const CustomNavbar = () => {
                   className="d-inline-block align-top"
                 />
               </Navbar.Brand>
-              <Link
+              {!isLoginOrRegistrationPage ?? <Link
                 to="/newArticlePage"
                 className={`btn btn-lg btn-dark post-article-btn ${shrinkedNavbar ? "shrinked-btn" : ""}`}
               >
                 + Post Article
-              </Link>
+              </Link>}
             </div>
           </Col>
         </Row>
       </Container >
     </Navbar >
-
   )
-
 }
 
 export default CustomNavbar
