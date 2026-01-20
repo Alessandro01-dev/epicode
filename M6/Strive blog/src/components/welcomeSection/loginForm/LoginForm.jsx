@@ -1,5 +1,5 @@
 import { useState } from "react"
-import { Form, Button } from "react-bootstrap"
+import { Form, Button, Spinner } from "react-bootstrap"
 import useAuthentication from "../../../hooks/useAuthentication"
 import { useNavigate } from "react-router-dom"
 
@@ -10,7 +10,7 @@ const LoginForm = () => {
     password: ''
   })
 
-  const { loginAndGetToken } = useAuthentication()
+  const { loginAndGetToken, authIsLoading } = useAuthentication()
   const navigate = useNavigate()
 
   const handleFormOnChange = (e) => {
@@ -60,8 +60,9 @@ const LoginForm = () => {
       <Button
         type="submit"
         className="btn-dark mt-3 d-block w-100"
+        disabled={authIsLoading}
       >
-        Log in
+        {authIsLoading ? (<Spinner size="sm" />) : 'Log in'}
       </Button>
     </Form>
   )

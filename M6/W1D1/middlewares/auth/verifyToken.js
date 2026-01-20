@@ -5,6 +5,7 @@ const excludedRoutes = [
   '/login',
   '/authors',
   '/authors/avatar',
+  '/blogPosts/cover',
   '/github',
   '/github/callback',
   '/google',

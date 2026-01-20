@@ -1,4 +1,4 @@
-import { Col, Container, Row } from "react-bootstrap"
+import { Col, Container, Row, Spinner } from "react-bootstrap"
 import { useParams } from "react-router-dom"
 import useBlogPosts from "../../hooks/useBlogPosts"
 import { useEffect } from "react"
@@ -8,7 +8,7 @@ const DetailsArticle = () => {
 
   const { blogPostId } = useParams()
 
-  const { getBlogPostById, blogPostsData } = useBlogPosts()
+  const { getBlogPostById, blogPostsData, blogPostsIsLoading } = useBlogPosts()
 
   useEffect(() => {
     getBlogPostById(blogPostId)
@@ -22,7 +22,8 @@ const DetailsArticle = () => {
     >
       <Row>
         <Col>
-          {blogPostsData.blogPost && (
+          {blogPostsIsLoading && <Spinner />}
+          {blogPostsData?.blogPost && (
             <>
               <img
                 className="w-100 d-block object-fit-cover"
@@ -31,7 +32,7 @@ const DetailsArticle = () => {
               <h1
                 className="my-5"
               >{blogPostsData.blogPost.title}</h1>
-              <div 
+              <div
                 className="article-content"
                 dangerouslySetInnerHTML={{ __html: `${blogPostsData.blogPost.content}` }}
               />

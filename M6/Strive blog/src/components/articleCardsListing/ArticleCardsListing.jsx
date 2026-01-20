@@ -1,11 +1,11 @@
-import { Container, Row } from "react-bootstrap"
+import { Container, Row, Spinner } from "react-bootstrap"
 import SingleArticleCard from "./singleArticleCard/SingleArticleCard"
 import useBlogPosts from "../../hooks/useBlogPosts"
 import { useEffect } from "react"
 
 const ArticleCardsListing = () => {
 
-  const { getBlogPosts, blogPostsData } = useBlogPosts()
+  const { getBlogPosts, blogPostsData, blogPostsIsLoading } = useBlogPosts()
 
   useEffect(() => {
     getBlogPosts()
@@ -21,6 +21,7 @@ const ArticleCardsListing = () => {
       <Row
         className="g-3"
       >
+        {blogPostsIsLoading && <Spinner className="m-auto" />}
         {blogPostsData.blogPosts?.map(blogPost => (
           <SingleArticleCard
             key={blogPost._id}

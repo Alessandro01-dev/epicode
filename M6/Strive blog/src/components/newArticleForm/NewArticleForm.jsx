@@ -1,4 +1,4 @@
-import { Col, Container, Form, Row, Button } from "react-bootstrap"
+import { Col, Container, Form, Row, Button, Spinner } from "react-bootstrap"
 import { Editor } from '@tinymce/tinymce-react'
 import { useState } from "react"
 import "./NewArticleForm.css"
@@ -13,6 +13,8 @@ const NewArticleForm = () => {
 
   const [file, setFile] = useState(null);
 
+  const [coverImageIsLoading, setCoverImageIsLoading] = useState(false)
+
   const [newArticleForm, setNewArticleForm] = useState({
     title: "",
     cover: "",
@@ -25,7 +27,7 @@ const NewArticleForm = () => {
     content: ""
   })
 
-  const { createBlogPost } = useBlogPosts()
+  const { createBlogPost, blogPostsIsLoading } = useBlogPosts()
 
   const handleFormOnChange = (e) => {
 
@@ -67,6 +69,7 @@ const NewArticleForm = () => {
     const fileData = new FormData()
     fileData.append('cover', file)
     try {
+      setCoverImageIsLoading(true)
       const response = await fetch(`${URL}/blogPosts/cover`, {
         method: 'POST',
         body: fileData
@@ -74,6 +77,8 @@ const NewArticleForm = () => {
       return await response.json()
     } catch (error) {
       console.log(error)
+    } finally {
+      setCoverImageIsLoading(false)
     }
   }
 
@@ -247,8 +252,13 @@ const NewArticleForm = () => {
             <Button
               type="submit"
               className="btn-dark mt-3 d-block ms-auto"
+              disabled={blogPostsIsLoading || coverImageIsLoading}
             >
-              Submit
+              {blogPostsIsLoading || coverImageIsLoading ? (
+                <Spinner
+                  size="sm"
+                />
+              ) : "Submit"}
             </Button>
           </Form>
         </Col>

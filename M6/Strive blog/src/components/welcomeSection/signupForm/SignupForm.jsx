@@ -1,8 +1,9 @@
 import { useState } from "react";
-import { Form, Button } from "react-bootstrap";
+import { Form, Button, Spinner } from "react-bootstrap";
 import DragDrop from "../../newArticleForm/dragDrop/DragDrop";
 import './SignupForm.css'
 import useAuthors from '../../../hooks/useAuthors'
+import { useNavigate } from "react-router-dom";
 
 const URL = import.meta.env.VITE_BASE_SERVER_URL
 
@@ -10,9 +11,13 @@ const SignupForm = () => {
 
   const [avatarImageInputMode, setAvatarImageInputMode] = useState("file")
 
+  const [avatarImageIsLoading, setAvatarImageIsLoading] = useState(false)
+
   const [file, setFile] = useState(null);
 
-  const { createAuthor } = useAuthors()
+  const { createAuthor, authorsIsLoading } = useAuthors()
+
+  const navigate = useNavigate()
 
   const [newAuthorForm, setNewAuthorForm] = useState({
     name: '',
@@ -38,6 +43,7 @@ const SignupForm = () => {
     const fileData = new FormData()
     fileData.append('avatar', file)
     try {
+      setAvatarImageIsLoading(true)
       const response = await fetch(`${URL}/authors/avatar`, {
         method: 'POST',
         body: fileData
@@ -45,6 +51,8 @@ const SignupForm = () => {
       return await response.json()
     } catch (error) {
       console.log(error)
+    } finally {
+      setAvatarImageIsLoading(false)
     }
   }
 
@@ -70,6 +78,8 @@ const SignupForm = () => {
     }
     try {
       await createAuthor(totalFormData)
+      navigate("/login", { replace: true })
+      window.location.reload()
     } catch (error) {
       console.log(error)
     }
@@ -188,8 +198,13 @@ const SignupForm = () => {
       <Button
         type="submit"
         className="btn-dark mt-3 d-block w-100"
+        disabled={authorsIsLoading || avatarImageIsLoading}
       >
-        Sign up
+        {authorsIsLoading || avatarImageIsLoading ? (
+          <Spinner
+            size="sm"
+          />
+        ) : 'Sign up'}
       </Button>
     </Form>
   )
