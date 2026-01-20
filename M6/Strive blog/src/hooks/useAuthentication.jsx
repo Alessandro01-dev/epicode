@@ -10,7 +10,12 @@ const useAuthentication = () => {
   const getProfile = async () => {
     setAuthIsLoading(true)
     try {
-      const response = await fetch(`${URL}/me`)
+      const token = localStorage.getItem('token')
+      const response = await fetch(`${URL}/me`, {
+        headers: {
+          "Authorization": `Bearer ${token}`
+        }
+      })
       const data = await response.json()
       setAuthData(data)
     } catch (error) {
@@ -31,8 +36,8 @@ const useAuthentication = () => {
         body: JSON.stringify(body)
       })
       const data = await response.json()
-      localStorage.setItem('token', JSON.stringify(data))
-      setAuthData(data)
+      localStorage.setItem('token', data.token)
+      setAuthData(data.token)
     } catch (error) {
       setAuthError(error)
     } finally {

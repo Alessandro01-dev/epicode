@@ -17,9 +17,10 @@ const login = async (body) => {
   const token = jwt.sign({
     name: user.name,
     surname: user.surname,
-    dob: user.dob
+    dob: user.dob,
+    avatar: user.avatar
   }, process.env.JWT_SECRET, {
-    expiresIn: '60s'
+    expiresIn: '1h'
   })
 
   return token

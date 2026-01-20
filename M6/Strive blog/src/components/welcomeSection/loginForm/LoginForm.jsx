@@ -1,6 +1,7 @@
 import { useState } from "react"
 import { Form, Button } from "react-bootstrap"
 import useAuthentication from "../../../hooks/useAuthentication"
+import { useNavigate } from "react-router-dom"
 
 const LoginForm = () => {
 
@@ -10,6 +11,7 @@ const LoginForm = () => {
   })
 
   const { loginAndGetToken } = useAuthentication()
+  const navigate = useNavigate()
 
   const handleFormOnChange = (e) => {
 
@@ -27,8 +29,9 @@ const LoginForm = () => {
 
     try {
       await loginAndGetToken(loginAuthorForm)
+      navigate('/', { replace: true })
     } catch (error) {
-      console(error)
+      console.error(error)
     }
   }
 

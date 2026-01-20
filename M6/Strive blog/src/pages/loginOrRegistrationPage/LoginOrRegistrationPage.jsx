@@ -1,7 +1,7 @@
 import WelcomeSection from "../../components/welcomeSection/WelcomeSection"
 import MainLayout from "../../components/mainLayout/MainLayout"
 
-const Homepage = () => {
+const LoginOrRegistrationPage = () => {
 
   return (
     <MainLayout>
@@ -11,4 +11,4 @@ const Homepage = () => {
 
 }
 
-export default Homepage
+export default LoginOrRegistrationPage

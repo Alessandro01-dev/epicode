@@ -1,0 +1,53 @@
+.profile-card-container {
+  display: flex;
+  flex-shrink: 1;
+  align-items: center;
+  min-width: 20px;
+  max-width: 200px;
+  width: auto;
+}
+
+@media (max-width: 767px) {
+  .profile-card-container {
+    max-width: 100px;
+  }
+}
+
+.profile-avatar-shrinked-container,
+.profile-avatar-container {
+  display: flex;
+  align-items: stretch;
+  justify-content: center;
+}
+
+.profile-avatar-shrinked-container {
+  transition: all 0.5s ease-in-out;
+  min-width: 32px;
+  max-width: 32px;
+  min-height: 32px;
+  max-height: 32px;
+}
+
+.profile-avatar-container {
+  transition: all 0.5s ease-in-out;
+  min-width: 48px;
+  max-width: 48px;
+  min-height: 48px;
+  max-height: 48px;
+}
+
+.profile-avatar-shrinked-container img,
+.profile-avatar-container img {
+  display: inline-block;
+  border-radius: 50%;
+}
+
+.profile-card-fullname {
+  margin: 0;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  max-width: 150px;
+  min-width: 20px;
+  flex-shrink: 1;
+}

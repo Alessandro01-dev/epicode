@@ -22,7 +22,7 @@ const Author = new mongoose.Schema({
   dob: {
     type: Date,
     required: false,
-    default: Date.now
+    default: Date.now()
   },
   avatar: {
     type: String,

@@ -5,8 +5,6 @@ import LoginForm from "./loginForm/LoginForm"
 import { useState } from "react"
 import OauthButtons from './oauthButtons/OauthButtons'
 
-const URL = import.meta.env.VITE_BASE_SERVER_URL
-
 const WelcomeSection = () => {
 
   const [isLogin, setIsLogin] = useState(true);

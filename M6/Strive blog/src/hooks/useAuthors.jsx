@@ -9,7 +9,12 @@ const useAuthors = () => {
   const getAuthors = async () => {
     setAuthorsIsLoading(true)
     try {
-      const response = await fetch(`${URL}/authors`)
+      const token = localStorage.getItem('token')
+      const response = await fetch(`${URL}/authors`, {
+        headers: {
+          "Authorization": `Bearer ${token}`
+        }
+      })
       const data = await response.json()
       setAuthorsData(data)
     } catch (error) {
@@ -22,9 +27,11 @@ const useAuthors = () => {
   const createAuthor = async (newAuthor) => {
     setAuthorsIsLoading(true)
     try {
+      const token = localStorage.getItem('token')
       const response = await fetch(`${URL}/authors`, {
         method: "POST",
         headers: {
+          "Authorization": `Bearer ${token}`,
           "Content-type": "application/json"
         },
         body: JSON.stringify(newAuthor)

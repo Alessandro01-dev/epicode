@@ -6,6 +6,8 @@ import Homepage from './pages/homepage/Homepage';
 import NewArticlePage from './pages/newArticlePage/NewArticlePage'
 import DetailsArticlePage from './pages/detailsArticlePage/DetailsArticlePage';
 import NotFoundPage from './pages/notFoundPage/NotFoundPage'
+import ProtectedRoutes from './middlewares/ProtectedRoutes';
+import OAuthRedirectHandler from './middlewares/OAuthRedirectHandler'
 
 const App = () => {
 
@@ -13,9 +15,13 @@ const App = () => {
     <Router>
       <Routes>
         <Route index path="/login" element={<LoginOrRegistrationPage />} />
-        <Route path="/" element={<Homepage />} />
-        <Route path="/newArticlePage" element={<NewArticlePage />} />
-        <Route path="/detailsArticlePage/:blogPostId" element={<DetailsArticlePage />} />
+        <Route path="/success" element={<OAuthRedirectHandler />} />
+
+        <Route element={<ProtectedRoutes />}>
+          <Route path="/" element={<Homepage />} />
+          <Route path="/newArticlePage" element={<NewArticlePage />} />
+          <Route path="/detailsArticlePage/:blogPostId" element={<DetailsArticlePage />} />
+        </Route>
 
         <Route path="*" element={<NotFoundPage />} />
       </Routes>

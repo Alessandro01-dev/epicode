@@ -3,6 +3,12 @@ const InvalidOrMissingTokenException = require('../../exceptions/auth/InvalidOrM
 
 const excludedRoutes = [
   '/login',
+  '/authors',
+  '/authors/avatar',
+  '/github',
+  '/github/callback',
+  '/google',
+  '/google/callback',
   '/blogPostsAdmin',
   '/authorAdmin'
 ]

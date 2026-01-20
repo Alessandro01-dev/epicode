@@ -6,6 +6,7 @@ const getBlogPosts = async (page, pageSize) => {
   const blogPosts = await BlogPostSchema.find()
     .limit(pageSize)
     .skip((page - 1) * pageSize)
+    .populate("author", "name surname")
   const totalBlogPosts = await BlogPostSchema.countDocuments()
   const totalPages = Math.ceil(totalBlogPosts / pageSize)
   return {

@@ -23,9 +23,10 @@ const ArticleCardsListing = () => {
       >
         {blogPostsData.blogPosts?.map(blogPost => (
           <SingleArticleCard
+            key={blogPost._id}
             title={blogPost.title}
             coverImg={blogPost.cover}
-            author={blogPost.author}
+            author={`${blogPost.author.name} ${blogPost.author.surname}`}
             blogPostId={blogPost._id}
           />
         ))}

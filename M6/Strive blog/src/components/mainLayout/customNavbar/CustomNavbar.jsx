@@ -1,9 +1,9 @@
 import "./CustomNavbar.css"
-import { Container, Row, Col } from 'react-bootstrap';
-import Navbar from 'react-bootstrap/Navbar';
+import { Container, Row, Col, Navbar } from 'react-bootstrap';
 import { Link } from "react-router-dom";
 import useScrollDown from "../../../hooks/useScrollDown";
 import logo from '../../../assets/logo.png'
+import ProfileCard from "./profileCard/ProfileCard";
 
 const CustomNavbar = () => {
 
@@ -35,12 +35,17 @@ const CustomNavbar = () => {
                   className="d-inline-block align-top"
                 />
               </Navbar.Brand>
-              {!isLoginOrRegistrationPage ?? <Link
-                to="/newArticlePage"
-                className={`btn btn-lg btn-dark post-article-btn ${shrinkedNavbar ? "shrinked-btn" : ""}`}
+              <div
+                className="d-flex justify-content-between align-items-center gap-2"
               >
-                + Post Article
-              </Link>}
+                {!isLoginOrRegistrationPage && <Link
+                  to="/newArticlePage"
+                  className={`btn btn-lg btn-dark post-article-btn ${shrinkedNavbar ? "shrinked-btn" : ""}`}
+                >
+                  + Post Article
+                </Link>}
+                {!isLoginOrRegistrationPage && <ProfileCard />}
+              </div>
             </div>
           </Col>
         </Row>

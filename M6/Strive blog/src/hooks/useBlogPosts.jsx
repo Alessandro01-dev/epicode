@@ -10,7 +10,12 @@ const useBlogPosts = () => {
   const getBlogPosts = async () => {
     setBlogPostsIsLoading(true)
     try {
-      const response = await fetch(`${URL}/blogPosts`)
+      const token = localStorage.getItem('token')
+      const response = await fetch(`${URL}/blogPosts`, {
+        headers: {
+          "Authorization": `Bearer ${token}`
+        }
+      })
       const data = await response.json()
       setBlogPostsData(data)
     } catch (error) {
@@ -23,7 +28,12 @@ const useBlogPosts = () => {
   const getBlogPostById = async (blogPostId) => {
     setBlogPostsIsLoading(true)
     try {
-      const response = await fetch(`${URL}/blogPosts/${blogPostId}`)
+      const token = localStorage.getItem('token')
+      const response = await fetch(`${URL}/blogPosts/${blogPostId}`, {
+        headers: {
+          "Authorization": `Bearer ${token}`
+        }
+      })
       const data = await response.json()
       setBlogPostsData(data)
     } catch (error) {
@@ -36,7 +46,12 @@ const useBlogPosts = () => {
   const getBlogPostsByAuthorId = async (authorId) => {
     setBlogPostsIsLoading(true)
     try {
-      const response = await fetch(`${URL}/authors${authorId}/blogPosts`)
+      const token = localStorage.getItem('token')
+      const response = await fetch(`${URL}/authors${authorId}/blogPosts`, {
+        headers: {
+          "Authorization": `Bearer ${token}`
+        }
+      })
       const data = await response.json()
       setBlogPostsData(data)
     } catch (error) {
@@ -49,7 +64,12 @@ const useBlogPosts = () => {
   const getBlogPostsByTitle = async (query) => {
     setBlogPostsIsLoading(true)
     try {
-      const response = await fetch(`${URL}/search/blogPosts?title=${query}`)
+      const token = localStorage.getItem('token')
+      const response = await fetch(`${URL}/search/blogPosts?title=${query}`, {
+        headers: {
+          "Authorization": `Bearer ${token}`
+        }
+      })
       const data = await response.json()
       setBlogPostsData(data)
     } catch (error) {
@@ -62,9 +82,11 @@ const useBlogPosts = () => {
   const createBlogPost = async (newPost) => {
     setBlogPostsIsLoading(true)
     try {
+      const token = localStorage.getItem('token')
       const response = await fetch(`${URL}/blogPosts`, {
         method: "POST",
         headers: {
+          "Authorization": `Bearer ${token}`,
           "Content-type": "application/json"
         },
         body: JSON.stringify(newPost)
