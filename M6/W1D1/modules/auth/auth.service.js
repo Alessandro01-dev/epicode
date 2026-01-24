@@ -7,6 +7,7 @@ const InvalidPasswordException = require('../../exceptions/auth/InvalidPasswordE
 const login = async (body) => {
   const { email, password } = body
   const user = await AuthorSchema.findOne({ email })
+  console.log(user)
   if (!user) {
     throw new UserNotFoundException()
   }
@@ -15,6 +16,7 @@ const login = async (body) => {
     throw new InvalidPasswordException()
   }
   const token = jwt.sign({
+    id: user._id.toString(),
     name: user.name,
     surname: user.surname,
     dob: user.dob,

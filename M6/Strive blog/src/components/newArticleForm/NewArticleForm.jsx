@@ -1,13 +1,20 @@
 import { Col, Container, Form, Row, Button, Spinner, Alert } from "react-bootstrap"
 import { Editor } from '@tinymce/tinymce-react'
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import "./NewArticleForm.css"
 import useBlogPosts from "../../hooks/useBlogPosts"
 import DragDrop from "./dragDrop/DragDrop"
+import useAuthentication from "../../hooks/useAuthentication"
 
 const URL = import.meta.env.VITE_BASE_SERVER_URL
 
 const NewArticleForm = () => {
+
+  const { authData, getProfile } = useAuthentication()
+
+  useEffect(() => {
+    getProfile()
+  }, [])
 
   const [coverImageInputMode, setCoverImageInputMode] = useState("file")
 
@@ -23,9 +30,18 @@ const NewArticleForm = () => {
       value: 0,
       unit: ""
     },
-    author: "69430120def06e09413f923b",
+    author: "",
     content: ""
   })
+
+  useEffect(() => {
+    if (authData?.id) {
+      setNewArticleForm((prevForm) => ({
+        ...prevForm,
+        author: authData.id
+      }))
+    }
+  }, [authData])
 
   const { createBlogPost, blogPostsIsLoading, blogPostsError } = useBlogPosts()
 

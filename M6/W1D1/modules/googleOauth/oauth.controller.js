@@ -15,9 +15,8 @@ const manageOauthCallback = async (req, res, next) => {
         const { user } = req
         const payload = {
             id: user.id,
-            name: user.givenName,
-            surname: user.familyName,
-            avatar: user.avatar_url,
+            fullName: user.displayName,
+            avatar: user.photos[0].value,
         };
         const token = jwt.sign(payload, process.env.JWT_SECRET)
         const redirectUrl = `${process.env.FE_URL}/success?token=${encodeURIComponent(token)}`

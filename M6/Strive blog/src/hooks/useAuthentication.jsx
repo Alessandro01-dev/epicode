@@ -49,8 +49,10 @@ const useAuthentication = () => {
       }
 
       const data = await response.json()
-      localStorage.setItem('token', data.token)
-      setAuthData(data.token)
+      if (response.status === 200) {
+        localStorage.setItem('token', data.token)
+        setAuthData(data.token)
+      }
       return data
     } catch (error) {
       setAuthError(error.message)

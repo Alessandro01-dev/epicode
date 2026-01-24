@@ -2,7 +2,7 @@ const jwt = require('jsonwebtoken')
 
 const auth = async (req, res, next) => {
     try {
-        const {user} = req
+        const { user } = req
         const redirectUrl = `${process.env.FE_URL}/success?user=${encodeURIComponent(JSON.stringify(user))}`
         res.redirect(redirectUrl)
     } catch (error) {
@@ -13,7 +13,12 @@ const auth = async (req, res, next) => {
 const manageOauthCallback = async (req, res, next) => {
     try {
         const { user } = req
-        const token = jwt.sign(user, process.env.JWT_SECRET)
+        const payload = {
+            id: user.id,
+            fullName: user.displayName,
+            avatar: user.photos[0].value,
+        };
+        const token = jwt.sign(payload, process.env.JWT_SECRET)
         const redirectUrl = `${process.env.FE_URL}/success?token=${encodeURIComponent(token)}`
 
         res.redirect(redirectUrl)
