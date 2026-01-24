@@ -1,4 +1,4 @@
-import { Col, Container, Form, Row, Button, Spinner } from "react-bootstrap"
+import { Col, Container, Form, Row, Button, Spinner, Alert } from "react-bootstrap"
 import { Editor } from '@tinymce/tinymce-react'
 import { useState } from "react"
 import "./NewArticleForm.css"
@@ -27,7 +27,7 @@ const NewArticleForm = () => {
     content: ""
   })
 
-  const { createBlogPost, blogPostsIsLoading } = useBlogPosts()
+  const { createBlogPost, blogPostsIsLoading, blogPostsError } = useBlogPosts()
 
   const handleFormOnChange = (e) => {
 
@@ -249,6 +249,14 @@ const NewArticleForm = () => {
               }}
               initialValue="Insert here your article"
             />
+            {blogPostsError && (
+              <Alert
+                className="text-center"
+                variant="danger"
+              >
+                {blogPostsError}
+              </Alert>
+            )}
             <Button
               type="submit"
               className="btn-dark mt-3 d-block ms-auto"

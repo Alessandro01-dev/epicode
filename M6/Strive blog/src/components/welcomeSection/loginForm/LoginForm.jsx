@@ -1,5 +1,5 @@
 import { useState } from "react"
-import { Form, Button, Spinner } from "react-bootstrap"
+import { Form, Button, Spinner, Alert } from "react-bootstrap"
 import useAuthentication from "../../../hooks/useAuthentication"
 import { useNavigate } from "react-router-dom"
 
@@ -10,7 +10,7 @@ const LoginForm = () => {
     password: ''
   })
 
-  const { loginAndGetToken, authIsLoading } = useAuthentication()
+  const { loginAndGetToken, authError, authIsLoading } = useAuthentication()
   const navigate = useNavigate()
 
   const handleFormOnChange = (e) => {
@@ -57,6 +57,14 @@ const LoginForm = () => {
           onChange={handleFormOnChange}
         />
       </Form.Group>
+      {authError && (
+        <Alert
+          className="text-center"
+          variant="danger"
+        >
+          {authError}
+        </Alert>
+      )}
       <Button
         type="submit"
         className="btn-dark mt-3 d-block w-100"

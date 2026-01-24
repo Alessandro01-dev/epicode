@@ -58,6 +58,13 @@ const findOne = async (request, response, next) => {
 const create = async (request, response, next) => {
   const { body } = request
   try {
+    const existingAuthorEmail = await authorService.getAuthorByEmail(body.email)
+    if (existingAuthorEmail) {
+      return response.status(400).send({
+        statusCode: 400,
+        message: "Email already exists"
+      })
+    }
     const newAuthor = await authorService.createAuthor(body)
     response.status(201).send({
       statusCode: 201,

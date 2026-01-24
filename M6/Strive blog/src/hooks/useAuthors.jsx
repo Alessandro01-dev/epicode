@@ -15,10 +15,17 @@ const useAuthors = () => {
           "Authorization": `Bearer ${token}`
         }
       })
+
+      if (!response.ok) {
+        const errorResponse = await response.json()
+        throw new Error(errorResponse.message)
+      }
+
       const data = await response.json()
       setAuthorsData(data)
+      return data
     } catch (error) {
-      setAuthorsError(error)
+      setAuthorsError(error.message)
     } finally {
       setAuthorsIsLoading(false)
     }
@@ -27,20 +34,24 @@ const useAuthors = () => {
   const createAuthor = async (newAuthor) => {
     setAuthorsIsLoading(true)
     try {
-      const token = localStorage.getItem('token')
       const response = await fetch(`${URL}/authors`, {
         method: "POST",
         headers: {
-          "Authorization": `Bearer ${token}`,
           "Content-type": "application/json"
         },
         body: JSON.stringify(newAuthor)
       })
-      const data = await response.json()
 
+      if (!response.ok) {
+        const errorResponse = await response.json()
+        throw new Error(errorResponse.message)
+      }
+
+      const data = await response.json()
       setAuthorsData(prevData => [...prevData, data])
+      return { success: true, data }
     } catch (error) {
-      setAuthorsError(error)
+      setAuthorsError(error.message)
     } finally {
       setAuthorsIsLoading(false)
     }

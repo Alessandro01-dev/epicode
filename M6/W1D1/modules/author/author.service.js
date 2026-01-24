@@ -20,6 +20,11 @@ const getAuthorById = async (userId) => {
   return user
 }
 
+const getAuthorByEmail = async (email) => {
+  const existingAuthor = await AuthorSchema.findOne({ email })
+  return existingAuthor
+}
+
 const createAuthor = async (body) => {
 
   const newAuthor = new AuthorSchema(body)
@@ -50,6 +55,7 @@ const deleteAuthor = async (userId) => {
 module.exports = {
   getAuthors,
   getAuthorById,
+  getAuthorByEmail,
   createAuthor,
   updateAuthor,
   updateAllDocuments,

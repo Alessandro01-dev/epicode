@@ -3,7 +3,6 @@ const InvalidOrMissingTokenException = require('../../exceptions/auth/InvalidOrM
 
 const excludedRoutes = [
   '/login',
-  '/authors',
   '/authors/avatar',
   '/blogPosts/cover',
   '/github',
@@ -15,6 +14,9 @@ const excludedRoutes = [
 ]
 
 const verifyToken = (req, res, next) => {
+  if (req.path === '/authors' && req.method === 'POST') {
+    return next()
+  }
   if (excludedRoutes.includes(req.path)) {
     return next()
   }

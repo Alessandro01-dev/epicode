@@ -16,10 +16,17 @@ const useBlogPosts = () => {
           "Authorization": `Bearer ${token}`
         }
       })
+
+      if (!response.ok) {
+        const errorResponse = await response.json()
+        throw new Error(errorResponse.message)
+      }
+
       const data = await response.json()
       setBlogPostsData(data)
+      return data
     } catch (error) {
-      setBlogPostsError(error)
+      setBlogPostsError(error.message)
     } finally {
       setBlogPostsIsLoading(false)
     }
@@ -34,10 +41,17 @@ const useBlogPosts = () => {
           "Authorization": `Bearer ${token}`
         }
       })
+
+      if (!response.ok) {
+        const errorResponse = await response.json()
+        throw new Error(errorResponse.message)
+      }
+
       const data = await response.json()
       setBlogPostsData(data)
+      return data
     } catch (error) {
-      setBlogPostsError(error)
+      setBlogPostsError(error.message)
     } finally {
       setBlogPostsIsLoading(false)
     }
@@ -52,10 +66,17 @@ const useBlogPosts = () => {
           "Authorization": `Bearer ${token}`
         }
       })
+
+      if (!response.ok) {
+        const errorResponse = await response.json()
+        throw new Error(errorResponse.message)
+      }
+
       const data = await response.json()
       setBlogPostsData(data)
+      return data
     } catch (error) {
-      setBlogPostsError(error)
+      setBlogPostsError(error.message)
     } finally {
       setBlogPostsIsLoading(false)
     }
@@ -70,10 +91,17 @@ const useBlogPosts = () => {
           "Authorization": `Bearer ${token}`
         }
       })
+
+      if (!response.ok) {
+        const errorResponse = await response.json()
+        throw new Error(errorResponse.message)
+      }
+
       const data = await response.json()
       setBlogPostsData(data)
+      return data
     } catch (error) {
-      setBlogPostsError(error)
+      setBlogPostsError(error.message)
     } finally {
       setBlogPostsIsLoading(false)
     }
@@ -91,11 +119,17 @@ const useBlogPosts = () => {
         },
         body: JSON.stringify(newPost)
       })
-      const data = await response.json()
 
+      if (!response.ok) {
+        const errorResponse = await response.json()
+        throw new Error(errorResponse.message)
+      }
+
+      const data = await response.json()
       setBlogPostsData(prevData => [...prevData, data])
+      return data
     } catch (error) {
-      setBlogPostsError(error)
+      setBlogPostsError(error.message)
     } finally {
       setBlogPostsIsLoading(false)
     }

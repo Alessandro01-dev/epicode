@@ -16,10 +16,17 @@ const useAuthentication = () => {
           "Authorization": `Bearer ${token}`
         }
       })
+
+      if (!response.ok) {
+        const errorResponse = await response.json()
+        throw new Error(errorResponse.message)
+      }
+
       const data = await response.json()
       setAuthData(data)
+      return data
     } catch (error) {
-      setAuthError(error)
+      setAuthError(error.message)
     } finally {
       setAuthIsLoading(false)
     }
@@ -35,11 +42,18 @@ const useAuthentication = () => {
         },
         body: JSON.stringify(body)
       })
+
+      if (!response.ok) {
+        const errorResponse = await response.json()
+        throw new Error(errorResponse.message)
+      }
+
       const data = await response.json()
       localStorage.setItem('token', data.token)
       setAuthData(data.token)
+      return data
     } catch (error) {
-      setAuthError(error)
+      setAuthError(error.message)
     } finally {
       setAuthIsLoading(false)
     }

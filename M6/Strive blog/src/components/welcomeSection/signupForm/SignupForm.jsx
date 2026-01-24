@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Form, Button, Spinner } from "react-bootstrap";
+import { Form, Button, Spinner, Alert } from "react-bootstrap";
 import DragDrop from "../../newArticleForm/dragDrop/DragDrop";
 import './SignupForm.css'
 import useAuthors from '../../../hooks/useAuthors'
@@ -15,7 +15,7 @@ const SignupForm = () => {
 
   const [file, setFile] = useState(null);
 
-  const { createAuthor, authorsIsLoading } = useAuthors()
+  const { createAuthor, authorsIsLoading, authorsError } = useAuthors()
 
   const navigate = useNavigate()
 
@@ -77,9 +77,11 @@ const SignupForm = () => {
       avatar: avatarImage
     }
     try {
-      await createAuthor(totalFormData)
-      navigate("/login", { replace: true })
-      window.location.reload()
+      const result = await createAuthor(totalFormData)
+      if (result.success) {
+        navigate("/login", { replace: true })
+        window.location.reload()
+      }
     } catch (error) {
       console.log(error)
     }
@@ -195,6 +197,14 @@ const SignupForm = () => {
           onChange={handleFormOnChange}
         />
       </Form.Group>
+      {authorsError && (
+        <Alert
+          className="text-center"
+          variant="danger"
+        >
+          {authorsError}
+        </Alert>
+      )}
       <Button
         type="submit"
         className="btn-dark mt-3 d-block w-100"
