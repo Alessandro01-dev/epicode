@@ -35,7 +35,7 @@ const getBlogPostsByTitle = async (searchedTitle, page, pageSize) => {
 }
 
 const getBlogPostById = async (blogPostId) => {
-  const blogPost = await BlogPostSchema.findById(blogPostId)
+  const blogPost = await BlogPostSchema.findById(blogPostId).populate("author", "name surname avatar")
   return blogPost
 }
 
