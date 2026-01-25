@@ -12,9 +12,11 @@ const DetailsArticleInfoCard = ({ blogPost }) => {
   }
 
   return (
-    <>
+    <div
+      className="d-flex flex-column flex-sm-row justify-content-start align-items-start align-items-sm-center gap-5 gap-sm-2 my-5"
+    >
       <div
-        className="d-flex justify-content-start align-items-center gap-2 my-5"
+        className="d-flex justify-content-between align-items-center gap-2"
       >
         <div
           className="blog-post-author-avatar-container"
@@ -36,28 +38,28 @@ const DetailsArticleInfoCard = ({ blogPost }) => {
         >
           Follow
         </Button>
-        <div
-          className='d-flex justify-content-between align-items-center'
-        >
-          <p
-            className='m-0 small text-secondary'
-          >
-            {blogPost.readTime.value} {blogPost.readTime.unit.slice(0, 3)}
-            {" "}
-            read
-          </p>
-          <Dot
-            size={18}
-            className='text-secondary'
-          />
-          <p
-            className='m-0 small text-secondary'
-          >
-            {formatDate(blogPost.createdAt)}
-          </p>
-        </div>
       </div>
-    </>
+      <div
+        className='d-flex justify-content-between align-items-center'
+      >
+        <p
+          className='m-0 small text-secondary'
+        >
+          {blogPost.readTime.value} {blogPost.readTime.unit.slice(0, 3)}
+          {" "}
+          read
+        </p>
+        <Dot
+          size={18}
+          className='text-secondary'
+        />
+        <p
+          className='m-0 small text-secondary'
+        >
+          {formatDate(blogPost.createdAt)}
+        </p>
+      </div>
+    </div>
   )
 }
 
