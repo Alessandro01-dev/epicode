@@ -2,7 +2,7 @@ import { Card, Col } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import "./SingleArticleCard.css"
 
-const SingleArticleCard = ({ title, coverImg, author, blogPostId }) => {
+const SingleArticleCard = ({ title, coverImg, author, authorAvatar, blogPostId }) => {
 
   return (
 
@@ -13,7 +13,7 @@ const SingleArticleCard = ({ title, coverImg, author, blogPostId }) => {
       xl={3}
     >
       <Card
-        className='article-card-main-container text-decoration-none'
+        className='article-card-main-container text-decoration-none h-100'
         as={Link}
         to={`/detailsArticlePage/${blogPostId}`}
       >
@@ -33,7 +33,7 @@ const SingleArticleCard = ({ title, coverImg, author, blogPostId }) => {
             >
               <img
                 className='w-100 object-fit-cover'
-                src="https://picsum.photos/200"
+                src={authorAvatar}
                 alt="article author avatar"
               />
             </div>

@@ -7,11 +7,11 @@ const useBlogPosts = () => {
 
   const URL = import.meta.env.VITE_BASE_SERVER_URL
 
-  const getBlogPosts = async () => {
+  const getBlogPosts = async (page, pageSize) => {
     setBlogPostsIsLoading(true)
     try {
       const token = localStorage.getItem('token')
-      const response = await fetch(`${URL}/blogPosts`, {
+      const response = await fetch(`${URL}/blogPosts?page=${page}&pageSize=${pageSize}`, {
         headers: {
           "Authorization": `Bearer ${token}`
         }
