@@ -38,12 +38,6 @@ const CustomNavbar = () => {
               <div
                 className="d-flex justify-content-between align-items-center gap-2"
               >
-                {!isLoginOrRegistrationPage && <Link
-                  to="/newArticlePage"
-                  className={`btn btn-lg btn-dark post-article-btn ${shrinkedNavbar ? "shrinked-btn" : ""}`}
-                >
-                  + Post Article
-                </Link>}
                 {!isLoginOrRegistrationPage && <ProfileCard />}
               </div>
             </div>

@@ -2,15 +2,13 @@
   display: flex;
   flex-shrink: 1;
   align-items: center;
-  min-width: 20px;
-  max-width: 200px;
+  min-width: 60px;
+  max-width: 400px;
   width: auto;
 }
 
-@media (max-width: 767px) {
-  .profile-card-container {
-    max-width: 100px;
-  }
+.profile-card-container:hover {
+  cursor: pointer;
 }
 
 .profile-avatar-shrinked-container,
@@ -50,4 +48,16 @@
   max-width: 150px;
   min-width: 20px;
   flex-shrink: 1;
+}
+
+.remove-dropdown-toggle::after {
+  display: none !important;
+}
+
+.remove-dropdown-toggle {
+  display: none !important;
+}
+
+.profile-card-container .dropdown-menu {
+  transform: translateY(30px);
 }
