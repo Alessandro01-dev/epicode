@@ -3,11 +3,11 @@ import { Form, Button, Spinner, Alert } from "react-bootstrap";
 import DragDrop from "../../newArticleForm/dragDrop/DragDrop";
 import './SignupForm.css'
 import useAuthors from '../../../hooks/useAuthors'
-import { useNavigate } from "react-router-dom";
+import toast from "react-hot-toast";
 
 const URL = import.meta.env.VITE_BASE_SERVER_URL
 
-const SignupForm = () => {
+const SignupForm = ({ setIsLogin }) => {
 
   const [avatarImageInputMode, setAvatarImageInputMode] = useState("file")
 
@@ -16,8 +16,6 @@ const SignupForm = () => {
   const [file, setFile] = useState(null);
 
   const { createAuthor, authorsIsLoading, authorsError } = useAuthors()
-
-  const navigate = useNavigate()
 
   const [newAuthorForm, setNewAuthorForm] = useState({
     name: '',
@@ -79,8 +77,19 @@ const SignupForm = () => {
     try {
       const result = await createAuthor(totalFormData)
       if (result.success) {
-        navigate("/login", { replace: true })
-        window.location.reload()
+        toast.success('Account created successfully!', {
+          duration: 4000,
+          position: 'top-center'
+        })
+        setNewAuthorForm({
+          name: '',
+          surname: '',
+          email: '',
+          password: '',
+          dob: '',
+          avatar: ''
+        })
+        setIsLogin(true)
       }
     } catch (error) {
       console.log(error)
