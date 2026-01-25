@@ -28,10 +28,12 @@ const LoginForm = () => {
     e.preventDefault()
 
     try {
-      await loginAndGetToken(loginAuthorForm)
-      navigate('/', { replace: true })
+      const result = await loginAndGetToken(loginAuthorForm)
+      if (result.success) {
+        navigate('/', { replace: true })
+      }
     } catch (error) {
-      console.error(error)
+      console.log(error)
     }
   }
 

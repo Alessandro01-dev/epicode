@@ -53,7 +53,7 @@ const useAuthentication = () => {
         localStorage.setItem('token', data.token)
         setAuthData(data.token)
       }
-      return data
+      return { success: true, data }
     } catch (error) {
       setAuthError(error.message)
     } finally {
