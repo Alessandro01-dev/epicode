@@ -48,12 +48,12 @@ const ProfileCard = () => {
 
   return (
     <div
-      className="profile-card-container d-flex justify-content-between align-items-center gap-2"
+      className="profile-card-container"
       onClick={toggleProfileCard}
     >
       {authData &&
         <p
-          className="profile-card-fullname"
+          className={`${shrinkedNavbar ? "profile-shrinked-fullname" : "profile-fullname"} m-0 px-2 py-1`}
         >{decodedToken?.fullName || `${authData?.name} ${authData?.surname}`}</p>
       }
       <div
