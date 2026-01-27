@@ -24,18 +24,6 @@ const ProfileCard = () => {
     getProfile()
   }, [])
 
-  const getAvatar = () => {
-    if (decodedToken?.avatar) {
-      return decodedToken.avatar
-    }
-
-    if (authData?.avatar) {
-      return authData.avatar
-    }
-
-    return 'https://i.pinimg.com/474x/07/c4/72/07c4720d19a9e9edad9d0e939eca304a.jpg'
-  }
-
   const toggleProfileCard = () => {
     setIsDropdownOpen(!isDropdownOpen)
   }
@@ -61,7 +49,7 @@ const ProfileCard = () => {
       >
         <img
           className="w-100 object-fit-cover"
-          src={getAvatar()}
+          src={decodedToken?.avatar || authData?.avatar || `https://i.pinimg.com/474x/07/c4/72/07c4720d19a9e9edad9d0e939eca304a.jpg`}
           alt="logged user profile picture"
         />
       </div>

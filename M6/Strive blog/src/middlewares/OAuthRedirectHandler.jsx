@@ -1,6 +1,6 @@
 import { useEffect } from "react";
-import { Alert } from "react-bootstrap";
-import { useNavigate } from "react-router-dom";
+import { Alert, Container, Row, Col } from "react-bootstrap"
+import { useNavigate } from "react-router-dom"
 
 const OAuthRedirectHandler = () => {
   const navigate = useNavigate();
@@ -18,14 +18,37 @@ const OAuthRedirectHandler = () => {
   }, [navigate]);
 
   return (
-    <>
-      <h1>You're been redirecting...</h1>
-      <Alert
-        variant="success"
+    <Container
+      className="vh-100"
+    >
+      <Row
+        className="vh-100 align-items-center"
       >
-        Success! You're logged in
-      </Alert>
-    </>
+        <Col>
+          <div
+            className="d-flex flex-column align-items-center"
+          >
+            <Alert
+            className="w-50 text-center"
+            variant="success"
+          >
+            Success! You're logged in
+          </Alert>
+          <div
+            className="w-25 py-3"
+          >
+            <img
+              className="w-100 object-fit-cover d-block"
+              src="https://cdn-icons-png.flaticon.com/128/5709/5709755.png"
+              alt="oauth login success icon" />
+          </div>
+          <h1
+            className="text-center"
+          >You're being redirecting...</h1>
+          </div>
+        </Col>
+      </Row>
+    </Container>
   )
 };
 
