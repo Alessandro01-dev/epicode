@@ -1,9 +1,9 @@
 import Offcanvas from 'react-bootstrap/Offcanvas';
-import SingleComment from '../singleComment/SingleComment';
-import AddComment from '../addComment/AddComment';
+import SingleComment from '../commentArea/singleComment/SingleComment';
+import AddComment from '../commentArea/addComment/AddComment';
 import { Alert, Spinner } from 'react-bootstrap';
 
-const CommentOffCanvas = ({ show, onHide, commentsData, commentsIsLoading, commentsError }) => {
+const CommentCanvas = ({ show, onHide, commentsData, commentsIsLoading, commentsError }) => {
   return (
     <Offcanvas
       show={show}
@@ -16,7 +16,7 @@ const CommentOffCanvas = ({ show, onHide, commentsData, commentsIsLoading, comme
       <Offcanvas.Body>
         <AddComment />
         {!commentsError && commentsIsLoading && (
-          <Spinner 
+          <Spinner
             className='d-block mx-auto mt-5'
           />
         )}
@@ -45,4 +45,4 @@ const CommentOffCanvas = ({ show, onHide, commentsData, commentsIsLoading, comme
   )
 }
 
-export default CommentOffCanvas
+export default CommentCanvas
