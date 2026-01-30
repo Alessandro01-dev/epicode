@@ -1,7 +1,7 @@
 import Offcanvas from 'react-bootstrap/Offcanvas';
-import SingleComment from '../commentArea/singleComment/SingleComment';
 import AddComment from '../commentArea/addComment/AddComment';
 import { Alert, Spinner } from 'react-bootstrap';
+import SingleComment from '../singleComment/SingleComment';
 
 const CommentCanvas = ({ show, onHide, commentsData, commentsIsLoading, commentsError }) => {
   return (
