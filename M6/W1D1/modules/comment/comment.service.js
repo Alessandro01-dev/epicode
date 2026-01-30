@@ -6,7 +6,7 @@ const getBlogPostComments = async (page, pageSize, blogPostId) => {
   const comments = await CommentSchema.find({ blogPost: blogPostId })
     .limit(pageSize)
     .skip((page - 1) * pageSize)
-    .populate("author", "name surname email")
+    .populate("author", "name surname avatar")
   const totalComments = await CommentSchema.countDocuments({ blogPost: blogPostId })
   const totalPages = Math.ceil(totalComments / pageSize)
   return {
