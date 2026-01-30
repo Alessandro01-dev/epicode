@@ -1,10 +1,10 @@
 import { useEffect, useState } from 'react';
 import './CommentArea.css'
-import CommentOffcanvas from './commentOffcanvas/CommentOffcanvas';
 import { useWindowSize } from '../../../hooks/useWindowSize';
 import CommentModal from './commentModal/CommentModal';
 import { useParams } from 'react-router-dom';
 import useComments from '../../../hooks/useComments';
+import CommentOffCanvas from '../commentOffCanvas/CommentOffCanvas';
 
 const CommentArea = () => {
 
@@ -55,7 +55,7 @@ const CommentArea = () => {
         </div>
       </div>
       {size > 576 ? (
-        <CommentOffcanvas
+        <CommentOffCanvas
           commentsData={commentsData}
           commentsIsLoading={commentsIsLoading}
           commentsError={commentsError}
