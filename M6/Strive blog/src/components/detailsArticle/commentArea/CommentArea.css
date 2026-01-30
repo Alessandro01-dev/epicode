@@ -1,0 +1,11 @@
+.comment-area-container svg {
+  fill: #6B6B6B;
+}
+
+.comment-area-container div:first-of-type svg:nth-of-type(2) {
+  cursor: pointer;
+}
+
+.comment-area-container svg:hover {
+  fill: black;
+}

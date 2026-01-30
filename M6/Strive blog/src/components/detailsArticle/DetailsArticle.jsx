@@ -4,6 +4,7 @@ import useBlogPosts from "../../hooks/useBlogPosts"
 import { useEffect } from "react"
 import './DetailsArticle.css'
 import DetailsArticleInfoCard from "./detailsArticleInfoCard/DetailsArticleInfoCard"
+import CommentArea from "./commentArea/CommentArea"
 
 const DetailsArticle = () => {
 
@@ -36,6 +37,7 @@ const DetailsArticle = () => {
               <DetailsArticleInfoCard
                 blogPost={blogPostsData.blogPost}
               />
+              <CommentArea />
               <div
                 className="article-content"
                 dangerouslySetInnerHTML={{ __html: `${blogPostsData.blogPost.content}` }}
