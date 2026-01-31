@@ -3,9 +3,9 @@ import './AddComment.css'
 import { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import useAuthentication from '../../../../hooks/useAuthentication'
-import useComments from '../../../../hooks/useComments'
 import { jwtDecode } from "jwt-decode";
 import toast from 'react-hot-toast'
+import useComments from '../../../../hooks/useComments'
 
 const AddComment = ({ getComments }) => {
 
@@ -13,7 +13,7 @@ const AddComment = ({ getComments }) => {
 
   const { authData, getProfile } = useAuthentication()
 
-  const { commentsIsLoading, commentsError, createComment } = useComments()
+  const { createComment, commentsError, commentsIsLoading } = useComments()
 
   const token = localStorage.getItem('token')
   const decodedToken = jwtDecode(token);
@@ -46,8 +46,8 @@ const AddComment = ({ getComments }) => {
         setNewComment({
           content: ""
         })
+        await getComments(blogPostId, 1, 8)
       }
-      await getComments(blogPostId, 1, 8)
     } catch (error) {
       console.log(error)
     }

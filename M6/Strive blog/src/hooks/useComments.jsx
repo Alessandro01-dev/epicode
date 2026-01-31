@@ -51,7 +51,6 @@ const useComments = () => {
       }
 
       const data = await response.json()
-      setCommentsData(prevData => [...prevData, data])
       return data
     } catch (error) {
       setCommentsError(error.message)

@@ -24,7 +24,7 @@ const CommentCanvas = ({ show, onHide, commentsData, commentsIsLoading, comments
               className='d-block mx-auto mt-5'
             />
           )}
-          {!commentsIsLoading && commentsError && (
+          {commentsData.length === 0 && !commentsIsLoading && commentsError && (
             <Alert
               className='text-center'
               variant='danger'
@@ -40,7 +40,7 @@ const CommentCanvas = ({ show, onHide, commentsData, commentsIsLoading, comments
               This article has not comments yet
             </Alert>
           )}
-          {!commentsError && !commentsIsLoading && commentsData.length > 0 && commentsData.map(comment => (<SingleComment
+          {commentsData && commentsData.map(comment => (<SingleComment
             key={comment._id}
             comment={comment}
           />))}
