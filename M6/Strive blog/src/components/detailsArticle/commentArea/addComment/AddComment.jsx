@@ -40,11 +40,13 @@ const AddComment = ({ getComments }) => {
   const handleSubmitForm = async (e) => {
     e.preventDefault()
     try {
-      await createComment(blogPostId, newComment)
-      toast.success('Comment created successfully!')
-      setNewComment({
-        content: ""
-      })
+      const newCommentData = await createComment(blogPostId, newComment)
+      if (newCommentData) {
+        toast.success('Comment created successfully!')
+        setNewComment({
+          content: ""
+        })
+      }
       await getComments(blogPostId, 1, 8)
     } catch (error) {
       console.log(error)
