@@ -12,9 +12,17 @@ const CommentArea = () => {
 
   const { commentsData, commentsIsLoading, commentsError, getComments } = useComments()
 
+  const { comments, totalComments } = commentsData
+
+  const [commentsPageSize, setCommentsPageSize] = useState(2)
+
+  const loadMoreCommentsHandler = () => {
+    setCommentsPageSize(commentsPageSize + 2)
+  }
+
   useEffect(() => {
-    getComments(blogPostId, 1, 8)
-  }, [blogPostId])
+    getComments(blogPostId, 1, commentsPageSize)
+  }, [blogPostId, commentsPageSize])
 
   console.log(commentsData)
 
@@ -49,7 +57,7 @@ const CommentArea = () => {
             </svg>
             <p
               className='small m-0 text-secondary'
-            >{commentsData.length}
+            >{totalComments}
             </p>
           </div>
         </div>
@@ -66,18 +74,24 @@ const CommentArea = () => {
         <CommentCanvas
           show={show}
           onHide={handleClose}
-          commentsData={commentsData}
+          comments={comments}
+          totalComments={totalComments}
           commentsIsLoading={commentsIsLoading}
           commentsError={commentsError}
           getComments={getComments}
+          commentsPageSize={commentsPageSize}
+          loadMoreCommentsHandler={loadMoreCommentsHandler}
         />) : (
         <CommentModal
           show={show}
           onHide={handleClose}
-          commentsData={commentsData}
+          comments={comments}
+          totalComments={totalComments}
           commentsIsLoading={commentsIsLoading}
           commentsError={commentsError}
           getComments={getComments}
+          commentsPageSize={commentsPageSize}
+          loadMoreCommentsHandler={loadMoreCommentsHandler}
         />
       )}
     </>

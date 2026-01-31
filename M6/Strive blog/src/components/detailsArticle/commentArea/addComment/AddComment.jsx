@@ -7,7 +7,7 @@ import { jwtDecode } from "jwt-decode";
 import toast from 'react-hot-toast'
 import useComments from '../../../../hooks/useComments'
 
-const AddComment = ({ getComments }) => {
+const AddComment = ({ getComments, commentsPageSize }) => {
 
   const { blogPostId } = useParams()
 
@@ -46,7 +46,7 @@ const AddComment = ({ getComments }) => {
         setNewComment({
           content: ""
         })
-        await getComments(blogPostId, 1, 8)
+        await getComments(blogPostId, 1, commentsPageSize)
       }
     } catch (error) {
       console.log(error)

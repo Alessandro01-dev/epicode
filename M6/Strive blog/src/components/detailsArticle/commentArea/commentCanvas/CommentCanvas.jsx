@@ -1,10 +1,10 @@
 import Offcanvas from 'react-bootstrap/Offcanvas';
-import { Alert, Spinner } from 'react-bootstrap';
+import { Alert, Button, Spinner } from 'react-bootstrap';
 import SingleComment from '../singleComment/SingleComment';
 import AddComment from '../addComment/AddComment'
 import { Toaster } from 'react-hot-toast';
 
-const CommentCanvas = ({ show, onHide, commentsData, commentsIsLoading, commentsError, getComments }) => {
+const CommentCanvas = ({ show, onHide, comments, totalComments, commentsIsLoading, commentsError, getComments, commentsPageSize, loadMoreCommentsHandler }) => {
   return (
     <>
       <Offcanvas
@@ -13,18 +13,19 @@ const CommentCanvas = ({ show, onHide, commentsData, commentsIsLoading, comments
         placement='end'
       >
         <Offcanvas.Header closeButton>
-          <Offcanvas.Title>Comments ({commentsData.length})</Offcanvas.Title>
+          <Offcanvas.Title>Comments ({totalComments})</Offcanvas.Title>
         </Offcanvas.Header>
         <Offcanvas.Body>
           <AddComment
             getComments={getComments}
+            commentsPageSize={commentsPageSize}
           />
           {!commentsError && commentsIsLoading && (
             <Spinner
               className='d-block mx-auto mt-5'
             />
           )}
-          {commentsData.length === 0 && !commentsIsLoading && commentsError && (
+          {comments.length === 0 && !commentsIsLoading && commentsError && (
             <Alert
               className='text-center'
               variant='danger'
@@ -32,7 +33,7 @@ const CommentCanvas = ({ show, onHide, commentsData, commentsIsLoading, comments
               {commentsError}
             </Alert>
           )}
-          {commentsData.length === 0 && (
+          {comments.length === 0 && (
             <Alert
               className='text-center'
               variant='warning'
@@ -40,10 +41,18 @@ const CommentCanvas = ({ show, onHide, commentsData, commentsIsLoading, comments
               This article has not comments yet
             </Alert>
           )}
-          {commentsData && commentsData.map(comment => (<SingleComment
+          {comments && comments.map(comment => (<SingleComment
             key={comment._id}
             comment={comment}
           />))}
+          {totalComments > comments.length ? <Button
+            className='d-block mt-3 mx-auto rounded-pill'
+            size='sm'
+            variant='dark'
+            onClick={loadMoreCommentsHandler}
+          >
+            Load more
+          </Button> : null}
         </Offcanvas.Body>
       </Offcanvas>
       <Toaster />

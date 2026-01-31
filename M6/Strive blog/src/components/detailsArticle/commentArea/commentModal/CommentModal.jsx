@@ -1,10 +1,10 @@
-import { Modal, Spinner, Alert } from "react-bootstrap"
+import { Modal, Spinner, Alert, Button } from "react-bootstrap"
 import './CommentModal.css'
 import SingleComment from "../singleComment/SingleComment"
 import AddComment from "../addComment/AddComment"
 import { Toaster } from "react-hot-toast"
 
-const CommentModal = ({ show, onHide, commentsData, commentsIsLoading, commentsError, getComments }) => {
+const CommentModal = ({ show, onHide, comments, totalComments, commentsIsLoading, commentsError, getComments, commentsPageSize, loadMoreCommentsHandler }) => {
   return (
     <>
       <Modal
@@ -18,19 +18,20 @@ const CommentModal = ({ show, onHide, commentsData, commentsIsLoading, commentsE
           closeButton
         >
           <Modal.Title id="example-custom-modal-styling-title">
-            Comments ({commentsData.length})
+            Comments ({totalComments})
           </Modal.Title>
         </Modal.Header>
         <Modal.Body>
           <AddComment
             getComments={getComments}
+            commentsPageSize={commentsPageSize}
           />
           {!commentsError && commentsIsLoading && (
             <Spinner
               className='d-block mx-auto mt-5'
             />
           )}
-          {commentsData.length === 0 && !commentsIsLoading && commentsError && (
+          {comments?.length === 0 && !commentsIsLoading && commentsError && (
             <Alert
               className='text-center'
               variant='danger'
@@ -38,7 +39,7 @@ const CommentModal = ({ show, onHide, commentsData, commentsIsLoading, commentsE
               {commentsError}
             </Alert>
           )}
-          {commentsData.length === 0 && (
+          {comments?.length === 0 && (
             <Alert
               className='text-center'
               variant='warning'
@@ -46,10 +47,18 @@ const CommentModal = ({ show, onHide, commentsData, commentsIsLoading, commentsE
               This article has not comments yet
             </Alert>
           )}
-          {commentsData && commentsData.map(comment => (<SingleComment
+          {comments && comments.map(comment => (<SingleComment
             key={comment._id}
             comment={comment}
           />))}
+          {totalComments > comments?.length ? <Button
+            className='d-block mt-3 mx-auto rounded-pill'
+            size='sm'
+            variant='dark'
+            onClick={loadMoreCommentsHandler}
+          >
+            Load more
+          </Button> : null}
         </Modal.Body>
       </Modal>
       <Toaster />

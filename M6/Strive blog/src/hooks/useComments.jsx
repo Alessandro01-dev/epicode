@@ -23,7 +23,10 @@ const useComments = () => {
       }
 
       const data = await response.json()
-      setCommentsData(data.comments)
+      setCommentsData({
+        comments: data.comments,
+        totalComments: data.totalComments
+      })
       return data
     } catch (error) {
       setCommentsError(error.message)
