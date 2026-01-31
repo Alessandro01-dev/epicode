@@ -20,7 +20,7 @@ const CommentCanvas = ({ show, onHide, comments, totalComments, commentsIsLoadin
             getComments={getComments}
             commentsPageSize={commentsPageSize}
           />
-          {!commentsError && commentsIsLoading && (
+          {!commentsError && !comments.length > 0 && commentsIsLoading && (
             <Spinner
               className='d-block mx-auto mt-5'
             />
@@ -45,14 +45,19 @@ const CommentCanvas = ({ show, onHide, comments, totalComments, commentsIsLoadin
             key={comment._id}
             comment={comment}
           />))}
-          {totalComments > comments.length ? <Button
+          {!commentsError && commentsIsLoading && (
+            <Spinner
+              className='d-block mx-auto mt-5'
+            />
+          )}
+          {totalComments > comments.length && <Button
             className='d-block mt-3 mx-auto rounded-pill'
             size='sm'
             variant='dark'
             onClick={loadMoreCommentsHandler}
           >
             Load more
-          </Button> : null}
+          </Button>}
         </Offcanvas.Body>
       </Offcanvas>
       <Toaster />

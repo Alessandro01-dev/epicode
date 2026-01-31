@@ -26,7 +26,7 @@ const CommentModal = ({ show, onHide, comments, totalComments, commentsIsLoading
             getComments={getComments}
             commentsPageSize={commentsPageSize}
           />
-          {!commentsError && commentsIsLoading && (
+          {!commentsError && !comments?.length > 0 && commentsIsLoading && (
             <Spinner
               className='d-block mx-auto mt-5'
             />
@@ -51,14 +51,19 @@ const CommentModal = ({ show, onHide, comments, totalComments, commentsIsLoading
             key={comment._id}
             comment={comment}
           />))}
-          {totalComments > comments?.length ? <Button
+          {!commentsError && commentsIsLoading && (
+            <Spinner
+              className='d-block mx-auto mt-5'
+            />
+          )}
+          {totalComments > comments?.length && <Button
             className='d-block mt-3 mx-auto rounded-pill'
             size='sm'
             variant='dark'
             onClick={loadMoreCommentsHandler}
           >
             Load more
-          </Button> : null}
+          </Button>}
         </Modal.Body>
       </Modal>
       <Toaster />
