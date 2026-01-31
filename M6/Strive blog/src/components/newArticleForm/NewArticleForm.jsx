@@ -5,10 +5,14 @@ import "./NewArticleForm.css"
 import useBlogPosts from "../../hooks/useBlogPosts"
 import DragDrop from "./dragDrop/DragDrop"
 import useAuthentication from "../../hooks/useAuthentication"
+import toast from "react-hot-toast"
+import { useNavigate } from "react-router-dom"
 
 const URL = import.meta.env.VITE_BASE_SERVER_URL
 
 const NewArticleForm = () => {
+
+  const navigate = useNavigate()
 
   const { authData, getProfile } = useAuthentication()
 
@@ -120,6 +124,20 @@ const NewArticleForm = () => {
     }
     try {
       await createBlogPost(totalFormData)
+      setNewArticleForm({
+        title: "",
+        cover: "",
+        category: "",
+        readTime: {
+          value: 0,
+          unit: ""
+        },
+        author: "",
+        content: ""
+      })
+      navigate('/', { replace: true })
+
+      toast.success("Blog post created successfully!")
     } catch (error) {
       console.log(error)
     }

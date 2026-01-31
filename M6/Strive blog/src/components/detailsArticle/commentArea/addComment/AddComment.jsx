@@ -5,8 +5,9 @@ import { useParams } from 'react-router-dom'
 import useAuthentication from '../../../../hooks/useAuthentication'
 import useComments from '../../../../hooks/useComments'
 import { jwtDecode } from "jwt-decode";
+import toast from 'react-hot-toast'
 
-const AddComment = () => {
+const AddComment = ({ getComments }) => {
 
   const { blogPostId } = useParams()
 
@@ -40,6 +41,11 @@ const AddComment = () => {
     e.preventDefault()
     try {
       await createComment(blogPostId, newComment)
+      toast.success('Comment created successfully!')
+      setNewComment({
+        content: ""
+      })
+      await getComments(blogPostId, 1, 8)
     } catch (error) {
       console.log(error)
     }

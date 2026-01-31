@@ -2,53 +2,58 @@ import { Modal, Spinner, Alert } from "react-bootstrap"
 import './CommentModal.css'
 import SingleComment from "../singleComment/SingleComment"
 import AddComment from "../addComment/AddComment"
+import { Toaster } from "react-hot-toast"
 
-const CommentModal = ({ show, onHide, commentsData, commentsIsLoading, commentsError }) => {
+const CommentModal = ({ show, onHide, commentsData, commentsIsLoading, commentsError, getComments }) => {
   return (
-    <Modal
-      show={show}
-      onHide={onHide}
-
-      dialogClassName="comment-modal"
-      contentClassName="comment-modal-content"
-    >
-      <Modal.Header
-        className="border-0"
-        closeButton
+    <>
+      <Modal
+        show={show}
+        onHide={onHide}
+        dialogClassName="comment-modal"
+        contentClassName="comment-modal-content"
       >
-        <Modal.Title id="example-custom-modal-styling-title">
-          Comments
-        </Modal.Title>
-      </Modal.Header>
-      <Modal.Body>
-        <AddComment />
-        {!commentsError && commentsIsLoading && (
-          <Spinner
-            className='d-block mx-auto mt-5'
+        <Modal.Header
+          className="border-0"
+          closeButton
+        >
+          <Modal.Title id="example-custom-modal-styling-title">
+            Comments
+          </Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          <AddComment
+            getComments={getComments}
           />
-        )}
-        {!commentsIsLoading && commentsError && (
-          <Alert
-            className='text-center'
-            variant='danger'
-          >
-            {commentsError}
-          </Alert>
-        )}
-        {commentsData.length === 0 && (
-          <Alert
-            className='text-center'
-            variant='warning'
-          >
-            This article has not comments yet
-          </Alert>
-        )}
-        {!commentsIsLoading && !commentsError && commentsData && commentsData.map(comment => (<SingleComment
-          key={comment._id}
-          comment={comment}
-        />))}
-      </Modal.Body>
-    </Modal>
+          {!commentsError && commentsIsLoading && (
+            <Spinner
+              className='d-block mx-auto mt-5'
+            />
+          )}
+          {!commentsIsLoading && commentsError && (
+            <Alert
+              className='text-center'
+              variant='danger'
+            >
+              {commentsError}
+            </Alert>
+          )}
+          {commentsData.length === 0 && (
+            <Alert
+              className='text-center'
+              variant='warning'
+            >
+              This article has not comments yet
+            </Alert>
+          )}
+          {!commentsIsLoading && !commentsError && commentsData.length > 0 && commentsData.map(comment => (<SingleComment
+            key={comment._id}
+            comment={comment}
+          />))}
+        </Modal.Body>
+      </Modal>
+      <Toaster />
+    </>
   )
 }
 

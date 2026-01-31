@@ -13,7 +13,7 @@ const CommentArea = () => {
   const { commentsData, commentsIsLoading, commentsError, getComments } = useComments()
 
   useEffect(() => {
-    getComments(blogPostId, 1, 4)
+    getComments(blogPostId, 1, 8)
   }, [blogPostId])
 
   console.log(commentsData)
@@ -56,18 +56,20 @@ const CommentArea = () => {
       </div>
       {size > 576 ? (
         <CommentCanvas
+          show={show}
+          onHide={handleClose}
           commentsData={commentsData}
           commentsIsLoading={commentsIsLoading}
           commentsError={commentsError}
-          show={show}
-          onHide={handleClose}
+          getComments={getComments}
         />) : (
         <CommentModal
+          show={show}
+          onHide={handleClose}
           commentsData={commentsData}
           commentsIsLoading={commentsIsLoading}
           commentsError={commentsError}
-          show={show}
-          onHide={handleClose}
+          getComments={getComments}
         />
       )}
     </>
