@@ -13,7 +13,7 @@ const CommentCanvas = ({ show, onHide, commentsData, commentsIsLoading, comments
         placement='end'
       >
         <Offcanvas.Header closeButton>
-          <Offcanvas.Title>Comments</Offcanvas.Title>
+          <Offcanvas.Title>Comments ({commentsData.length})</Offcanvas.Title>
         </Offcanvas.Header>
         <Offcanvas.Body>
           <AddComment

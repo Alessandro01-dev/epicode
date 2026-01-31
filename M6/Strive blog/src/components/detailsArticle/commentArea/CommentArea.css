@@ -2,10 +2,15 @@
   fill: #6B6B6B;
 }
 
-.comment-area-container div:first-of-type svg:nth-of-type(2) {
+.comment-area-container div:first-of-type div {
   cursor: pointer;
 }
 
-.comment-area-container svg:hover {
+.comment-area-container div:first-of-type div:hover svg {
   fill: black;
+}
+
+.comment-area-container div:first-of-type div:hover p {
+  color: black !important;
+  text-decoration: underline;
 }

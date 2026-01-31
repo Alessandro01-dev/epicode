@@ -18,7 +18,7 @@ const CommentModal = ({ show, onHide, commentsData, commentsIsLoading, commentsE
           closeButton
         >
           <Modal.Title id="example-custom-modal-styling-title">
-            Comments
+            Comments ({commentsData.length})
           </Modal.Title>
         </Modal.Header>
         <Modal.Body>
