@@ -60,9 +60,6 @@ const SignupForm = ({ setIsLogin }) => {
     let avatarImage = newAuthorForm.avatar
 
     if (avatarImageInputMode === 'file') {
-      if (!file) {
-        return
-      }
       const uploadedFile = await uploadFile(file)
       if (!uploadedFile) {
         return
