@@ -1,5 +1,4 @@
 const AuthorSchema = require("../author/author.schema")
-const blogPostSchema = require("./blogPost.schema")
 const BlogPostSchema = require("./blogPost.schema")
 
 const getBlogPosts = async (page, pageSize) => {
@@ -55,7 +54,7 @@ const updateBlogPost = async (blogPostId, body) => {
 }
 
 const updateAllDocuments = async () => {
-  return await blogPostSchema.updateMany(
+  return await BlogPostSchema.updateMany(
     { comments: { $exists: false } },
     { $set: { comments: [] } }
   )

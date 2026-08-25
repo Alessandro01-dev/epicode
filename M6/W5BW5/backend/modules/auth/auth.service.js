@@ -27,7 +27,7 @@ const login = async (body) => {
     },
     process.env.JWT_SECRET,
     {
-      expiresIn: "10s",
+      expiresIn: "1h",
     },
   );
   return { token };

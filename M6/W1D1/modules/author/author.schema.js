@@ -36,7 +36,7 @@ const Author = new mongoose.Schema({
   }],
   comments: [{
     type: mongoose.Schema.Types.ObjectId,
-    ref: "blogPost",
+    ref: "comment",
     default: []
   }]
 }, { timestamps: true, strict: true })

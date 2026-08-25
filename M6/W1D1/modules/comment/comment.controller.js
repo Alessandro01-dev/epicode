@@ -51,7 +51,6 @@ const findBlogPostCommentById = async (req, res, next) => {
   } catch (error) {
     next(error)
   }
-
 }
 
 const createComment = async (req, res, next) => {
